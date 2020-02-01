@@ -1,0 +1,38 @@
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer; }
+  .button svg {
+    height: 55px;
+    width: 150px;
+    fill: none;
+    stroke-width: 5; }
+    .button svg .o1 {
+      stroke: rgba(255, 179, 65, 0.7);
+      fill: #FFA114;
+      -webkit-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out; }
+    .button svg .o2 {
+      stroke: white;
+      stroke-dasharray: 20 420;
+      stroke-dashoffset: 20;
+      -webkit-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out; }
+  .button span {
+    position: absolute;
+    margin: auto 0;
+    text-transform: uppercase;
+    letter-spacing: 3px; }
+  .button:hover .o1 {
+    fill: rgba(204, 129, 16, 0.3); }
+  .button:hover .o2 {
+    stroke-dashoffset: -420; }

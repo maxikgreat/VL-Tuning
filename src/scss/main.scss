@@ -1,0 +1,105 @@
+
+
+@import 'vars';
+
+
+//mixins
+
+@import './_mixins/transition';
+@import './_mixins/boxShadow';
+
+//components
+@import './_components/navbar';
+@import './_components/button';
+@import './_components/loader';
+@import './_components/breadcrumbs';
+
+//pages
+@import './_pages/Home';
+@import './_pages/AboutUs';
+@import './_pages/Production';
+
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	&:before, &:after{
+        -webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+    }
+}
+*::-webkit-input-placeholder{
+    color: #666;
+	opacity: 1;
+}
+	
+
+*:-moz-placeholder{
+    color: #666;
+	opacity: 1;
+}
+	
+
+*::-moz-placeholder{
+    color: #666;
+	opacity: 1;
+}
+	
+
+*:-ms-input-placeholder{
+    color: #666;
+	opacity: 1;
+}
+html{
+	scroll-behavior: smooth;
+	
+	body {
+		background-color: rgba(0, 0, 0, 1);
+		width: 100%;
+		height: 100%;
+		-webkit-font-smoothing: antialiased;
+	
+		section{
+			width: 100%;
+			height: 100vh;
+			background-size: cover;
+			background-position: center;
+			overflow: hidden;
+			background-attachment: fixed;
+		}
+
+		h1,h2,h3,h4,h5,h6{
+			color: $primaryLightColor;
+		}
+		p{
+			color: $secondaryDarkColor;
+		}
+	}
+}
+
+
+// SPECIAL TEXT --------------------------------------
+.specialText{
+	color: $secondaryLightColor;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+
+// DISABLE CLASS --------------------------------------
+
+.disabled{
+	&:hover{
+	  cursor: not-allowed;
+	  background-color: transparent;
+	  &::before {
+        right: 20%;
+      }
+      &::after {
+        left: 20%;
+      }
+	}
+  }
+

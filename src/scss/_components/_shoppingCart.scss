@@ -1,0 +1,45 @@
+
+//icon
+.shoppingCart{
+  @include transition(transform 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860));
+  z-index: 20;
+  color: $secondaryDarkColor;
+    min-width: 70px;
+    svg{
+      font-size: 1.5rem;
+    }
+    text-align: center;
+    .s {
+        position: relative;
+        @include transition(all 0.2s ease-in-out);
+        line-height: 70px;
+        color: $secondaryLightColor;
+        cursor: pointer;
+        &:hover{
+          background-color: $primaryLightColor;
+        }
+        margin-right: 5px;
+      }
+
+      &.active{
+        transform: translateX(-400px);
+        @include transition(transform 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860));
+        //transition: transform .2s ease-in;
+      }
+      &.active .s {
+        color: $primaryLightColor;
+        background: $secondaryDarkColor;
+      }
+}
+
+//content
+
+.shoppingCartContent{
+  position: absolute;
+  top:0;
+  left:105%;
+  width: 400px;
+  height: 100vh;
+  border-left: 0.25rem solid $primaryLightColor;
+  background: rgba(0,0,0, 1);
+}

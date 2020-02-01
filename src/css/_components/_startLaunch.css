@@ -1,0 +1,44 @@
+.startScreen {
+  background-color: black;
+  height: 100vh;
+  position: relative; }
+  .startScreen .leftTextSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.75); }
+    .startScreen .leftTextSection h1 {
+      font-size: 7rem; }
+    .startScreen .leftTextSection p {
+      font-size: 3rem; }
+  .startScreen .rightImageSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+    .startScreen .rightImageSection img {
+      margin-right: -40%; }
+  .startScreen .startButton {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    margin-left: -105px; }

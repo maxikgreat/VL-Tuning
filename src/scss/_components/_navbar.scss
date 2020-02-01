@@ -1,0 +1,79 @@
+@import './shoppingCart';
+
+header{
+    max-height: 70px;
+    background: rgba(0,0,0,1);
+    font-size: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    ul{
+        text-align: left;
+        .nav-item{
+            list-style: none;
+            margin-right: 10px;
+            position: relative;
+            .nav-link{
+                @include transition(all 0.2s ease-in);
+                color: $secondaryLightColor;
+                text-decoration: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                position: relative;
+                border: 0.2rem solid $primaryLightColor;
+                padding: 10px 15px 10px 25px;
+                display: block;
+                width: 170px;
+                font-weight: bold;
+                svg{
+                    position: absolute;
+                    right: 10px;
+                    top: 14px;
+                }
+                &:hover{
+                    background-color: $secondaryDarkColor;
+                    color: $primaryLightColor;
+                }
+
+            }
+        }
+    }
+    .sub-menu-container{
+        @include transition(all 0.3s cubic-bezier(0.86, 0, 0.07, 1));
+        visibility: hidden;
+        z-index: 12;
+        transform: translateY(100px);
+        opacity: 0;
+        margin-bottom: 2rem;
+        .sub-menu{
+            @include transition(all 0.3s cubic-bezier(0.86, 0, 0.07, 1));
+            font-size: 0.8rem;
+            padding: 0;
+            justify-content: center;
+            width: 100%;
+            .nav-item{
+                position: relative;
+                background-color: #000;
+                .nav-link{
+                    border-bottom: none;
+                    &:last-child{
+                        border-bottom: 0.2rem solid $primaryLightColor;
+                    }
+                }
+            }
+        }
+        &:hover{
+            transform: translateY(0px);
+            opacity: 1;
+            visibility: visible;
+        }
+    } 
+    .show{
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+}

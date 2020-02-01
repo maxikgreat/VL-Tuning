@@ -1,0 +1,50 @@
+.brk-btn {
+    position: relative;
+    background: none;
+    color: $secondaryDarkColor;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2em solid $primaryLightColor;
+    padding: 20px 60px;
+    font-weight: bold;
+    outline: none;
+    min-width:200px;
+    
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: $secondaryLightColor;
+      height: 0.3em;
+      right: 20%;
+      top: -0.21em;
+      transform: skewX(-45deg);
+      @include transition(all 0.45s cubic-bezier(0.86, 0, 0.07, 1));
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: $secondaryLightColor;
+      height: 0.3em;
+      left: 20%;
+      bottom: -0.25em;
+      transform: skewX(-45deg);
+      @include transition(all 0.45s cubic-bezier(0.86, 0, 0.07, 1));
+    }
+    &:hover {
+        background-color: $secondaryDarkColor;
+        @include transition(background-color 0.45s cubic-bezier(0.86, 0, 0.07, 1));
+        color: $primaryLightColor;
+        text-decoration: none;
+      &::before {
+        right: 80%;
+      }
+      &::after {
+        left: 80%;
+      }
+    }
+}
+  

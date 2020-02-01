@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext} from 'react';
+//navigation
+import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
+//font-awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faShoppingCart, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+//components
+import Layout from './components/HOC/Layout'
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import Production from './pages/Production';
+
+//animated routes
+
+import {useTransition, animated} from 'react-spring'
+import FindStuff from './pages/FindStuff';
+
+
+library.add(faShoppingCart, faChevronDown)
 
 function App() {
+
+  const {location} = useContext(__RouterContext)
+  const transitions = useTransition(location, location => location.pathname, {
+    from: { opacity: 0},
+    enter: { opacity: 1},
+    leave: { opacity: 0}
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        {transitions.map(({item, props, key}) => (
+            <animated.div key = {key} style = {props}> 
+              <Switch location = {item}>
+                <Route path = '/' exact component = {Home}/>
+                <Route path = '/quick-search' component = {FindStuff} />
+                <Route path = '/production/:typeStuff' component = {Production} />
+                <Route path = '/about-us' component = {AboutUs} />
+                <Redirect to = '/' />
+              </Switch>
+            </animated.div>
+        ))}
+      </Layout>
+    </>
   );
 }
 
-export default App;
+export default App

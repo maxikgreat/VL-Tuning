@@ -1,0 +1,28 @@
+@import './dropdownList';
+
+.findStuff{
+    h2{
+        font-size: 3rem;
+    }
+    color: $secondaryDarkColor;
+    display: flex;
+    justify-content: center;
+    .stepperContainer{
+        position: relative;
+        height: 100%;
+        align-items: center;
+        .wrapper{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .findButton{
+        position: absolute;
+        top: 80%;
+    }
+    img{
+        width: 100px;
+    }
+}
