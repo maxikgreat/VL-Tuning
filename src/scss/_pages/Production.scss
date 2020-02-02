@@ -3,4 +3,14 @@
 
 .production{
     padding-top: 70px;
+
+    .filtersContaitaner{
+        border: 1px solid $primaryLightColor;
+        height: 100vh;
+    }
+
+    .productionContainer{
+        border: 1px solid $primaryLightColor;
+        height: 100vh;
+    }
 }

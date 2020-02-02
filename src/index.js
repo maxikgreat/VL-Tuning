@@ -10,6 +10,7 @@ import thunk from 'redux-thunk'
 
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+import './scss/main.scss';
 
 
 const composeEnhancers =

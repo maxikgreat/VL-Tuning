@@ -9,7 +9,16 @@ header{
     width: 100%;
     z-index: 10;
     text-align: center;
+    .navbar-brand{
+        margin: 0; 
+        img{
+            width: 100%;
+            max-width: 250px;
+        }
+    }
     ul{
+        justify-content: space-evenly;
+        align-items: center;
         text-align: left;
         .nav-item{
             list-style: none;

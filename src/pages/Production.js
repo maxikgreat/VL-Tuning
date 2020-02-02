@@ -15,16 +15,14 @@ const Production = () =>{
     }
     return(
         <section className = "production" style = {backgroundStyles}>
-            <div className = "container">
-                <div className = "row">
-                    <div className = "filtersContaitaner col-4">
+                <div className = "row m-5">
+                    <div className = "filtersContaitaner col-3">
                         <p>left</p>
                     </div>
-                    <div className = "productionContainer col-8">
+                    <div className = "productionContainer col-9">
                         <h1>{stuff}</h1>
                     </div>
                 </div>
-            </div>
         </section>
     )
 }
