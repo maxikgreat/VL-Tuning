@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
 import {useSelector} from 'react-redux'
-import ProductList from '../components/ProductList'
 
 const Production = () =>{
 

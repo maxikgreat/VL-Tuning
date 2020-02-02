@@ -1,6 +1,6 @@
 import React from 'react'
-import Step from './Step'
-import Lock from './UI/Lock'
+import Step from '../FindStuff/Step'
+import Lock from '../FindStuff/Lock'
 import { useSelector } from 'react-redux'
 
 const Stepper = () => {

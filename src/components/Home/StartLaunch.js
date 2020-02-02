@@ -1,8 +1,11 @@
 import React, {useEffect, useRef} from 'react'
-import Button from './UI/Button'
-import bgImgStart from '../assets/images/home/startBg.jpg'
+import Button from '../UI/Button'
+import bgImgStart from '../../assets/images/home/startBg.jpg'
+import {useHistory} from 'react-router-dom'
 
-const StartLaunch = ({goFindStuff}) => {
+const StartLaunch = () => {
+
+    const history = useHistory()
 
     const mainText = useRef()
     const mainButton = useRef()
@@ -29,8 +32,11 @@ const StartLaunch = ({goFindStuff}) => {
                         </div>
                         <div className = "startButton" ref = {mainButton}>
                             <Button 
-                                onClickAction = {goFindStuff}
+                                //onClickAction = {showRestPage}
                             >See more</Button>
+                            <Button 
+                                onClickAction = {() => {history.push('/quick-search')}}
+                            >Buy now</Button>
                         </div>
         </section>
     )

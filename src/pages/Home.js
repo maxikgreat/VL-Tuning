@@ -1,11 +1,7 @@
 import React, {Component, Suspense, lazy} from 'react'
 
-import {connect} from 'react-redux'
-
-import {clearAll} from '../redux/choseStuff/choseStuffAction'
-
 //import Loader from '../components/UI/Loader';
-import StartLaunch from '../components/StartLaunch'
+import StartLaunch from '../components/Home/StartLaunch'
 //lazy load
 // const StartLaunch = lazy(() => import('../components/StartLaunch'));
 // const FindStuff = lazy(() => import('../components/FindStuff'));
@@ -18,8 +14,7 @@ class Home extends Component {
         isClicked: false
     }
 
-    showFindStuff = () => {
-
+    showRestPage = () => {
         this.setState({
             isClicked: !this.state.isClicked
         })
@@ -28,19 +23,11 @@ class Home extends Component {
     render(){
         return(
             <>
-                <StartLaunch 
-                    //goFindStuff = {this.showFindStuff}
-                />
+                <StartLaunch />
             </>
         )
     }
 }
 
 
-function mapDispatchToProps(dispatch){
-    return{
-        clearAll: () => dispatch(clearAll())
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Home)
+export default Home

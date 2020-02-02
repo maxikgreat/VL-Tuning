@@ -1,11 +1,11 @@
 import React, {useEffect, useRef} from 'react'
 import {useHistory} from 'react-router-dom'
-import Stepper from '../components/Stepper';
+import Stepper from '../components/FindStuff/Stepper'
 import Button from '../components/UI/Button'
 import {useSelector, useDispatch} from 'react-redux'
 import {clearAll} from '../redux/choseStuff/choseStuffAction'
 
-import bgImgFind from '../assets/images/home/bg2.jpg'
+import bgImgFind from '../assets/images/findStuff/bgFind.jpg'
 
 
 const FindStuff = () => {
@@ -46,17 +46,13 @@ const FindStuff = () => {
 
 
     const backgroundStyles = {
-
         backgroundImage: `url(${bgImgFind})`
-        
     }
 
     return(
         <section className = "findStuff" ref={findStuff} style = {backgroundStyles}>
             <Stepper />
-            <div 
-                className = {"findButton"}
-            >
+            <div className = "findButton">
                 <Button 
                     disabled = {(brand !== "") && (model !== "") && (stuff !== "") ? false : true}
                     onClickAction = {showProduction}
@@ -65,6 +61,5 @@ const FindStuff = () => {
         </section>
     )
 }
-
 
 export default FindStuff

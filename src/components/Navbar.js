@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Quick Search</NavLink>
                             </li>
                             <li className="navbar-brand" to="/">
-                                <img src = {logoVlTun} width="100px"/>
+                                <img src = {logoVlTun} alt = "logo"/>
                             </li>
                             <li className = "nav-item" 
                                 onMouseOver = {() => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TwoPartsComp from '../components/TwoPartsComp'
+import TwoPartsComp from '../components/About/TwoPartsComp'
 
 
 const AboutUs  = () => {

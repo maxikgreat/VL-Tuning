@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSpring, animated} from 'react-spring'
-import DropdownList from './UI/DropdownList'
+import DropdownList from '../UI/DropdownList'
 
 const Step = ({type, index}) => {
 
