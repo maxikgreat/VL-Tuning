@@ -1,6 +1,6 @@
 import { SET_MODEL, SET_STUFF, SET_BRAND,CLEAR_ALL } from '../actionTypes'
 
-//setting
+//set
 export function setBrand(brand){
         return{
             type: SET_BRAND,
@@ -21,6 +21,7 @@ export function setStuff(stuff){
         payload: stuff
     }
 }
+
 //clearing
 
 export function clearAll(){

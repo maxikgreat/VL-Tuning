@@ -100,7 +100,6 @@ class DropdownList extends Component {
         return(
             <form>
                 <input 
-
                     disabled = {this.props.disabled}
                     className={"chosen-value" + (this.props.disabled ? " disabled" : "")} 
                     type="text" 
@@ -109,7 +108,6 @@ class DropdownList extends Component {
                     onFocus = {() => {this.onFocusInput()}}
                     onBlur = {() => {this.onBlurInput()}}
                     ref = {(inputRef) => {this.inputField = inputRef}}
-
                 />
                 
                 <ul 

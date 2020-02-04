@@ -1,0 +1,8 @@
+.productionContainer{
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    overflow-y: scroll;
+    .item{
+        border: 1px solid red;
+    }
+}

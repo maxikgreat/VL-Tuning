@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
 import {useSelector} from 'react-redux'
+import TitleSearch from '../components/Store/TitleSearch'
+import ProductionList from '../components/Store/ProductionList'
 
 const Production = () =>{
 
@@ -14,12 +16,13 @@ const Production = () =>{
     }
     return(
         <section className = "production" style = {backgroundStyles}>
-                <div className = "row m-5">
+                <div className = "row m-4">
                     <div className = "filtersContaitaner col-3">
                         <p>left</p>
                     </div>
-                    <div className = "productionContainer col-9">
-                        <h1>{stuff}</h1>
+                    <div className = "col-9">
+                        <TitleSearch stuff = {stuff}/>
+                        <ProductionList />
                     </div>
                 </div>
         </section>
@@ -27,9 +30,3 @@ const Production = () =>{
 }
 
 export default Production
-
-{/* <ProductList 
-                    brand = {brand}
-                    model = {model}
-                    stuff = {stuff}
-                /> */}

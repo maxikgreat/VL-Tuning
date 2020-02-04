@@ -1,16 +1,11 @@
-@import '../_components/filters';
-@import '../_components/productList';
+
+@import '../_components/titleSearch';
+@import '../_components/productionList';
 
 .production{
     padding-top: 70px;
 
     .filtersContaitaner{
-        border: 1px solid $primaryLightColor;
-        height: 100vh;
-    }
-
-    .productionContainer{
-        border: 1px solid $primaryLightColor;
         height: 100vh;
     }
 }

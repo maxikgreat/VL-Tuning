@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
 //font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faShoppingCart, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
 import Home from './pages/Home';
@@ -16,7 +16,7 @@ import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
 
 
-library.add(faShoppingCart, faChevronDown)
+library.add(faShoppingCart, faChevronDown, faSearch)
 
 function App() {
 
