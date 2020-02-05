@@ -1,7 +1,9 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import svgFilter from '../../functions/svgFilter'
 
 const ProductionList = () => {
+
 
     const db = useSelector(state => state.dataBase)
 
@@ -19,16 +21,18 @@ const ProductionList = () => {
             console.log(extractName(item))
             return(
                 <div className = "col-4 item" key = {index} >
-                    <img src = {item} width = "100%"/>
+                    <img src = {item}/>
                 </div>
             )
         })
     }
 
     return(
-        <div className = "productionContainer row">
-            {renderItems()}
-        </div>
+        <>
+            <div className = "productionContainer row">
+                {renderItems()}
+            </div>
+        </>
     )
 }
 
