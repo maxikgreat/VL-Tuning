@@ -1,18 +1,21 @@
 .productionContainer{
     height: 100vh;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.85);
     overflow-y: scroll;
     .item{
         padding-bottom: 1rem;
         padding-top: 1rem;
         text-align: center;
+        display: flex;
+        align-items: center;
         img{
             cursor: pointer;
             @include transition(all 0.2s ease-in-out);
             filter: grayscale(1);
             width: 80%;
             &:hover{
-                filter: grayscale(0) drop-shadow(0px 10px 10px $primaryLightColor);
+                filter: grayscale(0);
+                //drop-shadow(0px 5px 8px $primaryLightColor)
             }
         }
     }

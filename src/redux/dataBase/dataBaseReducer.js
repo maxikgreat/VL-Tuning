@@ -1,7 +1,6 @@
 function importAll(r) {
     return r.keys().map(r);
 }
-  
 const logos = importAll(require.context('../../assets/images/logos', false, /\.(png)$/));
 
 const initialState = {

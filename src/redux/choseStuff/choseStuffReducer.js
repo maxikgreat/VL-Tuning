@@ -3,7 +3,7 @@ import {SET_BRAND, SET_MODEL, SET_STUFF, CLEAR_ALL} from '../actionTypes'
 const initialState = {
     brand: '',
     model: '',
-    stuff: ''
+    stuff: 'Ветровики'
 }
 
 export default function choseStuffReducer(state = initialState, {type, payload}){

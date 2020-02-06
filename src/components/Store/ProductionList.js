@@ -20,7 +20,7 @@ const ProductionList = () => {
         return logos.map((item, index) => {
             console.log(extractName(item))
             return(
-                <div className = "col-4 item" key = {index} >
+                <div className = "col-3 item" key = {index} >
                     <img src = {item}/>
                 </div>
             )
