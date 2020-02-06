@@ -1,10 +1,10 @@
-function importAll(r) {
-    return r.keys().map(r);
-}
-const logos = importAll(require.context('../../assets/images/logos', false, /\.(png)$/));
+
+import importSrcLogos from '../../functions/importSrcLogos'
+import extractBrandNames from '../../functions/extractBrandNames'
 
 const initialState = {
-   logos: logos
+   logos: importSrcLogos(),
+   brands: extractBrandNames(importSrcLogos())
 }
 
 export default function dataBaseReducer(state = initialState, {type, payload}){

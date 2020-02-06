@@ -1,6 +1,5 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import svgFilter from '../../functions/svgFilter'
 
 const ProductionList = () => {
 
@@ -10,18 +9,21 @@ const ProductionList = () => {
     const {logos} = db
 
     const extractName = (item) => {
-        let name = item.split("/").pop();
-        return name
+        let name = item.split("/").pop().replace(/\.[^/.]+$/, "")
+        let nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1)
+        return nameCapitalized.replace("_"," ")
     }
 
     const renderItems = () => {
         //let regex = '/([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf)$/'
-
         return logos.map((item, index) => {
-            console.log(extractName(item))
             return(
                 <div className = "col-3 item" key = {index} >
-                    <img src = {item}/>
+                    <img 
+                        src = {item} 
+                        alt={"Brand " + extractName(item)} 
+                        title = {extractName(item)}
+                    />
                 </div>
             )
         })
