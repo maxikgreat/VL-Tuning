@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
 import {useSelector} from 'react-redux'
-import TitleSearch from '../components/Store/TitleSearch'
 import ProductionList from '../components/Store/ProductionList'
 
 const Production = () =>{
@@ -21,8 +20,7 @@ const Production = () =>{
                         <p>left</p>
                     </div>
                     <div className = "col-9">
-                        <TitleSearch stuff = {stuff}/>
-                        <ProductionList />
+                        <ProductionList stuff = {stuff}/>
                     </div>
                 </div>
         </section>

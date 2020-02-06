@@ -58,6 +58,7 @@
     background-color: $primaryLightColor;
   }
   .value-list li.closed {
+    @include transition(all 0.1s ease-in-out);
     max-height: 0;
     overflow: hidden;
     padding: 0;

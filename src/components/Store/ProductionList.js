@@ -1,37 +1,56 @@
-import React from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import filter from '../../helpFunctions/filter'
 
-const ProductionList = () => {
+const ProductionList = ({stuff}) => {
 
+    const inputRef = useRef()
+    const containerBrandsRef = useRef()
 
     const db = useSelector(state => state.dataBase)
 
-    const {logos} = db
+    const {brands} = db
 
-    const extractName = (item) => {
-        let name = item.split("/").pop().replace(/\.[^/.]+$/, "")
-        let nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1)
-        return nameCapitalized.replace("_"," ")
-    }
+    const [brandNames, set] = useState(brands.map(item => (item['name'])))
+
+    //const [filteredBrands, filterBrands] = useState(db.brands)
 
     const renderItems = () => {
-        //let regex = '/([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf)$/'
-        return logos.map((item, index) => {
+        return brands.map((item, index) => {
             return(
                 <div className = "col-3 item" key = {index} >
                     <img 
-                        src = {item} 
-                        alt={"Brand " + extractName(item)} 
-                        title = {extractName(item)}
+                        src = {item.src} 
+                        alt={"Brand - " + item.name} 
+                        title = {item.name}
                     />
                 </div>
             )
         })
     }
 
+    const filterBrands = () => {
+
+        filter(brandNames, inputRef.current.value, containerBrandsRef.current)
+    }
+
     return(
         <>
-            <div className = "productionContainer row">
+            <div className = "titleSearch">
+                <h1>{stuff}</h1>
+                <div>
+                    <input
+                        ref = {inputRef}
+                        className = "filterItems"
+                        type = "text" 
+                        placeholder = "Type to filter"
+                        onInput = {() => {filterBrands()}}
+                    />
+                    <FontAwesomeIcon icon = "search" />
+                </div>
+            </div>
+            <div className = "productionContainer row" ref = {containerBrandsRef}>
                 {renderItems()}
             </div>
         </>

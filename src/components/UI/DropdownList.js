@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import filter from '../../helpFunctions/filter'
 
 //redux
 import {setBrand, setModel, setStuff} from '../../redux/choseStuff/choseStuffAction'
@@ -55,20 +56,7 @@ class DropdownList extends Component {
 
     onInputForm = () => {
         this.dropdown.classList.add('open')
-        let inputValue = this.inputField.value.toLowerCase();
-        if (inputValue.length > 0) {
-            for (let j = 0; j < this.state.itemsValue.length; j++) {
-                if (!(inputValue.substring(0, inputValue.length) === this.state.itemsValue[j].substring(0, inputValue.length).toLowerCase())) {
-                    this.dropdown.children[j].classList.add('closed');
-                } else {
-                    this.dropdown.children[j].classList.remove('closed');
-                }
-            }
-        } else {
-            for (let i = 0; i < this.dropdown.children.length; i++) {
-                this.dropdown.children[i].classList.remove('closed');
-            }
-        }
+        filter(this.state.itemsValue, this.inputField.value, this.dropdown)
     }
 
     onClickItem = (item) => {

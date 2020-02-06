@@ -1,13 +1,15 @@
 .productionContainer{
-    height: 100vh;
+    height: 40rem;
     background: rgba(0,0,0,0.85);
     overflow-y: scroll;
+    align-content: flex-start;
     .item{
+        height: 30%;
         padding-bottom: 1rem;
         padding-top: 1rem;
-        text-align: center;
         display: flex;
         align-items: center;
+        justify-content: center;
         img{
             cursor: pointer;
             @include transition(all 0.2s ease-in-out);
@@ -19,4 +21,7 @@
             }
         }
     }
+}
+.productionContainer .item.closed{
+    display: none;
 }

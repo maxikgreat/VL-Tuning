@@ -1,10 +1,8 @@
 
-import importSrcLogos from '../../functions/importSrcLogos'
-import extractBrandNames from '../../functions/extractBrandNames'
+import getAllBrands from './functions/getAllBrands'
 
 const initialState = {
-   logos: importSrcLogos(),
-   brands: extractBrandNames(importSrcLogos())
+   brands: getAllBrands()
 }
 
 export default function dataBaseReducer(state = initialState, {type, payload}){
