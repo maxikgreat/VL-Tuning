@@ -8,14 +8,14 @@ import {setBrand, setModel, setStuff} from '../../redux/choseStuff/choseStuffAct
 class DropdownList extends Component {
 
     state = {
-        brands: ["Audi", "BMW", "Chevrolet", "Mercedes-Benz", "Cherry", "Mazda", "Ford", "Volvo"],
+        brands: this.props.brands.map(item => (item['name'])),
         models: ["Audi 100 2000-2005", "BMW M2 Coupe", "Chevrolet Aveo 2003", "Mercedes-Benz W123", "Cherry Tiggo 3", "Mazda 323 2001", "Ford Mustang 2017", "Volvo XC70"],
         stuff: ["Ветровики", "Мухобойки", "Спойлера", "Реснички"],
         itemsValue: [],
         setItem: null
     }
 
-    //todo: enter click
+    //todo: unpin "Enter" button click
 
     componentDidMount(){
         switch(this.props.valueType){

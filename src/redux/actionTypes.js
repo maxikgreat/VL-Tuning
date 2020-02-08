@@ -1,8 +1,8 @@
 //chose
 
-export const SET_BRAND = "GET_BRAND"
-export const SET_MODEL = "GET_MODEL"
-export const SET_STUFF = "GET_STUFF"
+export const SET_BRAND = "SET_BRAND"
+export const SET_MODEL = "SET_MODEL"
+export const SET_STUFF = "SET_STUFF"
 
 export const CLEAR_ALL = "CLEAR_ALL"
 

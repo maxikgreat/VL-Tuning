@@ -1,0 +1,6 @@
+@mixin userSelect($param) {
+  -webkit-user-select: $param;  /* Chrome 49+ */
+  -moz-user-select: param;     /* Firefox 43+ */
+  -ms-user-select: param;      /* No support yet */
+  user-select: param;     
+}

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext} from 'react'
 //navigation
 import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
 //font-awesome
@@ -6,9 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faShoppingCart, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
-import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import Production from './pages/Production';
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs'
+import Production from './pages/Production'
 
 //animated routes
 

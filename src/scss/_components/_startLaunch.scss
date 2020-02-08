@@ -16,7 +16,7 @@
         }
     }
     .rightImageSection{
-        user-select: none;
+        @include userSelect(none);
         display: flex;
     }
     .startButton{

@@ -3,13 +3,11 @@ import {NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ShoppingCart from './ShoppingCart'
 import {useDispatch} from 'react-redux'
-import {setStuff} from '../redux/choseStuff/choseStuffAction'
+import {setStuff, clearAll} from '../redux/choseStuff/choseStuffAction'
 import logoVlTun from '../assets/images/vl-tunLogo.png'
 
 
 const Navbar = () => {
-
-    //todo logo fix
 
     const subMenu = useRef()
 
@@ -55,16 +53,28 @@ const Navbar = () => {
                 </nav>
                 <div className = "sub-menu-container w-100" ref = {subMenu}>
                     <ul className = "sub-menu d-flex">
-                        <li className = "nav-item" onClick = {() => {dispatch(setStuff("Ветровики"))}}>
+                        <li className = "nav-item" onClick = {() => {
+                            dispatch(clearAll())
+                            dispatch(setStuff("Ветровики"))
+                        }}>
                             <NavLink className= "nav-link" to="/production/door-visors">Ветровики</NavLink>   
                         </li>
-                        <li className = "nav-item" onClick = {() => {dispatch(setStuff("Мухобойки"))}}>
+                        <li className = "nav-item" onClick = {() => {
+                            dispatch(clearAll())
+                            dispatch(setStuff("Мухобойки"))
+                        }}>
                             <NavLink className= "nav-link" to="/production/hood-protectors">Мухобойки</NavLink>   
                         </li>
-                        <li className = "nav-item" onClick = {() => {dispatch(setStuff("Спойлера"))}}>
+                        <li className = "nav-item" onClick = {() => {
+                            dispatch(clearAll())
+                            dispatch(setStuff("Спойлера"))
+                        }}>
                             <NavLink className= "nav-link" to="/production/back-spoilers">Спойлера</NavLink>   
                         </li>
-                        <li className = "nav-item" onClick = {() => {dispatch(setStuff("Реснички"))}}>
+                        <li className = "nav-item" onClick = {() => {
+                            dispatch(clearAll())
+                            dispatch(setStuff("Реснички"))
+                        }}>
                             <NavLink className= "nav-link" to="/production/headlight-visors">Реснички</NavLink>   
                         </li>
                     </ul>

@@ -15,9 +15,12 @@ export default function getAllBrands(){
             .join(' ');
 
         if(name.length === 2){
-            name.toUpperCase()
+            let nameUpper = name.toUpperCase()
+            brands.push({name: nameUpper, src})
+        }else{
+            brands.push({name, src})
         }
-        brands.push({name, src})
+        
     })
     return brands
 }
