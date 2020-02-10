@@ -3,8 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setBrand} from '../../redux/choseStuff/choseStuffAction'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import filter from '../../helpFunctions/filter'
-import Breadcrumbs from '../UI/Breadcrumbs'
-
+import {useHistory, Redirect} from 'react-router-dom'
 
 const BrandsList = ({stuff, brand}) => {
 
@@ -19,10 +18,13 @@ const BrandsList = ({stuff, brand}) => {
 
     const [brandNames, set] = useState(brands.map(item => (item['name'])))
 
+    const history = useHistory()
+
     const chooseBrand = (e) => {
         dispatch(setBrand(e.target.title))
-        //let nameToUrl = e.target.title.toLowerCase().replace(" ", "-")
 
+        //TODO urls
+        //let nameToUrl = e.target.title.toLowerCase().replace(" ", "-")
     }
 
     const renderItems = () => {
@@ -59,7 +61,7 @@ const BrandsList = ({stuff, brand}) => {
                     />
                     <FontAwesomeIcon icon = "search" />
             </div>
-            <div className = "productionContainer row" ref = {containerBrandsRef}>
+            <div className = "brandsContainer row" ref = {containerBrandsRef}>
                 {renderItems()}
             </div>
         </div>

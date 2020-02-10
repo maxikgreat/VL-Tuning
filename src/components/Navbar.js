@@ -23,12 +23,6 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink className = "nav-link" to = '/' alt = "Home">Home</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Quick Search</NavLink>
-                            </li>
-                            <li className="navbar-brand" to="/">
-                                <img src = {logoVlTun} alt = "logo"/>
-                            </li>
                             <li className = "nav-item" 
                                 onMouseOver = {() => {
                                     subMenu.current.classList.toggle("show")
@@ -41,6 +35,12 @@ const Navbar = () => {
                                 <a className="nav-link" to="#" alt = "Store">Store
                                     <FontAwesomeIcon icon = "chevron-down"/>
                                 </a>
+                            </li>
+                            <li className="navbar-brand" to="/">
+                                <img src = {logoVlTun} alt = "logo"/>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Quick Search</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/about-us" alt = "About Us">About</NavLink>

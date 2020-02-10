@@ -7,8 +7,6 @@ const Step = ({type, index}) => {
 
     const db = useSelector(state => state.dataBase)
 
-    const {brands} = db
-
     const animatedStep = useSpring({
         to: {opacity: 1, transform: "translateX(0)"},
         from: {opacity: 0, transform: "translateX(-100%)"}
@@ -19,7 +17,6 @@ const Step = ({type, index}) => {
                 <h2 className = "mb-4">{index}. Choose <br /> <span className = "specialText">{type}</span></h2>
                 <DropdownList 
                     valueType = {type}
-                    brands = {brands}
                 />
             </animated.div>
         )

@@ -15,6 +15,14 @@ import Production from './pages/Production'
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
 
+//firebase
+
+import firebase from './firebase'
+
+// firebase.firestore().collection("stuff").add({
+//   name: "test",
+//   id: 20
+// })
 
 library.add(faShoppingCart, faChevronDown, faSearch)
 
