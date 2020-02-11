@@ -6,36 +6,6 @@ import { connect } from 'react-redux'
 
 class Stepper extends Component{
 
-    // const [stuff, setStuff] = useState(["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"]) //default always
-    // const [brands, setBrands] = useState(["Example brand1", "Example brand2"])
-    // const [models, setModels] = useState(["Example model1", "Example model2"])
-
-
-    // state = {
-    //     stuff: ["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"],
-    //     brands: ["Example brand1", "Example brand2"],
-    //     models: ["Example model1", "Example model2"]
-    // }
-
-    // changeStuffState = (newValue) => {
-    //     this.setState({
-    //         stuff: newValue
-    //     })
-    // }
-
-    // changeBrandState = (newValue) => {
-    //     this.setState({
-    //         brands: newValue
-    //     })
-    // }
-
-    // changeModelsState = (newValue) => {
-    //     this.setState({
-    //         models: newValue
-    //     })
-    // }
-
-
     render(){
 
         const {choseStuff} = this.props

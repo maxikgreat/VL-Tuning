@@ -80,13 +80,16 @@ class DropdownList extends Component {
         if(!equal(this.props, prevProps)){
             switch(this.props.valueType){
                 case "stuff":
+                    this.inputField.value = this.props.choseStuff.stuff
                     break
                 case "brand":
+                    this.inputField.value = this.props.choseStuff.brand
                     this.setState({
                         brands: this.updateBrands(this.props.dataBase, this.props.choseStuff)
                     })
                     break
                 case "model":
+                    this.inputField.value = this.props.choseStuff.model
                     this.setState({
                         models: this.updateModels(this.props.dataBase, this.props.choseStuff)
                     })
@@ -156,22 +159,22 @@ class DropdownList extends Component {
         for (let dropdownItem of this.dropdown.children){
             dropdownItem.classList.remove('closed');
         };
-        if(this.inputField.value === "No data found"){
-            switch(this.props.valueType){
-                case "brand":
-                    this.props.clearBrand()
-                    break
-                case "model":
-                    this.props.clearModel()
-                    break
-                default:
-                    break
-            }
-        } else {
-            this.state.setItem(item)
+        switch(this.props.valueType){
+            case "stuff":
+                this.props.clearBrand()
+                this.props.clearModel()
+                this.state.setItem(item)
+                break
+            case "brand":
+                this.props.clearModel()
+                this.state.setItem(item)
+                break
+            case "model":
+                this.state.setItem(item)
+                break
+            default:
+                break
         }
-
-        
     }
 
     onFocusInput = () => {
