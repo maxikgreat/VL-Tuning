@@ -12,8 +12,8 @@ const BrandsList = ({stuff, brand}) => {
     const containerBrandsRef = useRef()
 
     //redux
-    const db = useSelector(state => state.dataBase)
-    const {brands} = db
+    const dataBase = useSelector(state => state.dataBase)
+    const {brands} = dataBase
     const dispatch = useDispatch()
 
     const [brandNames, set] = useState(brands.map(item => (item['name'])))

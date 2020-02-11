@@ -2,15 +2,14 @@
 import modyfiedJson from './functions/modyfiedJson'
 import getAllBrands from './functions/getAllBrands'
 
-//console.log(db)
 const mainBD = modyfiedJson()
 
 const initialState = {
     //brands: getAllBrands(),
-   doorVisorsChrome: mainBD.Chrome,
-   doorVisors: mainBD.Main,
-   backSpoilers: mainBD.Back,
-   hoodProtectors: mainBD.Hood,
+   Chrome: mainBD.Chrome,
+   Visors: mainBD.Main,
+   Back: mainBD.Back,
+   Hood: mainBD.Hood,
    //Truck: mainBD.Truck
 }
 

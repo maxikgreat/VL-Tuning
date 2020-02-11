@@ -1,39 +1,73 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import filter from '../../helpFunctions/filter'
+import equal from 'fast-deep-equal'
 
 //redux
-import {setBrand, setModel, setStuff} from '../../redux/choseStuff/choseStuffAction'
+import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/choseStuff/choseStuffAction'
 
 class DropdownList extends Component {
 
     state = {
-        brands: ["brand1", "brand2"],
-        models: ["model", "model"],
-        stuff: ["Ветровики", "Ветровики ХРОМ", "Мухобойки", "Спойлера"], //always
-        itemsValue: [],
+        brands:[],
+        models: [],
+        stuff: ["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"], //always on default
         setItem: null
     }
+    
+     updateBrands = (dataBase, choseStuff) => {
+        let filteredBrands = {}
 
+            if(dataBase[choseStuff.stuff] !== undefined){
+                filteredBrands = {...dataBase[choseStuff.stuff]}
+                Object.keys(dataBase[choseStuff.stuff]).map(item => {
+                    if(dataBase[choseStuff.stuff][item].data.length === 0){
+                        delete filteredBrands[item]
+                    }
+                })
+
+                if(filteredBrands.length === 0){
+                    return ["No data found"]
+                }
+
+                return [...Object.keys(filteredBrands)]
+            }
+    }
+
+    updateModels = (dataBase, choseStuff) => {
+
+        let filteredModels = []
+
+        if(dataBase[choseStuff.stuff][choseStuff.brand] !== undefined){
+            filteredModels =  dataBase[choseStuff.stuff][choseStuff.brand].data.map(item => {
+                return item.Name
+            })
+            if(filteredModels.length === 0){
+                return ["No data found"]
+            }
+            return filteredModels
+        }
+        
+    }
     //todo: unpin "Enter" button click
 
     componentDidMount(){
         switch(this.props.valueType){
             case "brand":
                 this.setState({
-                    itemsValue: [...this.state.brands],
-                    setItem: this.props.setBrand
+                    setItem: this.props.setBrand,
+                    brands: this.updateBrands(this.props.dataBase, this.props.choseStuff)
                 })
                 break
             case "model":
+                
                 this.setState({
-                    itemsValue: [...this.state.models],
-                    setItem: this.props.setModel
+                    setItem: this.props.setModel,
+                    models: this.updateModels(this.props.dataBase, this.props.choseStuff)
                 })
                 break
             case "stuff":
                 this.setState({
-                    itemsValue: [...this.state.stuff],
                     setItem: this.props.setStuff
                 })
                 break
@@ -42,21 +76,78 @@ class DropdownList extends Component {
         }
     }
 
+    componentDidUpdate(prevProps){
+        if(!equal(this.props, prevProps)){
+            switch(this.props.valueType){
+                case "stuff":
+                    break
+                case "brand":
+                    this.setState({
+                        brands: this.updateBrands(this.props.dataBase, this.props.choseStuff)
+                    })
+                    break
+                case "model":
+                    this.setState({
+                        models: this.updateModels(this.props.dataBase, this.props.choseStuff)
+                    })
+                    break
+                default:
+                    break
+            }
+        }
+        
+    }
 
     renderItems = () => {
-        return this.state.itemsValue.map((item, index) => {
-            return(
-                <li 
-                    key ={index}
-                    onClick = {() => {this.onClickItem(item)}}
-                >{item}</li>
-            )
-        })
+        switch(this.props.valueType){
+            case "stuff":
+                return this.state.stuff.map((item, index) => {
+                    return(
+                        <li 
+                            key ={index}
+                            onClick = {() => {this.onClickItem(item)}}
+                        >{item}</li>
+                    )
+                })
+            case "brand":
+                return this.state.brands.map((item, index) => {
+                    return(
+                        <li 
+                            key ={index}
+                            onClick = {() => {this.onClickItem(item)}}
+                        >{item}</li>
+                    )
+                })
+            case "model":
+                return this.state.models.map((item, index) => {
+                    return(
+                        <li 
+                            key ={index}
+                            onClick = {() => {this.onClickItem(item)}}
+                        >{item}</li>
+                    )
+                })
+            default: 
+                break
+        }
+        
     }
 
     onInputForm = () => {
         this.dropdown.classList.add('open')
-        filter(this.state.itemsValue, this.inputField.value, this.dropdown)
+        switch(this.props.valueType){
+            case "stuff":
+                filter(this.state.stuff, this.inputField.value, this.dropdown)
+                break
+            case "brand":
+                filter(this.state.brands, this.inputField.value, this.dropdown)
+                break
+            case "model":
+                filter(this.state.models, this.inputField.value, this.dropdown)
+                break
+            default: 
+                break
+        }
     }
 
     onClickItem = (item) => {
@@ -65,8 +156,21 @@ class DropdownList extends Component {
         for (let dropdownItem of this.dropdown.children){
             dropdownItem.classList.remove('closed');
         };
+        if(this.inputField.value === "No data found"){
+            switch(this.props.valueType){
+                case "brand":
+                    this.props.clearBrand()
+                    break
+                case "model":
+                    this.props.clearModel()
+                    break
+                default:
+                    break
+            }
+        } else {
+            this.state.setItem(item)
+        }
 
-        this.state.setItem(item)
         
     }
 
@@ -85,6 +189,7 @@ class DropdownList extends Component {
     }
 
     render(){
+        console.log(this.state)
         return(
             <form>
                 <input 
@@ -97,7 +202,6 @@ class DropdownList extends Component {
                     onBlur = {() => {this.onBlurInput()}}
                     ref = {(inputRef) => {this.inputField = inputRef}}
                 />
-                
                 <ul 
                     className="value-list"
                     ref = {(dropdownRef) => this.dropdown = dropdownRef}
@@ -110,13 +214,20 @@ class DropdownList extends Component {
     }
 }
 
-
+function mapStateToProps(state){
+    return{
+        choseStuff: state.choseStuff,
+        dataBase: state.dataBase
+    }
+}
 function mapDispatchToProps(dispatch){
     return{
         setBrand: (brand) => dispatch(setBrand(brand)),
         setModel: (model) => dispatch(setModel(model)),
-        setStuff: (stuff) => dispatch(setStuff(stuff))
+        setStuff: (stuff) => dispatch(setStuff(stuff)),
+        clearBrand: () => dispatch(clearBrand()),
+        clearModel: () => dispatch(clearModel())
     }
 }
 
-export default connect(null, mapDispatchToProps)(DropdownList)
+export default connect(mapStateToProps, mapDispatchToProps)(DropdownList)
