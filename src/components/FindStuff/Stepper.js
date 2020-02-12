@@ -7,9 +7,7 @@ import { connect } from 'react-redux'
 class Stepper extends Component{
 
     render(){
-
         const {choseStuff} = this.props
-
         return(
             <div className = "d-flex flex-column w-100" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
               <div className = "stepperContainer row text-center">

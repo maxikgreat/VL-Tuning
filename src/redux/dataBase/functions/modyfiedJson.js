@@ -45,7 +45,7 @@ export default function modyfiedJson(){
             DATABASE[globalKey].forEach(item => {
                 const lowCaseName = item.Name.toLowerCase()
                 if(lowCaseName.includes(key.toLowerCase())){
-                    let trimedName = item.Name.trim()
+                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"") //delete backslashes " and spaces
                     arr.push({
                         Name: trimedName,
                         Price: Number(item.Price),

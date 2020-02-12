@@ -1,6 +1,5 @@
 
 import modyfiedJson from './functions/modyfiedJson'
-import getAllBrands from './functions/getAllBrands'
 
 const mainBD = modyfiedJson()
 
