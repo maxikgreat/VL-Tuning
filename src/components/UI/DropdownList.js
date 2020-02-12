@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import filter from '../../helpFunctions/filter'
 import equal from 'fast-deep-equal'
+import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
 
 //redux
 import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/choseStuff/choseStuffAction'
@@ -13,25 +14,6 @@ class DropdownList extends Component {
         models: [],
         stuff: ["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"], //always on default
         setItem: null
-    }
-    
-     updateBrands = (dataBase, choseStuff) => {
-        let filteredBrands = {}
-
-            if(dataBase[choseStuff.stuff] !== undefined){
-                filteredBrands = {...dataBase[choseStuff.stuff]}
-                Object.keys(dataBase[choseStuff.stuff]).map(item => {
-                    if(dataBase[choseStuff.stuff][item].data.length === 0){
-                        delete filteredBrands[item]
-                    }
-                })
-
-                if(filteredBrands.length === 0){
-                    return ["No data found"]
-                }
-
-                return [...Object.keys(filteredBrands)]
-            }
     }
 
     updateModels = (dataBase, choseStuff) => {
@@ -56,7 +38,7 @@ class DropdownList extends Component {
             case "brand":
                 this.setState({
                     setItem: this.props.setBrand,
-                    brands: this.updateBrands(this.props.dataBase, this.props.choseStuff)
+                    brands: deleteEmptyBrands(this.props.dataBase[this.props.choseStuff.stuff], false)
                 })
                 break
             case "model":
@@ -85,7 +67,7 @@ class DropdownList extends Component {
                 case "brand":
                     this.inputField.value = this.props.choseStuff.brand
                     this.setState({
-                        brands: this.updateBrands(this.props.dataBase, this.props.choseStuff)
+                        brands: deleteEmptyBrands(this.props.dataBase[this.props.choseStuff.stuff], false)
                     })
                     break
                 case "model":
@@ -192,7 +174,6 @@ class DropdownList extends Component {
     }
 
     render(){
-        console.log(this.state)
         return(
             <form>
                 <input 

@@ -51,6 +51,7 @@ const Navbar = () => {
                         <ShoppingCart />
                     </div>
                 </nav>
+                {/* TODO SUBMENU NORMALNOE */}
                 <div className = "sub-menu-container w-100" ref = {subMenu}>
                     <ul className = "sub-menu d-flex">
                         <li className = "nav-item" onClick = {() => {
@@ -58,6 +59,12 @@ const Navbar = () => {
                             dispatch(setStuff("Ветровики"))
                         }}>
                             <NavLink className= "nav-link" to="/production/door-visors">Ветровики</NavLink>   
+                        </li>
+                        <li className = "nav-item" onClick = {() => {
+                            dispatch(clearAll())
+                            dispatch(setStuff("Ветровики Хром"))
+                        }}>
+                            <NavLink className= "nav-link" to="/production/door-visors-chrome">Ветр. Хром</NavLink>   
                         </li>
                         <li className = "nav-item" onClick = {() => {
                             dispatch(clearAll())
@@ -70,12 +77,6 @@ const Navbar = () => {
                             dispatch(setStuff("Спойлера"))
                         }}>
                             <NavLink className= "nav-link" to="/production/back-spoilers">Спойлера</NavLink>   
-                        </li>
-                        <li className = "nav-item" onClick = {() => {
-                            dispatch(clearAll())
-                            dispatch(setStuff("Реснички"))
-                        }}>
-                            <NavLink className= "nav-link" to="/production/headlight-visors">Реснички</NavLink>   
                         </li>
                     </ul>
                 </div>

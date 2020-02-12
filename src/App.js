@@ -28,16 +28,16 @@ library.add(faShoppingCart, faChevronDown, faSearch)
 
 function App() {
 
-  const {location} = useContext(__RouterContext)
-  const transitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0},
-    enter: { opacity: 1},
-    leave: { opacity: 0}
-  })
+  // const {location} = useContext(__RouterContext)
+  // const transitions = useTransition(location, location => location.pathname, {
+  //   from: { opacity: 0},
+  //   enter: { opacity: 1},
+  //   leave: { opacity: 0}
+  // })
 
   return (
     <>
-      <Layout>
+      {/* <Layout>
         {transitions.map(({item, props, key}) => (
             <animated.div key = {key} style = {props}> 
               <Switch location = {item}>
@@ -49,6 +49,15 @@ function App() {
               </Switch>
             </animated.div>
         ))}
+      </Layout> */}
+      <Layout>
+              <Switch>
+                <Route path = '/' exact component = {Home}/>
+                <Route path = '/quick-search' component = {FindStuff} />
+                <Route path = '/production/:typeStuff' component = {Production} />
+                <Route path = '/about-us' component = {AboutUs} />
+                <Redirect to = '/' />
+              </Switch>
       </Layout>
     </>
   );

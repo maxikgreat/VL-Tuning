@@ -9,7 +9,7 @@ import Breadcrumbs from '../components/UI/Breadcrumbs'
 
 const Production = () =>{
 
-
+    const dataBase = useSelector(state => state.dataBase)
     const choseStuff = useSelector(state => state.choseStuff)
 
     const {brand, model, stuff} = choseStuff
@@ -36,8 +36,7 @@ const Production = () =>{
                             />
                             :
                             <BrandsList 
-                                stuff = {stuff}
-                                brand = {brand}
+                                brands = {dataBase[choseStuff.stuff]}
                             />
                         }
 
