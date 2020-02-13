@@ -39,8 +39,8 @@ const BrandsList = ({brands, url}) => {
         }
     }
 
-    const chooseBrand = (e) => {
-        dispatch(setBrand(e.target.title))
+    const chooseBrand = (brandName) => {
+        dispatch(setBrand(brandName))
     }
 
     const renderItems = () => {
@@ -51,12 +51,12 @@ const BrandsList = ({brands, url}) => {
                         to={`${url}/${item.name.replace(" ","-").toLowerCase()}`}
                         className = "col-3 item" 
                         key = {index} 
+                        onClick = {() => {chooseBrand(item.name)}}
                     >
                         <img 
                             src = {item.src}
                             alt={"Brand - " + item.name} 
                             title = {item.name}
-                            onClick = {(e) => {chooseBrand(e)}}
                         />
                     </Link>
                 )

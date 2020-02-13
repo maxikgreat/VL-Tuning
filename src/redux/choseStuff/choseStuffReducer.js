@@ -1,8 +1,8 @@
 import {SET_BRAND, SET_MODEL, SET_STUFF, CLEAR_ALL, CLEAR_BRAND, CLEAR_MODEL, CLEAR_STUFF} from '../actionTypes'
 
 const initialState = {
-    stuff: '',
-    brand: '',
+    stuff: 'Hood',
+    brand: 'Audi',
     model: ''
 }
 

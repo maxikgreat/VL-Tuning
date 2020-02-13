@@ -2,6 +2,15 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ModelList = ({models}) => {
+
+    const renderItems = () => {
+        return models.data.map((item, index) => {
+            return(
+                <li key = {index}>{item.Name}</li>
+            )
+        })
+    }
+
     return(
         <div className = "d-flex flex-column" style = {{marginTop: '-10px'}}>
             <div className = "titleSearch">
@@ -15,8 +24,9 @@ const ModelList = ({models}) => {
                     <FontAwesomeIcon icon = "search" />
             </div>
             <div className = "modelContainer row">
-                <h1>MODEL LIST SUKA </h1>
-                {console.log(models)}
+                <ul>
+                    {renderItems()}
+                </ul>
             </div>  
         </div>
     )
