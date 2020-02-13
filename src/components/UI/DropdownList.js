@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import filter from '../../helpFunctions/filter'
 import equal from 'fast-deep-equal'
@@ -7,7 +7,7 @@ import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
 //redux
 import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/choseStuff/choseStuffAction'
 
-class DropdownList extends Component {
+class DropdownList extends PureComponent {
 
     state = {
         brands:[],

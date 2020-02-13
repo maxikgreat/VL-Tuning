@@ -1,4 +1,4 @@
-import React, {Component, Suspense, lazy} from 'react'
+import React, {PureComponent, Suspense, lazy} from 'react'
 
 //import Loader from '../components/UI/Loader';
 import StartLaunch from '../components/Home/StartLaunch'
@@ -8,7 +8,7 @@ import StartLaunch from '../components/Home/StartLaunch'
 
 
 
-class Home extends Component {
+class Home extends PureComponent {
 
     state = {
         isClicked: false

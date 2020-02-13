@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useSelector} from 'react-redux'
+import {useRouteMatch, Switch, Route} from 'react-router-dom'
 import BrandsList from '../components/Store/BrandsList'
 import ModelList from '../components/Store/ModelList'
 import Categories from '../components/Store/Categories'
@@ -9,8 +9,12 @@ import Breadcrumbs from '../components/UI/Breadcrumbs'
 
 const Production = () =>{
 
+    //redux
     const dataBase = useSelector(state => state.dataBase)
     const choseStuff = useSelector(state => state.choseStuff)
+
+    //routing
+    const {path, url} = useRouteMatch()
 
     const {brand, model, stuff} = choseStuff
 
@@ -29,21 +33,23 @@ const Production = () =>{
                             brand = {brand}
                             model = {model}
                         />
-
-                        {stuff && brand ? 
-                            <ModelList 
-                                brand = {brand}
-                            />
-                            :
-                            <BrandsList 
-                                brands = {dataBase[choseStuff.stuff]}
-                            />
-                        }
-
+                        <Switch>
+                            <Route exact path = {path}>
+                                <BrandsList 
+                                    brands = {dataBase[choseStuff.stuff]}
+                                    url = {url}
+                                />
+                            </Route>
+                            <Route path = {`${path}/:brandUrl`}>
+                                <ModelList brand = {brand}/>
+                            </Route>
+                        </Switch>
                     </div>
                 </div>
         </section>
     )
 }
+
+BrandsList.whyDidYouRender = true
 
 export default Production

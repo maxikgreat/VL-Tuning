@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
-import App from './App';
+import App from './App'
 //react-redux
 import { Provider } from 'react-redux'
 import { createStore, compose, applyMiddleware } from 'redux'
 import rootReducer from './redux/rootReducer'
 import thunk from 'redux-thunk'
 
-import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
-import './scss/main.scss';
+import * as serviceWorker from './serviceWorker'
+import 'bootstrap/dist/css/bootstrap.css'
+import './scss/main.scss'
+//for production only
 
 
 const composeEnhancers =

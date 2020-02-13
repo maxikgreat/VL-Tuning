@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
+    "@welldone-software/why-did-you-render": "^4.0.3",
     "axios": "^0.19.1",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
@@ -73,6 +74,7 @@
     "webpack": "4.41.2",
     "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.2.0",
+    "why-did-you-update": "^1.0.6",
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {

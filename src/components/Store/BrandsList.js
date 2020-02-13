@@ -1,12 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setBrand} from '../../redux/choseStuff/choseStuffAction'
+import {setBrand, clearBrand} from '../../redux/choseStuff/choseStuffAction'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import filter from '../../helpFunctions/filter'
-import {useHistory, Redirect, useRouteMatch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
 
-const BrandsList = ({brands}) => {
+const BrandsList = ({brands, url}) => {
 
     //refs
     const inputRef = useRef()
@@ -15,16 +15,13 @@ const BrandsList = ({brands}) => {
     //redux
     const dispatch = useDispatch()
 
-    //routing
-
-    let {path, url} = useRouteMatch()
-
     useEffect(() => {
         inputRef.current.value = ""
         let brandsNames = getBrandsToRender().map(item => {
             return item.name
         })
         filter(brandsNames, inputRef.current.value, containerBrandsRef.current)
+        dispatch(clearBrand())
     })
 
     const getBrandsToRender = () => {
@@ -38,7 +35,6 @@ const BrandsList = ({brands}) => {
                     name: Object.keys(brandsLocal)[index]
                 })
             })
-            console.log(itemsToReturn)
             return [...itemsToReturn]
         }
     }
@@ -48,21 +44,24 @@ const BrandsList = ({brands}) => {
     }
 
     const renderItems = () => {
-        return getBrandsToRender().map((item, index) => {
-            return(
-                <div 
-                    className = "col-3 item" 
-                    key = {index} 
-                >
-                    <img 
-                        src = {item.src}
-                        alt={"Brand - " + item.name} 
-                        title = {item.name}
-                        onClick = {(e) => {chooseBrand(e)}}
-                    />
-                </div>
-            )
-         })
+        if(getBrandsToRender() !== undefined){
+            return getBrandsToRender().map((item, index) => {
+                return(
+                    <Link
+                        to={`${url}/${item.name.replace(" ","-").toLowerCase()}`}
+                        className = "col-3 item" 
+                        key = {index} 
+                    >
+                        <img 
+                            src = {item.src}
+                            alt={"Brand - " + item.name} 
+                            title = {item.name}
+                            onClick = {(e) => {chooseBrand(e)}}
+                        />
+                    </Link>
+                )
+             })
+        }
     }
 
     const filterBrands = () => {
@@ -91,4 +90,6 @@ const BrandsList = ({brands}) => {
     )
 }
 
-export default BrandsList
+BrandsList.whyDidYouRender = true
+
+export default React.memo(BrandsList)

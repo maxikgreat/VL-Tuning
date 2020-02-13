@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import Step from '../FindStuff/Step'
 import Lock from '../FindStuff/Lock'
 import { connect } from 'react-redux'
 
 
-class Stepper extends Component{
+class Stepper extends PureComponent{
 
     render(){
         const {choseStuff} = this.props

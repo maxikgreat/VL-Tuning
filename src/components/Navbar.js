@@ -26,7 +26,6 @@ const Navbar = () => {
                             <li className = "nav-item" 
                                 onMouseOver = {() => {
                                     subMenu.current.classList.add("show")
-                                    //subMenu.current.classList.toggle("show")
                                 }}
                                 onMouseLeave = {() => {
                                     subMenu.current.classList.remove("show")

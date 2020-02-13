@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 //navigation
 import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
 //font-awesome
@@ -9,15 +9,13 @@ import Layout from './components/HOC/Layout'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Production from './pages/Production'
-
 //animated routes
-
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
-
 //firebase
-
 import firebase from './firebase'
+//re-renders
+import whyDidYouRender from '@welldone-software/why-did-you-render'
 
 // firebase.firestore().collection("stuff").add({
 //   name: "test",
@@ -27,6 +25,16 @@ import firebase from './firebase'
 library.add(faShoppingCart, faChevronDown, faSearch)
 
 function App() {
+
+  if (process.env.NODE_ENV === 'development'){
+    whyDidYouRender(React);
+  }
+
+  // if (process.env.NODE_ENV !== 'production') {
+  //   const {whyDidYouUpdate} = require('why-did-you-update');
+  //   whyDidYouUpdate(React);
+  // }
+  
 
   // const {location} = useContext(__RouterContext)
   // const transitions = useTransition(location, location => location.pathname, {
