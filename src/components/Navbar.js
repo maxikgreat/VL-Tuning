@@ -25,16 +25,45 @@ const Navbar = () => {
                             </li>
                             <li className = "nav-item" 
                                 onMouseOver = {() => {
-                                    subMenu.current.classList.toggle("show")
-                                    setTimeout(() => {
-                                        subMenu.current.classList.toggle("show")
-                                    }, 1500)
+                                    subMenu.current.classList.add("show")
+                                    //subMenu.current.classList.toggle("show")
+                                }}
+                                onMouseLeave = {() => {
+                                    subMenu.current.classList.remove("show")
                                 }}
                             >
                                 {/*  eslint-disable-next-line */}
                                 <a className="nav-link" to="#" alt = "Store">Store
                                     <FontAwesomeIcon icon = "chevron-down"/>
                                 </a>
+                                <div className = "sub-menu-container" ref = {subMenu}>
+                                    <ul className = "sub-menu">
+                                        <li className = "nav-item" onClick = {() => {
+                                            dispatch(clearAll())
+                                            dispatch(setStuff("Ветровики"))
+                                        }}>
+                                            <NavLink className= "nav-link" to="/production/door-visors">Ветровики</NavLink>   
+                                        </li>
+                                        <li className = "nav-item" onClick = {() => {
+                                            dispatch(clearAll())
+                                            dispatch(setStuff("Ветровики Хром"))
+                                        }}>
+                                            <NavLink className= "nav-link" to="/production/door-visors-chrome">Ветр. Хром</NavLink>   
+                                        </li>
+                                        <li className = "nav-item" onClick = {() => {
+                                            dispatch(clearAll())
+                                            dispatch(setStuff("Мухобойки"))
+                                        }}>
+                                            <NavLink className= "nav-link" to="/production/hood-protectors">Мухобойки</NavLink>   
+                                        </li>
+                                        <li className = "nav-item" onClick = {() => {
+                                            dispatch(clearAll())
+                                            dispatch(setStuff("Спойлера"))
+                                        }}>
+                                            <NavLink className= "nav-link" to="/production/back-spoilers">Спойлера</NavLink>   
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li className="navbar-brand" to="/">
                                 <img src = {logoVlTun} alt = "logo"/>
@@ -52,34 +81,7 @@ const Navbar = () => {
                     </div>
                 </nav>
                 {/* TODO SUBMENU NORMALNOE */}
-                <div className = "sub-menu-container w-100" ref = {subMenu}>
-                    <ul className = "sub-menu d-flex">
-                        <li className = "nav-item" onClick = {() => {
-                            dispatch(clearAll())
-                            dispatch(setStuff("Ветровики"))
-                        }}>
-                            <NavLink className= "nav-link" to="/production/door-visors">Ветровики</NavLink>   
-                        </li>
-                        <li className = "nav-item" onClick = {() => {
-                            dispatch(clearAll())
-                            dispatch(setStuff("Ветровики Хром"))
-                        }}>
-                            <NavLink className= "nav-link" to="/production/door-visors-chrome">Ветр. Хром</NavLink>   
-                        </li>
-                        <li className = "nav-item" onClick = {() => {
-                            dispatch(clearAll())
-                            dispatch(setStuff("Мухобойки"))
-                        }}>
-                            <NavLink className= "nav-link" to="/production/hood-protectors">Мухобойки</NavLink>   
-                        </li>
-                        <li className = "nav-item" onClick = {() => {
-                            dispatch(clearAll())
-                            dispatch(setStuff("Спойлера"))
-                        }}>
-                            <NavLink className= "nav-link" to="/production/back-spoilers">Спойлера</NavLink>   
-                        </li>
-                    </ul>
-                </div>
+                
         </header>
     )
 }

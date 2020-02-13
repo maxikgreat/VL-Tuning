@@ -47,21 +47,25 @@ header{
                 }
 
             }
+            // .nav-link[alt="Store"]:hover .sub-menu-container{
+                
+            // }
         }
     }
     .sub-menu-container{
+        position: absolute;
         @include transition(all 0.3s cubic-bezier(0.86, 0, 0.07, 1));
         visibility: hidden;
         z-index: 12;
-        transform: translateY(100px);
+        transform: translateY(20px);
         opacity: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
         .sub-menu{
             @include transition(all 0.3s cubic-bezier(0.86, 0, 0.07, 1));
             font-size: 0.8rem;
             padding: 0;
-            justify-content: center;
-            width: 100%;
+            display: flex;
             .nav-item{
                 position: relative;
                 background-color: rgba(0,0,0,0.5);
@@ -73,11 +77,11 @@ header{
                 }
             }
         }
-        &:hover{
-            transform: translateY(0px);
-            opacity: 1;
-            visibility: visible;
-        }
+        // &:hover{
+        //     transform: translateY(0px);
+        //     opacity: 1;
+        //     visibility: visible;
+        // }
     } 
     .show{
         transform: translateY(0px);
