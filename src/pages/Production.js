@@ -41,7 +41,9 @@ const Production = () =>{
                                 />
                             </Route>
                             <Route path = {`${path}/:brandUrl`}>
-                                <ModelList brand = {brand}/>
+                                <ModelList 
+                                    models = {dataBase[choseStuff.stuff][choseStuff.brand]}
+                                />
                             </Route>
                         </Switch>
                     </div>

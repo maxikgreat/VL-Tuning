@@ -1,3 +1,6 @@
 .modelContainer{
-    padding-top: 50px;
+    border-top: 0.1rem solid $primaryLightColor;
+    height: 80vh;
+    background: rgba(0,0,0,0.85);
+    overflow-y: scroll;
 }

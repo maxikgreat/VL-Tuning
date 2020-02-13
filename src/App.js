@@ -15,6 +15,7 @@ import FindStuff from './pages/FindStuff';
 //firebase
 import firebase from './firebase'
 //re-renders
+//remove IN PRODUCTION
 import whyDidYouRender from '@welldone-software/why-did-you-render'
 
 // firebase.firestore().collection("stuff").add({

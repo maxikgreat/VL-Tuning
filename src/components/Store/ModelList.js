@@ -1,10 +1,24 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ModelList = () => {
+const ModelList = ({models}) => {
     return(
-        <div className = "modelContainer">
-            <h1>MODEL LIST SUKA</h1>
-        </div>  
+        <div className = "d-flex flex-column" style = {{marginTop: '-10px'}}>
+            <div className = "titleSearch">
+                    <input
+                        // ref = {inputRef}
+                        className = "filterItems"
+                        type = "text" 
+                        placeholder = "Type to filter"
+                        //onInput = {() => {filterBrands()}}
+                    />
+                    <FontAwesomeIcon icon = "search" />
+            </div>
+            <div className = "modelContainer row">
+                <h1>MODEL LIST SUKA </h1>
+                {console.log(models)}
+            </div>  
+        </div>
     )
 }
 
