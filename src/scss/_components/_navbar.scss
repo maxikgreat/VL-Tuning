@@ -47,9 +47,10 @@ header{
                 }
 
             }
-            // .nav-link[alt="Store"]:hover .sub-menu-container{
-                
-            // }
+            .active{
+                background-color: $secondaryDarkColor;
+                color: $primaryLightColor;
+            }
         }
     }
     .sub-menu-container{

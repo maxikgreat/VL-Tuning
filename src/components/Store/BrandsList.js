@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setBrand} from '../../redux/choseStuff/choseStuffAction'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import filter from '../../helpFunctions/filter'
-import {useHistory, Redirect} from 'react-router-dom'
+import {useHistory, Redirect, useRouteMatch} from 'react-router-dom'
 import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
 
 const BrandsList = ({brands}) => {
@@ -14,6 +14,10 @@ const BrandsList = ({brands}) => {
 
     //redux
     const dispatch = useDispatch()
+
+    //routing
+
+    let {path, url} = useRouteMatch()
 
     useEffect(() => {
         inputRef.current.value = ""
@@ -41,8 +45,6 @@ const BrandsList = ({brands}) => {
 
     const chooseBrand = (e) => {
         dispatch(setBrand(e.target.title))
-        //TODO urls
-        //let nameToUrl = e.target.title.toLowerCase().replace(" ", "-")
     }
 
     const renderItems = () => {

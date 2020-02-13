@@ -21,7 +21,7 @@ const Navbar = () => {
                     <div className = "col-10">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink className = "nav-link" to = '/' alt = "Home">Home</NavLink>
+                                <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Home</NavLink>
                             </li>
                             <li className = "nav-item" 
                                 onMouseOver = {() => {
