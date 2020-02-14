@@ -3,4 +3,38 @@
     height: 80vh;
     background: rgba(0,0,0,0.85);
     overflow-y: scroll;
+    align-content: flex-start;
+        .itemBackground{
+            height: 60%;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .itemContainer{
+            height: 100%;
+            background: rgba(0,0,0,0);
+            color: $secondaryDarkColor;
+            display: flex;
+            align-items: center;
+            &:hover{
+                color: $secondaryLightColor;
+            }
+            span:nth-child(1){
+                min-width:75%;
+                background-color: $primaryLightColor;
+            }
+            span:nth-child(2){
+                min-width: 25%;
+                background-color: $primaryLightColor;
+            }
+        }
+        // .itemContainer .avaliable{
+        //     color: green;
+        // }
+        // .itemContainer .notAvaliable{
+        //     color: red;
+        // }
 }

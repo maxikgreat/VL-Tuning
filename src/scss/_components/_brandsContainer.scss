@@ -5,18 +5,23 @@
     overflow-y: scroll;
     align-content: flex-start;
     .item{
+        @include transition(all 0.2s ease-in-out);
         height: 35%;
         padding-bottom: 1rem;
         padding-top: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        filter: grayscale(1);
+        &:hover{
+            @include boxShadow(0px 0px 30px 20px rgba(0,0,0,1));
+            filter: grayscale(0);
+        }
         img{
             @include userSelect(none);
             cursor: pointer;
-            @include transition(all 0.2s ease-in-out);
-            filter: grayscale(1);
             width: 80%;
+            filter: grayscale(1);
             &:hover{
                 filter: grayscale(0);
             }
