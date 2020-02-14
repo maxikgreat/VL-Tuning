@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
 import {useSelector} from 'react-redux'
-import {useRouteMatch, Switch, Route} from 'react-router-dom'
+import {useRouteMatch, Switch, Route, useParams} from 'react-router-dom'
 import BrandsList from '../components/Store/BrandsList'
 import ModelList from '../components/Store/ModelList'
 import Categories from '../components/Store/Categories'
@@ -15,6 +15,7 @@ const Production = () =>{
 
     //routing
     const {path, url} = useRouteMatch()
+    const {typeStuff} = useParams()
 
     const {brand, model, stuff} = choseStuff
 
@@ -29,6 +30,7 @@ const Production = () =>{
                     </div>
                     <div className = "col-9">
                         <Breadcrumbs 
+                            typeStuff = {typeStuff}
                             stuff = {stuff}
                             brand = {brand}
                             model = {model}
