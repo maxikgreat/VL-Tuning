@@ -9,7 +9,7 @@ const Breadcrumbs = ({typeStuff, brand, stuff}) => {
         <div className = "breadcrumbsContainer">
             <ul id="breadcrumb">
                 <li><Link to={`/production/${typeStuff}`}><span className="icon"> </span>{stuff}</Link></li>
-                {brand ? <li><Link><span className="icon"> </span>{brand}</Link></li> : null}
+                {brand ? <li><a href = "#"><span className="icon"> </span>{brand}</a></li> : null}
             </ul>
         </div>
     )

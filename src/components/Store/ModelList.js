@@ -14,20 +14,21 @@ const ModelList = ({models}) => {
 
     const renderItems = () => {
         return models.data.map((item, index) => {
+            // console.log(item)
             return(
-                <>
-                    <div className = "itemBackground col-4" style = {{backgroundImage: `url(${cardsBg[Math.floor(Math.random() * 3)]})`}}>
+                    <div key = {index} className = "itemBackground col-4" style = {{backgroundImage: `url(${cardsBg[Math.floor(Math.random() * 3)]})`}}>
                         <div 
-                            key = {index} 
                             className = "itemContainer" 
                         >
-                            <span>{item.Name}</span>
-                            <span
+                            <div className = "cardContent">
+                                <span className = "cardTitle">{item.Name}</span>
+                                <span className = "cardVendor">created by {item.Manufacturer} </span>
+                            </div>
+                            {/* <span
                                 className = {item.AvailableCount !== 0 ? "avaliable" : "notAvaliable"}
-                            >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span>
+                            >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span> */}
                         </div>
                     </div>
-                </>
             )
         })
     }
