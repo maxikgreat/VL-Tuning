@@ -16,14 +16,13 @@ const ModelList = ({models}) => {
         return models.data.map((item, index) => {
             // console.log(item)
             return(
-                    <div 
-                        key = {index} 
-                        className = "itemBackground col-4" 
-                        //style = {{backgroundImage: `url(${cardsBg[Math.floor(Math.random() * 3)]})`}}
-                    >
                         <div 
-                            className = "itemContainer" 
+                            key = {index}
+                            className = "itemContainer col-4" 
                         >
+                            <div className = "cardPhoto">
+                                <img src = {models.srcLogo} alt = "Brand Logo"/>
+                            </div>
                             <div className = "cardContent">
                                 <span className = "cardTitle">{item.Name}</span>
                                 <span className = "cardVendor">created by {item.Manufacturer} </span>
@@ -32,7 +31,6 @@ const ModelList = ({models}) => {
                                 className = {item.AvailableCount !== 0 ? "avaliable" : "notAvaliable"}
                             >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span> */}
                         </div>
-                    </div>
             )
         })
     }
