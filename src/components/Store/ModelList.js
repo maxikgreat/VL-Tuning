@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { Link, useRouteMatch } from 'react-router-dom'
 
 const ModelList = ({models}) => {
 
-    const [cardsBg, setBg] = useState([])
-
-    useEffect(() => {
-        const filesSrc = require.context('../../assets/images/production/cards', false,  /\.(png|jpg|svg)$/)
-        const cardsBg = filesSrc.keys().map(filesSrc)
-        setBg([...cardsBg])
-    }, [])
+    const {path, url} = useRouteMatch()
 
     const renderItems = () => {
         return models.data.map((item, index) => {
             // console.log(item)
             return(
-                        <div 
-                            key = {index}
-                            className = "itemContainer col-4" 
-                        >
-                            <div className = "cardPhoto">
-                                <img src = {models.srcLogo} alt = "Brand Logo"/>
-                            </div>
-                            <div className = "cardContent">
-                                <span className = "cardTitle">{item.Name}</span>
-                                <span className = "cardVendor">created by {item.Manufacturer} </span>
-                            </div>
-                            {/* <span
-                                className = {item.AvailableCount !== 0 ? "avaliable" : "notAvaliable"}
-                            >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span> */}
+                    <Link 
+                        key = {index}
+                        className = "cardContainer col-4"
+                        to={`${url}/${item.ID}`}
+                    >
+                        <div className = "cardPhoto">
+                            <img src = {models.srcLogo} alt = "Brand Logo"/>
                         </div>
+                        <div className = "cardContent">
+                            <span className = "cardTitle">{item.Name}</span>
+                            <span className = "cardVendor">created by {item.Manufacturer} </span>
+                        </div>
+                        {/* <span
+                        className = {item.AvailableCount !== 0 ? "avaliable" : "notAvaliable"}
+                        >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span> */}
+                    </Link>
             )
         })
     }

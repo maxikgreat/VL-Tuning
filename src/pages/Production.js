@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux'
 import {useRouteMatch, Switch, Route, useParams} from 'react-router-dom'
 import BrandsList from '../components/Store/BrandsList'
 import ModelList from '../components/Store/ModelList'
+import Item from '../components/Store/Item'
 import Categories from '../components/Store/Categories'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 
@@ -42,10 +43,13 @@ const Production = () =>{
                                     url = {url}
                                 />
                             </Route>
-                            <Route path = {`${path}/:brandUrl`}>
+                            <Route exact path = {`${path}/:brandUrl`}>
                                 <ModelList 
                                     models = {dataBase[choseStuff.stuff][choseStuff.brand]}
                                 />
+                            </Route>
+                            <Route path = {`${path}/:brandUrl/:itemId`}>
+                                <Item />
                             </Route>
                         </Switch>
                     </div>

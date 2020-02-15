@@ -5,7 +5,8 @@
     background: rgba(0,0,0,0.85);
     overflow-y: scroll;
     align-content: flex-start;
-            .itemContainer{
+            .cardContainer{
+                cursor: pointer;
                 height: 50%;
                 background: rgba(0,0,0,0);
                 color: $secondaryDarkColor;
@@ -18,7 +19,7 @@
                 }
                 &:hover{
                     //box-shadow: none;
-                    transform: translateY(-20px);
+                    transform: translateY(-15px);
                     @include transition(all 0.2s ease);
                 }
                 .cardPhoto{

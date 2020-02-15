@@ -46,7 +46,9 @@ export default function modyfiedJson(){
                 const lowCaseName = item.Name.toLowerCase()
                 if(lowCaseName.includes(key.toLowerCase())){
                     let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"") //delete backslashes " and spaces
+                    let uniqueID = Math.random().toString(36).substr(2, 5)
                     arr.push({
+                        ID: uniqueID,
                         Name: trimedName,
                         Price: Number(item.Price),
                         Discount: Number(0),
