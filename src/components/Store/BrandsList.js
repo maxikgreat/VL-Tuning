@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setBrand, clearBrand} from '../../redux/choseStuff/choseStuffAction'
+import {setBrand, clearBrand, clearModel} from '../../redux/choseStuff/choseStuffAction'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import filter from '../../helpFunctions/filter'
 import {Link} from 'react-router-dom'
@@ -22,6 +22,7 @@ const BrandsList = ({brands, url}) => {
         })
         filter(brandsNames, inputRef.current.value, containerBrandsRef.current)
         dispatch(clearBrand())
+        dispatch(clearModel())
     })
 
     const getBrandsToRender = () => {

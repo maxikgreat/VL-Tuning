@@ -10,6 +10,8 @@
     justify-content: flex-start;
     li{
       a{
+        @include userSelect(none);
+        max-width: 300px;
         font-size: 1.2rem;
         font-weight: bold;
         color: $secondaryDarkColor;

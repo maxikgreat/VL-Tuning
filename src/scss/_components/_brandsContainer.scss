@@ -15,6 +15,7 @@
         justify-content: center;
         filter: grayscale(1);
         &:hover{
+            transform: scale(1.1);
             @include boxShadow(0px 0px 30px 20px rgba(0,0,0,1));
             filter: grayscale(0);
         }
