@@ -16,7 +16,11 @@ const ModelList = ({models}) => {
         return models.data.map((item, index) => {
             // console.log(item)
             return(
-                    <div key = {index} className = "itemBackground col-4" style = {{backgroundImage: `url(${cardsBg[Math.floor(Math.random() * 3)]})`}}>
+                    <div 
+                        key = {index} 
+                        className = "itemBackground col-4" 
+                        //style = {{backgroundImage: `url(${cardsBg[Math.floor(Math.random() * 3)]})`}}
+                    >
                         <div 
                             className = "itemContainer" 
                         >

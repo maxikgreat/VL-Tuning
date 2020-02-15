@@ -1,5 +1,5 @@
 .modelContainer{
-    @include boxShadow(0px 0px 20px 30px rgba(0,0,0,1));
+    @include boxShadow(0px 0px 10px 15px rgba(0,0,0,1));
     border-top: 0.1rem solid $primaryLightColor;
     height: 80vh;
     background: rgba(0,0,0,0.85);
@@ -18,12 +18,14 @@
                 color: $secondaryDarkColor;
                 display: flex;
                 align-items: flex-end;
+                transform: translateY(0px);
                 &:hover{
                     color: $secondaryLightColor;;
                 }
                 &:hover .cardContent{
                     //box-shadow: none;
-                    //height: 80%;
+                    transform: translateY(-30px);
+                    @include transition(all 0.2s ease);
                 }
                 .cardContent{
                     padding: 0 1rem 0 1rem;
@@ -35,7 +37,7 @@
                     justify-content: space-evenly;
                     height: 50%;
                     border-radius: 10px 10px 0 0;
-                    //@include boxShadow(0px 0px 20px 5px rgba(0,0,0, 1));
+                    //@include boxShadow(0px -5px 10px 0px rgba(0,0,0, 1));
                     .cardTitle{
 
                     }
