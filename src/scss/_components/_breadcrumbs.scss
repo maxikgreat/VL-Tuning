@@ -10,6 +10,7 @@
     justify-content: flex-start;
     li{
       a{
+        cursor: pointer;
         @include userSelect(none);
         max-width: 300px;
         font-size: 1.2rem;

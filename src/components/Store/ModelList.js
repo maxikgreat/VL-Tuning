@@ -11,8 +11,8 @@ const ModelList = ({models}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        //dispatch(clearModel())
-    })
+        dispatch(clearModel())
+    }, [])
     //route
     const {url} = useRouteMatch()
 

@@ -53,8 +53,8 @@ export default function modyfiedJson(){
                         Price: Number(item.Price),
                         Discount: Number(0),
                         Manufacturer: getManufacturer(lowCaseName),
-                        PurchaseCount: Number(0),
-                        AvailableCount: Number(0)
+                        orderedCount: Number(0),
+                        //AvailableCount: Number(0) maybe in future
                     })
                 }
             })
