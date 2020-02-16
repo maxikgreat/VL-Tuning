@@ -12,8 +12,6 @@ const initialState = {
    //Truck: mainBD.Truck
 }
 
-modyfiedJson()
-
 export default function dataBaseReducer(state = initialState, {type, payload}){
     switch(type){
         default: 
