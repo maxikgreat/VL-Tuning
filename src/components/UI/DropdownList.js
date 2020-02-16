@@ -152,7 +152,7 @@ class DropdownList extends PureComponent {
                 this.state.setItem(item)
                 break
             case "model":
-                this.state.setItem(item)
+                this.state.setItem({Name: item})
                 break
             default:
                 break

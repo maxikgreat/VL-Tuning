@@ -1,0 +1,6 @@
+.itemContainer{
+    height: 80vh;
+    @include boxShadow(0px 0px 10px 15px rgba(0,0,0,1));
+    background: rgba(0,0,0,0.85);
+    border-top: 0.1rem solid $primaryLightColor;
+}

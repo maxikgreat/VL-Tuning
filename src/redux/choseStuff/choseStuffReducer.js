@@ -3,7 +3,7 @@ import {SET_BRAND, SET_MODEL, SET_STUFF, CLEAR_ALL, CLEAR_BRAND, CLEAR_MODEL, CL
 const initialState = {
     stuff: 'Hood',
     brand: 'Audi',
-    model: ''
+    model: null
 }
 
 export default function choseStuffReducer(state = initialState, {type, payload}){
@@ -36,12 +36,12 @@ export default function choseStuffReducer(state = initialState, {type, payload})
         case CLEAR_MODEL:
             return{
                 ...state,
-                model: ''
+                model: null
             }
         case CLEAR_ALL:
             return{
                 brand: '',
-                model: '',
+                model: null,
                 stuff: ''
             }
         default:

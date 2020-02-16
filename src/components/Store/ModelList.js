@@ -28,7 +28,7 @@ const ModelList = ({models}) => {
                         key = {index}
                         className = "cardContainer col-4"
                         to={`${url}/${item.ID}`}
-                        onClick = {() => {choseModel(item.Name)}}
+                        onClick = {() => {choseModel(item)}}
                     >
                         <div className = "cardPhoto">
                             <img src = {models.srcLogo} alt = "Brand Logo"/>
@@ -48,14 +48,14 @@ const ModelList = ({models}) => {
     return(
         <div className = "d-flex flex-column" style = {{marginTop: '-10px'}}>
             <div className = "titleSearch" style = {{visibility: "hidden", opacity: 0}}>
-                    <input
+                    {/* <input
                         //ref = {inputRef}
                         className = "filterItems"
                         type = "text" 
                         placeholder = "Type to filter"
                         //onInput = {() => {filterBrands()}}
                     />
-                    <FontAwesomeIcon icon = "search" />
+                    <FontAwesomeIcon icon = "search" /> */}
             </div>
             <div className = "modelContainer row">
                 {renderItems()}

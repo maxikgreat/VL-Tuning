@@ -49,7 +49,9 @@ const Production = () =>{
                                 />
                             </Route>
                             <Route path = {`${path}/:brandUrl/:itemId`}>
-                                <Item />
+                                <Item 
+                                    itemStuff = {choseStuff.model}
+                                />
                             </Route>
                         </Switch>
                     </div>
