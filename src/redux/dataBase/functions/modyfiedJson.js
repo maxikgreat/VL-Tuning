@@ -22,6 +22,25 @@ export default function modyfiedJson(){
         else return "Unknown"
     }
 
+    const deleteManufacturerFromName = (name) => {
+        if(name.includes("Cobra Tuning")){
+            return name.replace("Cobra Tuning","")
+        } else if(name.includes("ALVI")){
+            return name.replace("ALVIALVI","")
+        } else if(name.includes("VT-52")){
+            return name.replace("VT-52","")
+        } else if (name.includes("VL-Tuning")){
+            return name.replace("VL-Tuning","")
+        } else if (name.includes("ANV air")){
+            return name.replace("ANV air","")
+        } else if(name.includes("Faber")){
+            return name.replace("Faber","")
+        } else if (name.includes("SIM")){
+            return name.replace("SIM","")
+        }
+        else return name
+    }
+
     let brands = getAllBrands()
     let brandsNames = brands.map(item => item.name)
 
@@ -49,7 +68,7 @@ export default function modyfiedJson(){
                     let uniqueID = Math.random().toString(36).substr(2, 5)
                     arr.push({
                         ID: uniqueID,
-                        Name: trimedName,
+                        Name: deleteManufacturerFromName(trimedName),
                         Price: Number(item.Price),
                         Discount: Number(0),
                         Manufacturer: getManufacturer(lowCaseName),

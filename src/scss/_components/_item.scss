@@ -1,6 +1,60 @@
 .itemContainer{
-    height: 80vh;
+    height: 50vh;
     @include boxShadow(0px 0px 10px 15px rgba(0,0,0,1));
     background: rgba(0,0,0,0.85);
     border-top: 0.1rem solid $primaryLightColor;
+    .photoContainer{
+        img{
+            width: 100%;
+        }
+    }
+    hr{
+        border-top: 0.15rem solid $secondaryLightColor;
+    }
+    .contentContainer{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        hr{
+            border-top: 0.15rem solid $secondaryLightColor;
+        }
+        .item-title{
+            font-weight: bold;
+            color: $secondaryLightColor;
+        }
+        .infoContainer{
+            .createdBy{
+                font-size: 1.3rem;
+            }
+            .price{
+                font-size: 1.8rem;
+            }
+        }
+        .quantityBuyContainer{
+            max-height: 80px;
+            .quantityCounter{
+                background-color: rgba(0, 0, 0, 0.75);
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+                align-items: center;
+                span{
+                    color: $secondaryLightColor;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    @include userSelect(none);
+                }
+                svg{
+                    cursor: pointer;
+                    font-size: 2rem;
+                    color: $primaryLightColor;
+                    @include transition(all 0.2s ease-in-out);
+                    &:hover{
+                        color: $secondaryLightColor;
+                    }
+                }
+            }
+        }
+    }
 }
