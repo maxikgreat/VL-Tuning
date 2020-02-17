@@ -43,17 +43,24 @@
   background: rgba(0,0,0, 1);
   h2{
     color: $secondaryLightColor;
+    margin-top: 0.5rem;
+  }
+  hr{
+    border-top: 0.1rem solid $secondaryLightColor;
+    width: 80%;
+    margin: auto;
   }
   .shoppingList{
     list-style: none;
     margin: 0;
     padding: 0;
+    text-align: center;
     .shoppingItem{
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.5rem;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       svg{
         cursor: pointer;
         font-size: 2rem;
@@ -62,7 +69,13 @@
         &:hover{
           color: $secondaryLightColor;
         }
+        path{
+          pointer-events: none;
+        }
       }
     }
+  }
+  .shoppingList .empty{
+    font-size: 25px;
   }
 }

@@ -39,7 +39,6 @@ const Item = ({itemStuff}) => {
                     <div className = "infoContainer">
                         <h2 className="createdBy">created by <span className = "specialText">{itemStuff.Manufacturer}</span></h2>
                         <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
-                        <hr />
                     </div>
                     <div className = "quantityBuyContainer row">
                         <div className = "d-flex align-items-center col-6">

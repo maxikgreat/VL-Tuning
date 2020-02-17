@@ -15,7 +15,10 @@ export default function shoppingCartReducer(state = initialState, {type, payload
             }
         case DELETE_ITEM:
             return{
-                ...state
+                ...state,
+                // items: (payload) => {
+
+                // }
             }
         case DELETE_ALL:
             return{
