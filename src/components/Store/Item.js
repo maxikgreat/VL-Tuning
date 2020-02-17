@@ -2,10 +2,21 @@ import React, {useState} from 'react'
 import examplePhoto from '../../assets/images/production/cards/11.jpg'
 import Button from '../../components/UI/Button'
 import QuantityCounter from './QuantityCounter'
+import { useDispatch } from 'react-redux'
+import {addItem} from '../../redux/shoppingCart/shoppingCartAction'
 
 const Item = ({itemStuff}) => {
 
+    const dispatch = useDispatch()
+
     const [quantity, changeQuantity] = useState(1)
+
+    const addToCart = (itemStuff, quantity) => {
+        for ( let i = 0; i < quantity; i++){
+            dispatch(addItem(itemStuff))
+        }
+        changeQuantity(1)
+    }
 
     return(
         <div className = "d-flex flex-column" style = {{marginTop: '-10px'}}>
@@ -39,7 +50,7 @@ const Item = ({itemStuff}) => {
                         </div>
                         <div className = "col-6">
                             <Button 
-                                //onClickAction = {}
+                                onClickAction = {() => {addToCart(itemStuff, quantity)}}
                             >Add to cart</Button>
                         </div>
                     </div>

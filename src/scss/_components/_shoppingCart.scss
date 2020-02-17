@@ -24,7 +24,6 @@
       &.active{
         transform: translateX(-400px);
         @include transition(transform 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860));
-        //transition: transform .2s ease-in;
       }
       &.active .s {
         color: $primaryLightColor;
@@ -36,10 +35,34 @@
 
 .shoppingCartContent{
   position: absolute;
-  top:0;
-  left:105%;
+  top: 0;
+  left: 105%;
   width: 400px;
   height: 100vh;
   border-left: 0.25rem solid $primaryLightColor;
   background: rgba(0,0,0, 1);
+  h2{
+    color: $secondaryLightColor;
+  }
+  .shoppingList{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .shoppingItem{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      svg{
+        cursor: pointer;
+        font-size: 2rem;
+        color: $primaryLightColor;
+        @include transition(all 0.2s ease-in-out);
+        &:hover{
+          color: $secondaryLightColor;
+        }
+      }
+    }
+  }
 }
