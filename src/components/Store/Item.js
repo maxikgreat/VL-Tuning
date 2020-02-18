@@ -13,6 +13,7 @@ const Item = ({itemStuff}) => {
 
     const addToCart = (itemStuff, quantity) => {
         for ( let i = 0; i < quantity; i++){
+            itemStuff.quantity = 1
             dispatch(addItem(itemStuff))
         }
         changeQuantity(1)

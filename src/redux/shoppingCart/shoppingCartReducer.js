@@ -2,7 +2,8 @@ import { ADD_ITEM, DELETE_ITEM, DELETE_ALL } from "../actionTypes"
 
 const initialState = {
    items: [],
-   total: 0
+   total: 0,
+   quantity: 0
 }
 
 export default function shoppingCartReducer(state = initialState, {type, payload}){
@@ -11,7 +12,8 @@ export default function shoppingCartReducer(state = initialState, {type, payload
             return{
                 ...state, 
                 items: [...state.items, payload],
-                total: state.total + payload.Price
+                total: state.total + payload.Price,
+                quantity: state.quantity + payload.quantity
             }
         case DELETE_ITEM:
             return{

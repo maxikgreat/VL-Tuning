@@ -13,24 +13,22 @@ const ShoppingCart = ({onToggle, isOpen}) => {
 
     const dispatch = useDispatch()
 
-    console.log(shoppingCart)
-    
-
     const toggleCart = (e) => {
         shoppingCartRef.current.classList.toggle("active")
     }
 
-    const deleteFromCart = (e, nodeWithId) => {
+    const deleteFromCart = (e) => {
 
         //for old browsers
-        if(e.target.nodeName === "svg"){
-            nodeWithId = e.target
-        }else{
-            nodeWithId = e.target.parentNode
-        }
-        console.log(nodeWithId.idtodelete)
+        // if(e.target.nodeName === "svg"){
+        //     nodeWithId = e.target
+        // }else{
+        //     nodeWithId = e.target.parentNode
+        // }
+        let node = e.target
+        console.log(node["data-id"])
 
-        dispatch(deleteItem(nodeWithId.idtodelete))
+        //dispatch(deleteItem(nodeWithId.idtodelete))
         
     }
 
@@ -43,11 +41,11 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                             className = "shoppingItem"
                         >
                             <div className = "pl-3 pr-3 d-flex justify-content-between align-items-center w-100">
-                                <span>{item.Name}</span>
+                                <span className = "name">{item.Name}</span>
                                 <span>{item.Price}$</span>
                             </div>
                                 <FontAwesomeIcon 
-                                    idtodelete = {item.ID}
+                                    data-id = {item.ID}
                                     icon = "times-circle"
                                     onClick = {(e) => {deleteFromCart(e)}}
                                 />
@@ -71,6 +69,9 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                     className='s'
                     onClick = {e => {toggleCart(e)}}
                 >
+                    {shoppingCart.quantity > 0 ? <span className = "quantityCircle"/> : null}
+                    <span className = "quantityIn">{shoppingCart.quantity > 0 ? shoppingCart.quantity : null}</span>
+
                     <FontAwesomeIcon icon = 'shopping-cart' />
                 </div>
                 <div className = "shoppingCartContent">
