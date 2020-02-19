@@ -13,6 +13,7 @@ const Production = () =>{
     //redux
     const dataBase = useSelector(state => state.dataBase)
     const choseStuff = useSelector(state => state.choseStuff)
+    const shoppingCart = useSelector(state => state.shoppingCart)
 
     //routing
     const {path, url} = useRouteMatch()
@@ -50,6 +51,7 @@ const Production = () =>{
                             </Route>
                             <Route path = {`${path}/:brandUrl/:itemId`}>
                                 <Item 
+                                    cartItems = {shoppingCart.items}
                                     itemStuff = {choseStuff.model}
                                 />
                             </Route>

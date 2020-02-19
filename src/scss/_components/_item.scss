@@ -17,14 +17,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        hr{
-            border-top: 0.15rem solid $secondaryLightColor;
-        }
         .item-title{
             margin-top: 1rem;
             font-weight: bold;
             color: $secondaryLightColor;
-            max-height: 200px;
+            max-height: 130px;
             overflow: hidden;
             font-size: 35px;
         }

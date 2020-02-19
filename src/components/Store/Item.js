@@ -2,19 +2,40 @@ import React, {useState} from 'react'
 import examplePhoto from '../../assets/images/production/cards/11.jpg'
 import Button from '../../components/UI/Button'
 import QuantityCounter from './QuantityCounter'
-import { useDispatch } from 'react-redux'
-import {addItem} from '../../redux/shoppingCart/shoppingCartAction'
+import { useDispatch} from 'react-redux'
+import {addNewItem, addExistItem} from '../../redux/shoppingCart/shoppingCartAction'
 
-const Item = ({itemStuff}) => {
+const Item = ({cartItems, itemStuff}) => {
 
+    //redux
     const dispatch = useDispatch()
 
     const [quantity, changeQuantity] = useState(1)
 
-    const addToCart = (itemStuff, quantity) => {
-        for ( let i = 0; i < quantity; i++){
-            itemStuff.quantity = 1
-            dispatch(addItem(itemStuff))
+    const addToCart = () => {
+
+        const localItem = {...itemStuff}
+
+        cartItems.some((item, index) => {
+            if(localItem.ID !== item.ID){
+                console.log(index + ".ITEM  " + item.ID + " NOT IDENTITY TO " + localItem.ID)
+            }
+            else{
+                console.log(index + ".ITEM  " + item.ID + " IDENTITY TO " + localItem.ID)
+            }
+        })
+
+
+        //console.log(cartItems.some(item => item.ID !== localItem.ID) || cartItems.length <= 0)
+
+
+
+
+        localItem.Quantity = quantity
+        if(cartItems.some(item => item.ID !== localItem.ID) || cartItems.length <= 0){
+            dispatch(addNewItem(localItem))
+        } else {
+            dispatch(addExistItem(cartItems, localItem))
         }
         changeQuantity(1)
     }
@@ -36,10 +57,12 @@ const Item = ({itemStuff}) => {
                     <img src = {examplePhoto} alt = "examplephoto"/>
                 </div>
                 <div className = "contentContainer col-7">
-                    <h1 className = "item-title">{itemStuff.Name}</h1>
-                    <div className = "infoContainer">
-                        <h2 className="createdBy">created by <span className = "specialText">{itemStuff.Manufacturer}</span></h2>
-                        <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
+                    <div>
+                        <h1 className = "item-title" title = {itemStuff.Name}>{itemStuff.Name}</h1>
+                        <div className = "infoContainer">
+                            <h2 className="createdBy">created by <span className = "specialText">{itemStuff.Manufacturer}</span></h2>
+                            <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
+                        </div>
                     </div>
                     <div className = "quantityBuyContainer row">
                         <div className = "d-flex align-items-center col-6">
@@ -50,7 +73,7 @@ const Item = ({itemStuff}) => {
                         </div>
                         <div className = "col-6">
                             <Button 
-                                onClickAction = {() => {addToCart(itemStuff, quantity)}}
+                                onClickAction = {() => {addToCart()}}
                             >Add to cart</Button>
                         </div>
                     </div>

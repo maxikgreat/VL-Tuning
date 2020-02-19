@@ -14,6 +14,7 @@ export const CLEAR_ALL = "CLEAR_ALL"
 
 //shoppingCart
 
-export const ADD_ITEM = "ADD_ITEM"
+export const ADD_NEW_ITEM = "ADD_NEW_ITEM"
+export const ADD_EXIST_ITEM = "ADD_EXIST_ITEM"
 export const DELETE_ITEM = "DELETE_ITEM"
 export const DELETE_ALL = "DELETE_ALL"

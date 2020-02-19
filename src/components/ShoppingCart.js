@@ -18,23 +18,13 @@ const ShoppingCart = ({onToggle, isOpen}) => {
     }
 
     const deleteFromCart = (e) => {
-
-        //for old browsers
-        // if(e.target.nodeName === "svg"){
-        //     nodeWithId = e.target
-        // }else{
-        //     nodeWithId = e.target.parentNode
-        // }
-        let node = e.target
-        console.log(node["data-id"])
-
-        //dispatch(deleteItem(nodeWithId.idtodelete))
-        
+        //dispatch(deleteItem(e.target.getAttribute('data-item-delete-id')))
     }
 
     const renderItems = () => {
         if(shoppingCart.items.length > 0){
-            return shoppingCart.items.map((item, index) => {
+            let renderArray = [...new Set(shoppingCart.items)]
+            return renderArray.map((item, index) => {
                 return (
                     <Fragment key = {index}>
                         <li 
@@ -42,10 +32,11 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                         >
                             <div className = "pl-3 pr-3 d-flex justify-content-between align-items-center w-100">
                                 <span className = "name">{item.Name}</span>
+                                <span>{item.Quantity}</span>
                                 <span>{item.Price}$</span>
                             </div>
                                 <FontAwesomeIcon 
-                                    data-id = {item.ID}
+                                    data-item-delete-id = {item.ID}
                                     icon = "times-circle"
                                     onClick = {(e) => {deleteFromCart(e)}}
                                 />

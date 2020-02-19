@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, DELETE_ALL } from "../actionTypes"
+import { ADD_NEW_ITEM, ADD_EXIST_ITEM, DELETE_ITEM, DELETE_ALL } from "../actionTypes"
 
 const initialState = {
    items: [],
@@ -8,19 +8,25 @@ const initialState = {
 
 export default function shoppingCartReducer(state = initialState, {type, payload}){
     switch(type){
-        case ADD_ITEM:
+        case ADD_NEW_ITEM:
             return{
                 ...state, 
                 items: [...state.items, payload],
-                total: state.total + payload.Price,
-                quantity: state.quantity + payload.quantity
+                total: state.total + payload.Price * payload.Quantity,
+                quantity: state.quantity + payload.Quantity
+            }
+        case ADD_EXIST_ITEM:
+            return{
+                ...state,
+                items: payload.newItems,
+                total: state.total + payload.existItem.Price * payload.existItem.Quantity,
+                quantity: state.quantity + payload.existItem.Quantity
             }
         case DELETE_ITEM:
             return{
                 ...state,
-                // items: (payload) => {
-
-                // }
+                items: state.items.filter(item => item.ID !== payload),
+                //todo quantity and total
             }
         case DELETE_ALL:
             return{
