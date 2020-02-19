@@ -33,6 +33,24 @@
                 font-size: 1.8rem;
             }
         }
+        .advIconsContainer{
+            .advIcon{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-transform: uppercase;
+                color: $secondaryLightColor;
+                text-align: center;
+                @include transition (all .2s ease-in-out);
+                svg{
+                    font-size: 50px;
+                }
+                &:hover{
+                    color: $primaryLightColor;
+                }
+            }
+
+        }
         .quantityBuyContainer{
             max-height: 80px;
             .quantityCounter{

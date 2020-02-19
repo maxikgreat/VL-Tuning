@@ -3,7 +3,7 @@ import React, {useContext, useEffect} from 'react'
 import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
 //font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
 import Home from './pages/Home'
@@ -13,7 +13,7 @@ import Production from './pages/Production'
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
 //firebase
-import firebase from './firebase'
+//import firebase from './firebase'
 //re-renders
 //remove IN PRODUCTION
 import whyDidYouRender from '@welldone-software/why-did-you-render'
@@ -23,18 +23,13 @@ import whyDidYouRender from '@welldone-software/why-did-you-render'
 //   id: 20
 // })
 
-library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle)
+library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar)
 
 function App() {
 
   if (process.env.NODE_ENV === 'development'){
     whyDidYouRender(React);
   }
-
-  // if (process.env.NODE_ENV !== 'production') {
-  //   const {whyDidYouUpdate} = require('why-did-you-update');
-  //   whyDidYouUpdate(React);
-  // }
   
 
   // const {location} = useContext(__RouterContext)

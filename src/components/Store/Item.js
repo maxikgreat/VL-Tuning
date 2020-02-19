@@ -4,6 +4,7 @@ import Button from '../../components/UI/Button'
 import QuantityCounter from './QuantityCounter'
 import { useDispatch} from 'react-redux'
 import {addNewItem, addExistItem} from '../../redux/shoppingCart/shoppingCartAction'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const Item = ({cartItems, itemStuff}) => {
 
@@ -62,6 +63,20 @@ const Item = ({cartItems, itemStuff}) => {
                         <div className = "infoContainer">
                             <h2 className="createdBy">created by <span className = "specialText">{itemStuff.Manufacturer}</span></h2>
                             <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
+                        </div>
+                    </div>
+                    <div className = "advIconsContainer row">
+                        <div className = "advIcon col-4">
+                            <FontAwesomeIcon icon = "car" />
+                            <span>on favourite car</span>
+                        </div>
+                        <div className = "advIcon col-4">
+                            <FontAwesomeIcon icon = 'cloud-sun' />
+                            <span>weather - no matter</span>
+                        </div>
+                        <div className = "advIcon col-4">
+                            <FontAwesomeIcon icon = "bolt" />
+                            <span>strong and light</span>
                         </div>
                     </div>
                     <div className = "quantityBuyContainer row">
