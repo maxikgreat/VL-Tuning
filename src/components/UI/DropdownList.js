@@ -31,7 +31,6 @@ class DropdownList extends PureComponent {
         }
         
     }
-    //todo: unpin "Enter" button click
 
     componentDidMount(){
         switch(this.props.valueType){
@@ -70,10 +69,12 @@ class DropdownList extends PureComponent {
                     })
                     break
                 case "model":
-                    this.inputField.value = this.props.choseStuff.model.Name //cause model is obj
-                    this.setState({
-                        models: this.updateModels(this.props.dataBase, this.props.choseStuff)
-                    })
+                    if(this.props.choseStuff.model !== null){
+                        this.inputField.value = this.props.choseStuff.model.Name //cause model is obj
+                        this.setState({
+                            models: this.updateModels(this.props.dataBase, this.props.choseStuff)
+                        })
+                    }
                     break
                 default:
                     break
@@ -171,13 +172,28 @@ class DropdownList extends PureComponent {
     }
 
     onBlurInput = () => {
-        this.inputField.placeholder = 'Select option';
+
+        switch(this.props.valueType){
+            case "stuff":
+                this.inputField.value = this.props.choseStuff.stuff
+                break
+            case "brand":
+                this.inputField.value = this.props.choseStuff.brand
+                break
+            case "model":
+                if(this.props.choseStuff.model !== null){
+                    this.inputField.value = this.props.choseStuff.model.Name // for first blur event
+                }
+                break
+            default:
+                break
+        }
         this.dropdown.classList.remove('open');
     }
 
     render(){
         return(
-            <form>
+            <form onSubmit = {e => {e.preventDefault()}}>
                 <input 
                     disabled = {this.props.disabled}
                     className={"chosen-value" + (this.props.disabled ? " disabled" : "")} 
