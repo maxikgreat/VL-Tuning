@@ -3,7 +3,7 @@ import React, {useContext, useEffect} from 'react'
 import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
 //font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar, faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
 import Home from './pages/Home'
@@ -23,7 +23,7 @@ import whyDidYouRender from '@welldone-software/why-did-you-render'
 //   id: 20
 // })
 
-library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar)
+library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle, faCloudSun, faBolt, faCar, faMoneyBillAlt)
 
 function App() {
 

@@ -2,6 +2,7 @@ import React, {useRef, Fragment} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from 'react-redux'
 import {deleteItem} from '../redux/shoppingCart/shoppingCartAction'
+import Button from '../components/UI/Button'
 
 //TODO RELOAD SAFE CART
 
@@ -26,6 +27,7 @@ const ShoppingCart = ({onToggle, isOpen}) => {
         if(shoppingCart.items.length > 0){
             return shoppingCart.items.map((item, index) => {
                 return (
+                    <>
                         <li 
                             className = "shoppingItem"
                             key = {index}
@@ -41,6 +43,7 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                                 />
                             </div>
                         </li>
+                    </>
                 )
             })
         } else {
@@ -71,6 +74,25 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                     <ul className = "shoppingList">
                         {renderItems()}
                     </ul>
+                    {shoppingCart.items.length > 0 ? 
+                        <>
+                            <hr />
+                            <div className = "orderContainer">
+                                <div className = "orderButtonContainer">
+                                    <Button 
+                                        onClickAction = {""}
+                                    >Order</Button>
+                                </div>
+                                <div className = "quantPriceIcon">
+                                    <span className = "quant">{shoppingCart.quantity}</span>
+                                    <span className = "price">{shoppingCart.total}$</span>
+                                    <FontAwesomeIcon 
+                                        icon = "money-bill-alt"
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    : null}
                 </div>
             </div>
         </>

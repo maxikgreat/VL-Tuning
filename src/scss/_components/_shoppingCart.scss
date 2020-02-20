@@ -56,15 +56,19 @@
     margin-top: 0.5rem;
   }
   hr{
-    border-top: 0.1rem solid $secondaryLightColor;
-    width: 80%;
-    margin: auto;
+      border-top: 0.1rem solid $secondaryLightColor;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
   }
   .shoppingList{
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
+    hr{
+      border-top: 0.1rem solid $secondaryLightColor;
+      margin: auto;
+    }
     .shoppingItem{
       display: flex;
       justify-content: space-between;
@@ -104,5 +108,27 @@
   }
   .shoppingList .empty{
     font-size: 25px;
+  }
+}
+.orderContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  width:100%;
+  .orderButtonContainer{
+    width: 65%;
+    padding-right: 15px;
+  }
+  .quantPriceIcon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+    font-size: 25px;
+    font-weight: bold;
+    svg{
+      font-size: 30px;
+    }
   }
 }
