@@ -85,10 +85,12 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                                 </div>
                                 <div className = "quantPriceIcon">
                                     <span className = "quant">{shoppingCart.quantity}</span>
-                                    <span className = "price">{shoppingCart.total}$</span>
-                                    <FontAwesomeIcon 
-                                        icon = "money-bill-alt"
-                                    />
+                                    <span className = "price">{shoppingCart.total}
+                                        <FontAwesomeIcon 
+                                            icon = "money-bill-alt"
+                                            style = {{marginLeft: '10px', paddingTop: '4px'}}
+                                        />
+                                    </span>
                                 </div>
                             </div>
                         </>

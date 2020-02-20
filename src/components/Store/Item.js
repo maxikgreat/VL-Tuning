@@ -46,8 +46,8 @@ const Item = ({cartItems, itemStuff}) => {
                     <div>
                         <h1 className = "item-title" title = {itemStuff.Name}>{itemStuff.Name}</h1>
                         <div className = "infoContainer">
-                            <h2 className="createdBy">created by <span className = "specialText">{itemStuff.Manufacturer}</span></h2>
-                            <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
+                            <h2 className="createdBy">created by <span>{itemStuff.Manufacturer}</span></h2>
+                            <h2 className = "price"><span>{itemStuff.Price}$</span></h2>
                         </div>
                     </div>
                     <AdvantageIcons />

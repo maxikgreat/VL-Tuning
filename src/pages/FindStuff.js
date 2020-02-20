@@ -25,18 +25,21 @@ const FindStuff = () => {
     }, [dispatch])
 
     const showProduction = () => {
+
+        const brandUrl = brand.replace(" ","-").toLowerCase()
+
         switch(stuff){
-            case "Ветровики":
-                history.push('/production/door-visors')
+            case "Visors":
+                history.push(`/production/door-visors/${brandUrl}/${model.ID}`)
                 break;
-            case "Мухобойки":
-                history.push('/production/hood-protectors')
+            case "Chrome":
+                history.push(`/production/door-visors-chrome/${brandUrl}/${model.ID}`)
                 break;
-            case "Спойлера":
-                history.push('/production/back-spoiler')
+            case "Hood":
+                history.push(`/production/hood-protectors/${brandUrl}/${model.ID}`)
                 break;
-            case "Реснички":
-                history.push('/production/headlight-visors')
+            case "Back":
+                history.push(`/production/back-spoilers/${brandUrl}/${model.ID}`)
                 break;
             default: 
                 history.push('/')
@@ -54,7 +57,7 @@ const FindStuff = () => {
             <Stepper />
             <div className = "findButton">
                 <Button 
-                    disabled = {(brand !== "") && (model !== null) && (stuff !== "") ? false : true}
+                    disabled = {(brand !== "") && (model !== null) && (stuff !== "") ? false : true} // model is object
                     onClickAction = {showProduction}
                 >Find</Button>
             </div>
