@@ -26,23 +26,21 @@ const ShoppingCart = ({onToggle, isOpen}) => {
             let renderArray = [...new Set(shoppingCart.items)]
             return renderArray.map((item, index) => {
                 return (
-                    <Fragment key = {index}>
                         <li 
                             className = "shoppingItem"
+                            key = {index}
                         >
-                            <div className = "pl-3 pr-3 d-flex justify-content-between align-items-center w-100">
-                                <span className = "name">{item.Name}</span>
-                                <span>{item.Quantity}</span>
-                                <span>{item.Price}$</span>
-                            </div>
+                            <span className = "name">{item.Name}</span>
+                            <div className = "quantPriceIcon">
+                                <span className = "quant">{item.Quantity}</span>
+                                <span className = "price">{item.Price * item.Quantity}$</span>
                                 <FontAwesomeIcon 
                                     data-item-delete-id = {item.ID}
                                     icon = "times-circle"
                                     onClick = {(e) => {deleteFromCart(e)}}
                                 />
+                            </div>
                         </li>
-                        <hr />
-                    </Fragment>
                 )
             })
         } else {
@@ -60,7 +58,10 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                     className='s'
                     onClick = {e => {toggleCart(e)}}
                 >
-                    <span className = "quantityIn">{shoppingCart.quantity > 0 ? shoppingCart.quantity : null}</span>
+                    <span 
+                        className = "quantityIn" 
+                        style = {{padding: shoppingCart.quantity ? '3px' : '0'}}
+                    >{shoppingCart.quantity > 0 ? shoppingCart.quantity : null}</span>
 
                     <FontAwesomeIcon icon = 'shopping-cart' />
                 </div>

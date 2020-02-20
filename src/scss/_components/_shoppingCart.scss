@@ -9,6 +9,7 @@
       font-size: 1.5rem;
     }
     .quantityIn{
+      @include userSelect(none);
       position: absolute;
       font-size: 16px;
       left: 46px;
@@ -31,7 +32,7 @@
       }
 
       &.active{
-        transform: translateX(-400px);
+        transform: translateX(-50vw);
         @include transition(transform 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860));
       }
       &.active .s {
@@ -46,7 +47,7 @@
   position: absolute;
   top: 0;
   left: 105%;
-  width: 400px;
+  width: 50vw;
   height: 100vh;
   border-left: 0.25rem solid $primaryLightColor;
   background: rgba(0,0,0, 1);
@@ -71,19 +72,34 @@
       align-items: center;
       padding: 0.5rem;
       font-size: 1.2rem;
+      width:100%;
+      text-align: left;
+      // border-bottom: 1px solid $secondaryLightColor;
       .name{
         font-size: 1.1rem;
+        width: 65%;
+        padding-right: 15px;
       }
-      svg{
-        cursor: pointer;
-        font-size: 2rem;
-        color: $primaryLightColor;
-        @include transition(all 0.2s ease-in-out);
-        &:hover{
-          color: $secondaryLightColor;
+      .quantPriceIcon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 35%;
+        .quant{
         }
-        path{
-          pointer-events: none;
+        .price{
+        }
+        svg{
+          cursor: pointer;
+          font-size: 2rem;
+          color: $primaryLightColor;
+          @include transition(all 0.2s ease-in-out);
+          &:hover{
+            color: $secondaryLightColor;
+          }
+          path{
+            pointer-events: none;
+          }
         }
       }
     }
