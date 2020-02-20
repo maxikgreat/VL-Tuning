@@ -34,6 +34,7 @@
             }
         }
         .advIconsContainer{
+            @include userSelect(none);
             .advIcon{
                 display: flex;
                 flex-direction: column;

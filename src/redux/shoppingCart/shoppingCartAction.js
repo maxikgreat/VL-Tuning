@@ -15,10 +15,11 @@ export function addExistItem(prevItems, existItem){
     const newItems = prevItems.map((item, index) => {
         if(indexFounded !== index){
             return item
-        }
-        return{
-            ...item,
-            ...item.Quantity += existItem.Quantity
+        }else{
+            return{
+                ...item,
+                ...item.Quantity += existItem.Quantity
+            }
         }
     })
     return{

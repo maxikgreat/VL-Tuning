@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import examplePhoto from '../../assets/images/production/cards/11.jpg'
 import Button from '../../components/UI/Button'
+import AdvantageIcons from './AdvantagesIcons'
 import QuantityCounter from './QuantityCounter'
 import { useDispatch} from 'react-redux'
 import {addNewItem, addExistItem} from '../../redux/shoppingCart/shoppingCartAction'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const Item = ({cartItems, itemStuff}) => {
 
@@ -16,21 +16,7 @@ const Item = ({cartItems, itemStuff}) => {
     const addToCart = () => {
 
         const localItem = {...itemStuff}
-
-        cartItems.some((item, index) => {
-            if(localItem.ID !== item.ID){
-                console.log(index + ".ITEM  " + item.ID + " NOT IDENTITY TO " + localItem.ID)
-            }
-            else{
-                console.log(index + ".ITEM  " + item.ID + " IDENTITY TO " + localItem.ID)
-            }
-        })
-
-
-        //console.log(cartItems.some(item => item.ID !== localItem.ID) || cartItems.length <= 0)
-
-
-
+        let flag
 
         localItem.Quantity = quantity
         if(cartItems.some(item => item.ID !== localItem.ID) || cartItems.length <= 0){
@@ -38,6 +24,7 @@ const Item = ({cartItems, itemStuff}) => {
         } else {
             dispatch(addExistItem(cartItems, localItem))
         }
+        console.log(cartItems.some(item => item.ID !== localItem.ID))
         changeQuantity(1)
     }
 
@@ -65,20 +52,7 @@ const Item = ({cartItems, itemStuff}) => {
                             <h2 className = "price"><span className = "specialText">{itemStuff.Price}$</span></h2>
                         </div>
                     </div>
-                    <div className = "advIconsContainer row">
-                        <div className = "advIcon col-4">
-                            <FontAwesomeIcon icon = "car" />
-                            <span>on favourite car</span>
-                        </div>
-                        <div className = "advIcon col-4">
-                            <FontAwesomeIcon icon = 'cloud-sun' />
-                            <span>weather - no matter</span>
-                        </div>
-                        <div className = "advIcon col-4">
-                            <FontAwesomeIcon icon = "bolt" />
-                            <span>strong and light</span>
-                        </div>
-                    </div>
+                    <AdvantageIcons />
                     <div className = "quantityBuyContainer row">
                         <div className = "d-flex align-items-center col-6">
                             <QuantityCounter 

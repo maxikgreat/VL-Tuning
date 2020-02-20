@@ -60,7 +60,6 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                     className='s'
                     onClick = {e => {toggleCart(e)}}
                 >
-                    {shoppingCart.quantity > 0 ? <span className = "quantityCircle"/> : null}
                     <span className = "quantityIn">{shoppingCart.quantity > 0 ? shoppingCart.quantity : null}</span>
 
                     <FontAwesomeIcon icon = 'shopping-cart' />

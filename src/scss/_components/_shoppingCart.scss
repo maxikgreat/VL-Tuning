@@ -8,21 +8,14 @@
     svg{
       font-size: 1.5rem;
     }
-    .quantityCircle{
-      left: 40px;
-      top: 10px;
-      width: 25px;
-      height: 25px;
-      background: $primaryLightColor;
-      border-radius: 50%;
-      position: absolute;
-    }
     .quantityIn{
       position: absolute;
       font-size: 16px;
       left: 46px;
       top: -13px;
-      color: $secondaryLightColor
+      height: 50px;
+      color: $secondaryLightColor;
+      background-color: $primaryLightColor;
     }
     text-align: center;
     .s {
