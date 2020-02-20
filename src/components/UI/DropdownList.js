@@ -10,8 +10,8 @@ import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/
 class DropdownList extends PureComponent {
 
     state = {
-        brands:[],
-        models: [],
+        brands:[], //array of String
+        models: [], // array of OBJECTS
         stuff: ["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"], //always on default
         setItem: null
     }
@@ -22,7 +22,7 @@ class DropdownList extends PureComponent {
 
         if(dataBase[choseStuff.stuff][choseStuff.brand] !== undefined){
             filteredModels =  dataBase[choseStuff.stuff][choseStuff.brand].data.map(item => {
-                return item.Name
+                return item
             })
             if(filteredModels.length === 0){
                 return ["No data found"]
@@ -42,7 +42,6 @@ class DropdownList extends PureComponent {
                 })
                 break
             case "model":
-                
                 this.setState({
                     setItem: this.props.setModel,
                     models: this.updateModels(this.props.dataBase, this.props.choseStuff)
@@ -71,7 +70,7 @@ class DropdownList extends PureComponent {
                     })
                     break
                 case "model":
-                    this.inputField.value = this.props.choseStuff.model
+                    this.inputField.value = this.props.choseStuff.model.Name //cause model is obj
                     this.setState({
                         models: this.updateModels(this.props.dataBase, this.props.choseStuff)
                     })
@@ -103,13 +102,13 @@ class DropdownList extends PureComponent {
                         >{item}</li>
                     )
                 })
-            case "model":
+            case "model": // model is OBJECT
                 return this.state.models.map((item, index) => {
                     return(
                         <li 
                             key ={index}
                             onClick = {() => {this.onClickItem(item)}}
-                        >{item}</li>
+                        >{item.Name}</li>
                     )
                 })
             default: 
@@ -128,7 +127,10 @@ class DropdownList extends PureComponent {
                 filter(this.state.brands, this.inputField.value, this.dropdown)
                 break
             case "model":
-                filter(this.state.models, this.inputField.value, this.dropdown)
+                const filterModelNames = this.state.models.map(model => {
+                    return model.Name
+                })
+                filter(filterModelNames, this.inputField.value, this.dropdown) // pass only names
                 break
             default: 
                 break
@@ -136,7 +138,7 @@ class DropdownList extends PureComponent {
     }
 
     onClickItem = (item) => {
-        this.inputField.value = item;
+        //this.inputField.value = "suka";
 
         for (let dropdownItem of this.dropdown.children){
             dropdownItem.classList.remove('closed');
@@ -152,7 +154,7 @@ class DropdownList extends PureComponent {
                 this.state.setItem(item)
                 break
             case "model":
-                this.state.setItem({Name: item})
+                this.state.setItem(item)
                 break
             default:
                 break

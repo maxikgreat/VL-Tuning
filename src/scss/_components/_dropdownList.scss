@@ -1,11 +1,6 @@
 
-
-.chosen-value,
-.value-list {
-  width: 60%;
-}
 .chosen-value {
-    width: 100%;
+    width: 95%;
     height: 4rem;
     font-size: 1.1rem;
     padding: 1rem;
@@ -31,7 +26,8 @@
   }
   
   .value-list {
-    width: 100%;
+    text-align: left;
+    width: 95%;
     margin: auto;
     list-style: none;
     padding: 0;
@@ -41,12 +37,13 @@
     transition: .3s ease-in-out;
   }
   .value-list.open {
-    max-height: 300px;
+    max-height: 250px;
     overflow: auto;
   }
   .value-list li {
+    width: 100%;
     position: relative;
-    height: 4rem;
+    height: 4.1rem;
     padding: 1rem;
     display: flex;
     align-items: center;

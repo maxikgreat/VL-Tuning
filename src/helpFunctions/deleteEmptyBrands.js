@@ -14,7 +14,7 @@ export default function deleteEmptyBrands(brands, withData){
                 if(withData){
                     return filteredBrands //return objects
                 } else {
-                    return [...Object.keys(filteredBrands)] //return keys of objects
+                    return [...Object.keys(filteredBrands)] //return keys of objects (only names)
                 }
                 
             }

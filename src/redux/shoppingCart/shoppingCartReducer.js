@@ -32,7 +32,9 @@ export default function shoppingCartReducer(state = initialState, {type, payload
         case DELETE_ALL:
             return{
                 ...state,
-                items: []
+                items: [],
+                total: 0,
+                quantity: 0
             }
         default: 
             return state

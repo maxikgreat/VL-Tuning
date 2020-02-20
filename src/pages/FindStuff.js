@@ -54,7 +54,7 @@ const FindStuff = () => {
             <Stepper />
             <div className = "findButton">
                 <Button 
-                    disabled = {(brand !== "") && (model !== "") && (stuff !== "") ? false : true}
+                    disabled = {(brand !== "") && (model !== null) && (stuff !== "") ? false : true}
                     onClickAction = {showProduction}
                 >Find</Button>
             </div>

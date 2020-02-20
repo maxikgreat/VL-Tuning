@@ -1,13 +1,9 @@
 import {SET_BRAND, SET_MODEL, SET_STUFF, CLEAR_ALL, CLEAR_BRAND, CLEAR_MODEL, CLEAR_STUFF} from '../actionTypes'
 
 const initialState = {
-    stuff: 'Hood',
-    brand: 'Audi',
-    model: {
-        ID: "12312",
-        Name: "Audi blablabl",
-        Price: 450,
-    }
+    stuff: '',
+    brand: '',
+    model: null
 }
 
 export default function choseStuffReducer(state = initialState, {type, payload}){
