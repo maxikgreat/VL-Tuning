@@ -10,6 +10,7 @@ export function addNewItem(item){
 }
 
 export function addExistItem(prevItems, existItem){
+
     const indexFounded = prevItems.findIndex(item => item.ID === existItem.ID)
 
     const newItems = prevItems.map((item, index) => {
@@ -28,10 +29,10 @@ export function addExistItem(prevItems, existItem){
     }
 }
 
-export function deleteItem(itemId){
+export function deleteItem(itemToDelete){
     return{
         type: DELETE_ITEM,
-        payload: itemId
+        payload: itemToDelete
     }
 }
 

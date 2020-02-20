@@ -25,8 +25,9 @@ export default function shoppingCartReducer(state = initialState, {type, payload
         case DELETE_ITEM:
             return{
                 ...state,
-                items: state.items.filter(item => item.ID !== payload),
-                //todo quantity and total
+                items: state.items.filter(item => item.ID !== payload.ID),
+                total: state.total - payload.Price * payload.Quantity,
+                quantity: state.quantity - payload.Quantity
             }
         case DELETE_ALL:
             return{

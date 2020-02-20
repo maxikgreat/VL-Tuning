@@ -13,18 +13,18 @@ const ShoppingCart = ({onToggle, isOpen}) => {
 
     const dispatch = useDispatch()
 
-    const toggleCart = (e) => {
+    const toggleCart = () => {
         shoppingCartRef.current.classList.toggle("active")
     }
 
     const deleteFromCart = (e) => {
-        //dispatch(deleteItem(e.target.getAttribute('data-item-delete-id')))
+        let itemToDelete = shoppingCart.items.find(item => item.ID === e.target.getAttribute('data-item-delete-id'))
+        dispatch(deleteItem(itemToDelete))
     }
 
     const renderItems = () => {
         if(shoppingCart.items.length > 0){
-            let renderArray = [...new Set(shoppingCart.items)]
-            return renderArray.map((item, index) => {
+            return shoppingCart.items.map((item, index) => {
                 return (
                         <li 
                             className = "shoppingItem"
@@ -56,7 +56,7 @@ const ShoppingCart = ({onToggle, isOpen}) => {
             >
                 <div 
                     className='s'
-                    onClick = {e => {toggleCart(e)}}
+                    onClick = {() => {toggleCart()}}
                 >
                     <span 
                         className = "quantityIn" 
