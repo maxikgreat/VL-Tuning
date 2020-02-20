@@ -16,15 +16,13 @@ const Item = ({cartItems, itemStuff}) => {
     const addToCart = () => {
 
         const localItem = {...itemStuff}
-        let flag
 
         localItem.Quantity = quantity
-        if(cartItems.some(item => item.ID !== localItem.ID) || cartItems.length <= 0){
-            dispatch(addNewItem(localItem))
-        } else {
+        if(cartItems.some(item => item.ID === localItem.ID)){
             dispatch(addExistItem(cartItems, localItem))
+        } else {
+            dispatch(addNewItem(localItem))
         }
-        console.log(cartItems.some(item => item.ID !== localItem.ID))
         changeQuantity(1)
     }
 
