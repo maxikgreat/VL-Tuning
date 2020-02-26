@@ -27,7 +27,6 @@ const ShoppingCart = ({onToggle, isOpen}) => {
         if(shoppingCart.items.length > 0){
             return shoppingCart.items.map((item, index) => {
                 return (
-                    <>
                         <li 
                             className = "shoppingItem"
                             key = {index}
@@ -43,7 +42,6 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                                 />
                             </div>
                         </li>
-                    </>
                 )
             })
         } else {

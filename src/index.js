@@ -4,34 +4,20 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import App from './App'
 //react-redux
 import { Provider } from 'react-redux'
-import { createStore, compose, applyMiddleware } from 'redux'
-import rootReducer from './redux/rootReducer'
-import thunk from 'redux-thunk'
+import { store, persistor } from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import * as serviceWorker from './serviceWorker'
+//styles
 import 'bootstrap/dist/css/bootstrap.css'
 import './scss/main.scss'
-//for production only
-
-
-const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    }) : compose;
-
-
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-)
-
 
 const app = 
     <Provider store = {store}>
         <Router>
+          <PersistGate persistor = {persistor}>
             <App />
+          </PersistGate>
         </Router>
     </Provider>
 

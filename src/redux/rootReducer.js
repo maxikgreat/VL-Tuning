@@ -2,9 +2,19 @@ import {combineReducers} from 'redux'
 import choseStuffReducer from './choseStuff/choseStuffReducer'
 import dataBaseReducer from './dataBase/dataBaseReducer'
 import shoppingCartReducer from './shoppingCart/shoppingCartReducer'
+import { persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-export default combineReducers({
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['choseStuff', 'shoppingCart']
+}
+
+const rootReducer = combineReducers({
     choseStuff: choseStuffReducer,
     dataBase: dataBaseReducer,
     shoppingCart: shoppingCartReducer
 })
+
+export default persistReducer(persistConfig, rootReducer)
