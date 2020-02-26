@@ -1,4 +1,4 @@
-import { ADD_NEW_ITEM, ADD_EXIST_ITEM, DELETE_ALL, DELETE_ITEM } from "../actionTypes";
+import { ADD_NEW_ITEM, ADD_EXIST_ITEM, DELETE_ALL, DELETE_ITEM, TOGGLE_CART} from "../actionTypes";
 
 // actions for shopping cart
 
@@ -33,6 +33,12 @@ export function deleteItem(itemToDelete){
     return{
         type: DELETE_ITEM,
         payload: itemToDelete
+    }
+}
+
+export function toggleCart(){
+    return{
+        type: TOGGLE_CART
     }
 }
 

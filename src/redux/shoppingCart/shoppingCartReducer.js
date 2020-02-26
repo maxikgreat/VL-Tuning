@@ -1,9 +1,10 @@
-import { ADD_NEW_ITEM, ADD_EXIST_ITEM, DELETE_ITEM, DELETE_ALL } from "../actionTypes"
+import { ADD_NEW_ITEM, ADD_EXIST_ITEM, DELETE_ITEM, DELETE_ALL, TOGGLE_CART } from "../actionTypes"
 
 const initialState = {
    items: [],
    total: 0,
-   quantity: 0
+   quantity: 0,
+   isOpen: false
 }
 
 export default function shoppingCartReducer(state = initialState, {type, payload}){
@@ -28,6 +29,11 @@ export default function shoppingCartReducer(state = initialState, {type, payload
                 items: state.items.filter(item => item.ID !== payload.ID),
                 total: state.total - payload.Price * payload.Quantity,
                 quantity: state.quantity - payload.Quantity
+            }
+        case TOGGLE_CART:
+            return{
+                ...state,
+                isOpen: !state.isOpen
             }
         case DELETE_ALL:
             return{

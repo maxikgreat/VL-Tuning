@@ -1,12 +1,12 @@
-import React, {useRef, Fragment} from 'react'
+import React, {useRef} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from 'react-redux'
 import {deleteItem} from '../redux/shoppingCart/shoppingCartAction'
 import Button from '../components/UI/Button'
+import {useHistory} from 'react-router-dom'
+import {toggleCart} from '../redux/shoppingCart/shoppingCartAction'
 
-//TODO RELOAD SAFE CART
-
-const ShoppingCart = ({onToggle, isOpen}) => {
+const ShoppingCart = () => {
 
     const shoppingCartRef = useRef(null)
 
@@ -14,9 +14,7 @@ const ShoppingCart = ({onToggle, isOpen}) => {
 
     const dispatch = useDispatch()
 
-    const toggleCart = () => {
-        shoppingCartRef.current.classList.toggle("active")
-    }
+    const history = useHistory()
 
     const deleteFromCart = (e) => {
         let itemToDelete = shoppingCart.items.find(item => item.ID === e.target.getAttribute('data-item-delete-id'))
@@ -52,12 +50,12 @@ const ShoppingCart = ({onToggle, isOpen}) => {
     return(
         <>
             <div 
-                className = "shoppingCart" 
+                className = {shoppingCart.isOpen ? 'shoppingCart active' : 'shoppingCart'} 
                 ref = {shoppingCartRef}
             >
                 <div 
                     className='s'
-                    onClick = {() => {toggleCart()}}
+                    onClick = {() => {dispatch(toggleCart())}}
                 >
                     <span 
                         className = "quantityIn" 
@@ -78,7 +76,7 @@ const ShoppingCart = ({onToggle, isOpen}) => {
                             <div className = "orderContainer">
                                 <div className = "orderButtonContainer">
                                     <Button 
-                                        onClickAction = {""}
+                                        onClickAction = {() => history.push('/order')}
                                     >Order</Button>
                                 </div>
                                 <div className = "quantPriceIcon">

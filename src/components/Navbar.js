@@ -76,11 +76,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div  className = "col-1">
-                        <ShoppingCart />
+
                     </div>
                 </nav>
-                {/* TODO SUBMENU NORMALNOE */}
-                
         </header>
     )
 }

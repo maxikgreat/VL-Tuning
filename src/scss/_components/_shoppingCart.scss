@@ -4,6 +4,9 @@
   @include transition(transform 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860));
   z-index: 20;
   color: $secondaryDarkColor;
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 70px);
     min-width: 70px;
     svg{
       font-size: 1.5rem;
@@ -44,6 +47,7 @@
 //content
 
 .shoppingCartContent{
+  z-index: 20;
   position: absolute;
   top: 0;
   left: 105%;

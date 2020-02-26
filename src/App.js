@@ -12,6 +12,7 @@ import Production from './pages/Production'
 //animated routes
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
+import Order from './pages/Order'
 //firebase
 //import firebase from './firebase'
 //re-renders
@@ -60,6 +61,7 @@ function App() {
                 <Route path = '/quick-search' component = {FindStuff} />
                 <Route path = '/production/:typeStuff' component = {Production} />
                 <Route path = '/about-us' component = {AboutUs} />
+                <Route path = '/order' component = {Order} />
                 <Redirect to = '/' />
               </Switch>
       </Layout>
