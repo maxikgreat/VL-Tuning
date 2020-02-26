@@ -16,6 +16,11 @@ const ShoppingCart = () => {
 
     const history = useHistory()
 
+    const openOrderPage = () => {
+        dispatch(toggleCart())
+        history.push('/order')
+    }
+
     const deleteFromCart = (e) => {
         let itemToDelete = shoppingCart.items.find(item => item.ID === e.target.getAttribute('data-item-delete-id'))
         dispatch(deleteItem(itemToDelete))
@@ -76,7 +81,7 @@ const ShoppingCart = () => {
                             <div className = "orderContainer">
                                 <div className = "orderButtonContainer">
                                     <Button 
-                                        onClickAction = {() => history.push('/order')}
+                                        onClickAction = {() => openOrderPage()}
                                     >Order</Button>
                                 </div>
                                 <div className = "quantPriceIcon">
