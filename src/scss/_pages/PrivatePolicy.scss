@@ -1,6 +1,23 @@
 .privatePolicy{
     .wrapperPolicy{
-        padding: 5rem 3rem 3rem 3rem;
-
+        @include boxShadow(0px 0px 30px 20px rgba(0,0,0,1));
+        background: rgba(0,0,0,0.7);
+        margin: 8rem 3rem 3rem 3rem;
+        justify-content: center;
+        overflow-y: scroll;
+        height: 80vh;
+        hr{
+            border: 1px solid $secondaryLightColor;
+        }
+        a{
+            color: $primaryLightColor;
+        }
+        h1{
+            width: 80%;
+        }
+        ol{
+            color: $secondaryLightColor;
+        }
     }
+
 }
