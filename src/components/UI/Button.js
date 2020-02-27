@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({children, disabled = false, onClickAction}) => {
+const Button = ({children, disabled = false, onClickAction, type}) => {
 
     const classes = ['brk-btn']
     if(disabled){
@@ -11,6 +11,7 @@ const Button = ({children, disabled = false, onClickAction}) => {
             disabled = {disabled}
             className={classes.join(' ')}
             onClick = {onClickAction}
+            type = {type}
         >
             {children}
         </button>

@@ -10,10 +10,10 @@ const Bill = ({items, total, quantity}) => {
                     key = {index}
                     className = "billItem"
                 >
-                    <span class = "bill-name">{item.Name}</span>
-                    <span class = "bill-manufacturer">{item.Manufacturer}</span>
-                    <span class = "bill-quantity">{item.Quantity}</span>
-                    <span class = "bill-price">{item.Price}$</span>
+                    <span className = "bill bill-name">{item.Name}</span>
+                    <span className = "bill bill-manufacturer">{item.Manufacturer}</span>
+                    <span className = "bill bill-quantity">{item.Quantity}</span>
+                    <span className = "bill bill-price">{item.Price}$</span>
                 </li>
             )
         })
@@ -21,7 +21,7 @@ const Bill = ({items, total, quantity}) => {
 
 
     return(
-        <>
+        <div className = "wrapperPadding">
             <h2 className = "billTitle">Your order</h2>
             <ul className = "billItemsContainer">
                 {renderItems()}
@@ -31,7 +31,7 @@ const Bill = ({items, total, quantity}) => {
                 <span className = "red-text">Quantity: <span className = "specialText">{quantity}</span></span>
                 <span className = "red-text">Total: <span className = "specialText">{total}</span></span>
             </div>
-        </>
+        </div>
         
     )
 }

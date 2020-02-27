@@ -1,34 +1,37 @@
 .order{
     .billContainer{
-        @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.3));
+        @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         .billItemsContainer{
-            
             width: 100%;
             padding: 0;
             margin: 0;
             font-size: 18px;
             .billItem{
                 color: $secondaryLightColor;
-                padding: 0.5rem 1rem 0.5rem 1rem;
                 display: flex;
                 justify-content: space-between;
                 .bill{
+                    display: flex;
                     &-name{
                         width: 45%;
                         font-size: 16px;
+                        align-items: center;
                     }
                     &-manufacturer{
                         color: $primaryLightColor;
+                        align-items: center;
                     }
                     &-price{
                         font-size: 20px;
+                        align-items: center;
                     }
                     &-quantity{
                         font-size: 20px;
+                        align-items: center;
                     }
                 }
             }
@@ -49,9 +52,18 @@
         }
     }
     .formContainer{
+        @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        color: $secondaryLightColor;
+        label{
+            color: $secondaryLightColor;
+        }
     }
+}
+.wrapperPadding{
+    width: 100%;
+    padding: 0 2rem 0 2rem;
 }

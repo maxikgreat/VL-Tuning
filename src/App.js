@@ -9,6 +9,7 @@ import Layout from './components/HOC/Layout'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Production from './pages/Production'
+import PrivatePolicy from './pages/PrivatePolicy'
 //animated routes
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
@@ -62,6 +63,7 @@ function App() {
                 <Route path = '/production/:typeStuff' component = {Production} />
                 <Route path = '/about-us' component = {AboutUs} />
                 <Route path = '/order' component = {Order} />
+                <Route path = '/private-policy' component = {PrivatePolicy} />
                 <Redirect to = '/' />
               </Switch>
       </Layout>
