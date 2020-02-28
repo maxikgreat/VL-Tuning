@@ -1,11 +1,14 @@
 .order{
+
     .billContainer{
-        @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
+        height: 70vh;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         .billItemsContainer{
+            max-height: 50vh;
+            overflow-y: scroll;
             width: 100%;
             padding: 0;
             margin: 0;
@@ -46,13 +49,11 @@
             width: 100%;
             display: flex;
             justify-content: space-around;
-            .red-text{
-                color: $primaryLightColor;
-            }
         }
     }
     .formContainer{
         @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
+        background: rgba(0,0,0, .75);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -60,6 +61,9 @@
         color: $secondaryLightColor;
         label{
             color: $secondaryLightColor;
+        }
+        a{
+            color: $primaryLightColor;
         }
     }
 }

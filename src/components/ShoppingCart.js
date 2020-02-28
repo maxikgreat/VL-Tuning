@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {deleteItem} from '../redux/shoppingCart/shoppingCartAction'
 import Button from '../components/UI/Button'
 import {useHistory} from 'react-router-dom'
-import {toggleCart} from '../redux/shoppingCart/shoppingCartAction'
+import {toggleCart, deleteAll} from '../redux/shoppingCart/shoppingCartAction'
 
 const ShoppingCart = () => {
 
@@ -26,15 +26,38 @@ const ShoppingCart = () => {
         dispatch(deleteItem(itemToDelete))
     }
 
+
     const renderItems = () => {
         if(shoppingCart.items.length > 0){
+            var showType = ""
             return shoppingCart.items.map((item, index) => {
+                switch(item.Type){
+                    case "Main":
+                        showType = "дефлектор окон"
+                        break
+                    case "Chrome":
+                        showType = "дефлектор окон (хром)"
+                        break
+                    case "Hood":
+                        showType = "деф. капота"
+                        break
+                    case "Back":
+                        showType = "спойлер заднего стекла"
+                        break
+                    default:
+                        break
+                }
                 return (
                         <li 
                             className = "shoppingItem"
                             key = {index}
                         >
-                            <span className = "name">{item.Name}</span>
+                            <div className = "name">
+                                <span>{item.Name}<br /></span>
+                                <span>{showType} | </span>
+                                <span className="red-text">{item.Manufacturer}</span>
+                            </div>
+
                             <div className = "quantPriceIcon">
                                 <span className = "quant">{item.Quantity}</span>
                                 <span className = "price">{item.Price * item.Quantity}$</span>
@@ -86,12 +109,11 @@ const ShoppingCart = () => {
                                 </div>
                                 <div className = "quantPriceIcon">
                                     <span className = "quant">{shoppingCart.quantity}</span>
-                                    <span className = "price">{shoppingCart.total}
-                                        <FontAwesomeIcon 
-                                            icon = "money-bill-alt"
-                                            style = {{marginLeft: '10px', paddingTop: '4px'}}
-                                        />
-                                    </span>
+                                    <span className = "price">{shoppingCart.total}$</span>
+                                    <FontAwesomeIcon 
+                                        icon = 'trash-alt'
+                                        onClick = {() => {dispatch(deleteAll())}}
+                                    />
                                 </div>
                             </div>
                         </>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../UI/Button'
+import { Link } from 'react-router-dom'
 
 const EndForm = () => {
 
@@ -43,12 +44,11 @@ const EndForm = () => {
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="invalidCheck1" required />
                         <label className="form-check-label" htmlFor="invalidCheck1">
-                            Agree to terms and conditions
+                            Agree to <Link to = '/private-policy'>terms and conditions</Link>
                         </label>
                     </div>
                 </div>
                 <Button
-                    //type = "submit"
                     onClickAction = {() => onSubmitForm()}
                 >
                     Submit

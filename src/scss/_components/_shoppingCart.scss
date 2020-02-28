@@ -65,6 +65,8 @@
       margin-bottom: 1rem;
   }
   .shoppingList{
+    max-height: 70vh;
+    overflow-y: scroll;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -82,9 +84,15 @@
       width:100%;
       text-align: left;
       .name{
-        font-size: 1.1rem;
         width: 65%;
         padding-right: 15px;
+        span:nth-child(1){
+          font-size: 1.5rem;
+        }
+        span:nth-child(2){
+          font-weight: bold;
+          text-transform: uppercase;
+        }
       }
       .quantPriceIcon{
         display: flex;
@@ -92,8 +100,10 @@
         justify-content: space-between;
         width: 35%;
         .quant{
+          font-size: 1.5rem;
         }
         .price{
+          font-size: 1.5rem;
         }
         svg{
           cursor: pointer;
@@ -133,6 +143,16 @@
     font-weight: bold;
     svg{
       font-size: 30px;
+      cursor: pointer;
+      font-size: 2rem;
+      color: $primaryLightColor;
+      @include transition(all 0.2s ease-in-out);
+      &:hover{
+        color: $secondaryLightColor;
+      }
+      path{
+        pointer-events: none;
+      }
     }
   }
 }

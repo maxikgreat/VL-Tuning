@@ -3,6 +3,7 @@ import getAllBrands from './getAllBrands'
 
 export default function modyfiedJson(){
 
+
     const getManufacturer = (name) => {
         if(name.includes("cobra tuning")){
             return "Cobra Tuning"
@@ -64,15 +65,16 @@ export default function modyfiedJson(){
             DATABASE[globalKey].forEach(item => {
                 const lowCaseName = item.Name.toLowerCase()
                 if(lowCaseName.includes(key.toLowerCase())){
-                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"") //delete backslashes " and spaces
+                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"").replace(" деф.окон", "").replace("ХРОМ.МОЛДИНГ", "") //delete backslashes " and spaces
                     let uniqueID = Math.random().toString(36).substr(2, 5)
                     arr.push({
                         ID: uniqueID,
                         Name: deleteManufacturerFromName(trimedName),
                         Price: Number(item.Price),
+                        Type: globalKey,
                         Discount: Number(0),
                         Manufacturer: getManufacturer(lowCaseName),
-                        orderedCount: Number(0),
+                        OrderCount: Number(0),
                         //AvailableCount: Number(0) maybe in future
                     })
                 }
@@ -90,7 +92,6 @@ export default function modyfiedJson(){
             i++;
         })
     })
-
     
     return exampleBD
 }
