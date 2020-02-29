@@ -1,7 +1,7 @@
 import React from 'react'
 import bgTwoParts from '../assets/images/aboutUs/aboutUsBg.jpg'
 import InfoCard from '../components/About/InfoCard'
-
+import OptionCard from '../components/About/OptionCard'
 
 const AboutUs = () => {
 
@@ -11,7 +11,21 @@ const AboutUs = () => {
         mainText: <p className = "main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, qui. Iste, asperiores? Sit voluptatem perspiciatis iste corporis eos quibusdam beatae, sapiente unde id natus placeat, similique deserunt at aut quas?</p>
     }
 
-
+    const secondSlide = {
+        options: [{
+            title: "Дефлектор окон",
+            text: <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            img: ""
+        },{
+            title: "Дефлектор капота",
+            text: <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            img: ""
+        },{
+            title: "Спойлер заднего стекла",
+            text: <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            img: ""
+        }]
+    }
 
     const backgroundStyles = {
         backgroundImage: `url(${bgTwoParts})`
@@ -25,9 +39,9 @@ const AboutUs = () => {
                         introText = {firstSlide.introText}
                         mainText = {firstSlide.mainText}
                     />
-                    <div className = "aboutUsCard">
-                        <h1>Card 2</h1>
-                    </div>
+                    <OptionCard 
+                        options = {secondSlide.options}
+                    />
                     <div className = "aboutUsCard">
                         <h1>Card 3</h1>
                     </div>
