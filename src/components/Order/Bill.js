@@ -4,14 +4,35 @@ const Bill = ({items, total, quantity}) => {
     
 
     const renderItems = () => {
+        let showType = ""
         return items.map((item, index) => {
+            switch(item.Type){
+                case "Main":
+                    showType = "дефлектор окон"
+                    break
+                case "Chrome":
+                    showType = "дефлектор окон (хром)"
+                    break
+                case "Hood":
+                    showType = "деф. капота"
+                    break
+                case "Back":
+                    showType = "спойлер заднего стекла"
+                    break
+                default:
+                    break
+            }
             return (
                 <li 
                     key = {index}
                     className = "billItem"
                 >
-                    <span className = "bill bill-name">{item.Name}</span>
-                    <span className = "bill bill-manufacturer">{item.Manufacturer}</span>
+                    <div classNmae = "bill bill-info-name">
+                        <span className = "bill bill-name">{item.Name}<br /></span>
+                        <span className = "bill bill-type">{showType} | </span>
+                        <span className = "bill bill-manufacturer">{item.Manufacturer}</span>
+                    </div>
+                    
                     <span className = "bill bill-quantity">{item.Quantity}</span>
                     <span className = "bill bill-price">{item.Price}$</span>
                 </li>

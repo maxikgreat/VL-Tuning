@@ -16,6 +16,11 @@ const ShoppingCart = () => {
 
     const history = useHistory()
 
+    const deleteAndToggle = () => {
+        dispatch(deleteAll())
+        dispatch(toggleCart())
+    }
+
     const openOrderPage = () => {
         dispatch(toggleCart())
         history.push('/order')
@@ -29,7 +34,7 @@ const ShoppingCart = () => {
 
     const renderItems = () => {
         if(shoppingCart.items.length > 0){
-            var showType = ""
+            let showType = ""
             return shoppingCart.items.map((item, index) => {
                 switch(item.Type){
                     case "Main":
@@ -112,7 +117,7 @@ const ShoppingCart = () => {
                                     <span className = "price">{shoppingCart.total}$</span>
                                     <FontAwesomeIcon 
                                         icon = 'trash-alt'
-                                        onClick = {() => {dispatch(deleteAll())}}
+                                        onClick = {() => {deleteAndToggle()}}
                                     />
                                 </div>
                             </div>

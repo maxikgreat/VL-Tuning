@@ -27,7 +27,7 @@ const Order = () => {
 
     return(
         <section className = "order" style = {backgroundStyles}>
-            <div className = "row h-100 align-items-center" style={{background: 'rgba(0,0,0,0.7)'}}>
+            <div className = "row h-100 align-items-center">
                 <div className = "billContainer col-6">
                     <Bill 
                         items = {items}

@@ -1,5 +1,4 @@
 .order{
-
     .billContainer{
         height: 70vh;
         display: flex;
@@ -18,22 +17,20 @@
                 display: flex;
                 justify-content: space-between;
                 .bill{
-                    display: flex;
-                    &-name{
-                        width: 45%;
-                        font-size: 16px;
-                        align-items: center;
+                    &-type{
+                        text-transform: uppercase;
+                        font-weight: bold;
                     }
                     &-manufacturer{
                         color: $primaryLightColor;
                         align-items: center;
                     }
                     &-price{
-                        font-size: 20px;
+                        font-size: 25px;
                         align-items: center;
                     }
                     &-quantity{
-                        font-size: 20px;
+                        font-size: 25px;
                         align-items: center;
                     }
                 }
@@ -70,4 +67,8 @@
 .wrapperPadding{
     width: 100%;
     padding: 0 2rem 0 2rem;
+}
+
+.order > div{
+    background: rgba(0,0,0,0.5);
 }

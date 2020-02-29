@@ -1,12 +1,38 @@
 import React from 'react'
+import bgTwoParts from '../assets/images/aboutUs/aboutUsBg.jpg'
+import InfoCard from '../components/About/InfoCard'
 
-import TwoPartsComp from '../components/About/TwoPartsComp'
+
+const AboutUs = () => {
+
+    const firstSlide = {
+        title: <h2>who<br/>we<br/>are<br/>?</h2>,
+        introText: <p className = "intro"><span>VL-Tuning</span> - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, excepturi. Nisi cupiditate, laborum temporibus incidunt</p>,
+        mainText: <p className = "main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, qui. Iste, asperiores? Sit voluptatem perspiciatis iste corporis eos quibusdam beatae, sapiente unde id natus placeat, similique deserunt at aut quas?</p>
+    }
 
 
-const AboutUs  = () => {
+
+    const backgroundStyles = {
+        backgroundImage: `url(${bgTwoParts})`
+    }
 
     return(
-        <TwoPartsComp />
+        <section className = "aboutUs" style = {backgroundStyles}>
+                <div className = "aboutUsCardsContainer">
+                    <InfoCard 
+                        title = {firstSlide.title}
+                        introText = {firstSlide.introText}
+                        mainText = {firstSlide.mainText}
+                    />
+                    <div className = "aboutUsCard">
+                        <h1>Card 2</h1>
+                    </div>
+                    <div className = "aboutUsCard">
+                        <h1>Card 3</h1>
+                    </div>
+                </div>
+        </section>
     )
 }
 
