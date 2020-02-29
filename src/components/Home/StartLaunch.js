@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 import Button from '../UI/Button'
 import bgImgStart from '../../assets/images/home/startBg.jpg'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const StartLaunch = () => {
 
