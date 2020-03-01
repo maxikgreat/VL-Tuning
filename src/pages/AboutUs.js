@@ -3,6 +3,8 @@ import bgTwoParts from '../assets/images/aboutUs/aboutUsBg.jpg'
 import InfoCard from '../components/About/InfoCard'
 import OptionCard from '../components/About/OptionCard'
 import visorImg from '../assets/images/aboutUs/visor.png'
+import hoodImg from '../assets/images/aboutUs/hood.jpg'
+import backImg from '../assets/images/aboutUs/back.jpg'
 
 const AboutUs = () => {
 
@@ -22,14 +24,16 @@ const AboutUs = () => {
             active: false,
             title: "Дефлектор капота",
             text: <p>Дефлектор капота Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
-            img: ""
+            img: hoodImg
         },{
             active: false,
             title: "Спойлер заднего стекла",
             text: <p>Спойлер заднего стекла Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
-            img: ""
+            img: backImg
         }]
     }
+
+
 
     const backgroundStyles = {
         backgroundImage: `url(${bgTwoParts})`
@@ -47,7 +51,9 @@ const AboutUs = () => {
                         options = {secondSlide.options}
                     />
                     <div className = "aboutUsCard">
-                        <h1>Card 3</h1>
+                        <InfoCard
+
+                        />
                     </div>
                 </div>
         </section>
