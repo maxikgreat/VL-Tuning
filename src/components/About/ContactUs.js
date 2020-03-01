@@ -1,5 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import CustomMap from './CustomMap'
 
 const ContactUs = ({title}) => {
     return(
@@ -34,8 +35,8 @@ const ContactUs = ({title}) => {
 
                         </div>
                     </div>
-                    <div className= "col-7">
-                        <Map />
+                    <div className= "col-7 mapContainer">
+                        <CustomMap />
                     </div>
                 </div>
 
