@@ -1,8 +1,6 @@
 
-
 @import 'vars';
-
-
+@import "fonts";
 //mixins
 
 @import './_mixins/transition';
@@ -23,6 +21,7 @@
 @import './_pages/FindStuff';
 @import './_pages/Order.scss';
 @import './_pages/PrivatePolicy.scss';
+
 
 
 
@@ -79,6 +78,7 @@ html{
 
 		h1,h2,h3,h4,h5,h6{
 			color: $primaryLightColor;
+			font-family: Kempton;
 		}
 		p{
 			color: $secondaryDarkColor;
@@ -94,21 +94,20 @@ html{
 	font-weight: 600;
 }
 
-
 // DISABLE CLASS --------------------------------------
 
 .disabled{
 	&:hover{
-	  cursor: not-allowed;
-	  background-color: transparent;
-	  &::before {
-        right: 20%;
-      }
-      &::after {
-        left: 20%;
-      }
+		cursor: not-allowed;
+		background-color: transparent;
+		&::before {
+			right: 20%;
+		}
+		&::after {
+			left: 20%;
+		}
 	}
-  }
+}
 
 .red-text{
 	color: $primaryLightColor;

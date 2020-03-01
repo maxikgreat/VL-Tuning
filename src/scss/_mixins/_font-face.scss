@@ -1,0 +1,23 @@
+
+@mixin font-face($name, $file) {
+  @font-face {
+    font-family: "#{$name}";
+    //src: url("../fonts/#{$file}.eot");
+    src: url("../../assets/fonts/#{$name}/#{$file}.ttf")
+    //url("../fonts/#{$file}.woff") format("woff"),
+     //format("truetype"),
+    //url("../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+}
+
+//
+//@mixin font-face($name, $file) {
+//  @font-face {
+//    font-family: "#{$name}";
+//    //src: url("../fonts/#{$file}.eot");
+//    //src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+//    //url("../fonts/#{$file}.woff") format("woff"),
+//  url("../assets/fonts/#{$name}/#{$file}.") //format("truetype"),
+//    //url("../fonts/#{$file}.svg?#webfont") format("svg");
+//  }
+//}
