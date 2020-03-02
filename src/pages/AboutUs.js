@@ -16,7 +16,7 @@ import ContactUs from "../components/About/ContactUs";
 const AboutUs = () => {
 
     const infoSlide = {
-        title: <h2>who<br/>we<br/>are<br/>?</h2>,
+        title: <h2>кто<br/>мы<br/>такие<br/>?</h2>,
         introText: <p className = "intro"><span>VL-Tuning</span> - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, excepturi. Nisi cupiditate, laborum temporibus incidunt</p>,
         mainText: <p className = "main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, qui. Iste, asperiores? Sit voluptatem perspiciatis iste corporis eos quibusdam beatae, sapiente unde id natus placeat, similique deserunt at aut quas?</p>
     }
@@ -25,32 +25,51 @@ const AboutUs = () => {
         options: [{
             active: true,
             title: "Дефлектор окон",
-            text: <p>Дефлектор окон Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            text: <div>
+                <p className = "main">Брызги грязи и разрушительные потоки воздуха не ворвутся в салон вашего автомобиля, если он оборудован дефлекторами окон.</p>
+                <ul>
+                    <li className="liItem">всегда чистые боковые окна</li>
+                    <li className="liItem">на скорости при приоткрытом окне естественная циркуляция воздуха в салоне (актуально за городом и для того кто курит) и в дождь вода не будет затекать при открытом окне</li>
+                    <li className="liItem">дополнительная защита от солнечных лучей</li>
+                </ul>
+                </div>
+                ,
             img: visorImg
         },{
             active: false,
             title: "Дефлектор капота",
-            text: <p>Дефлектор капота Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            text: <div>
+                <p className = "main">Cоздает восходящий поток воздуха что бы уберечь лобовое стекло и щетки стеклоочистителя от загрязнений.</p>
+                <ul>
+                    <li className="liItem">делают переднюю часть автомобиля более выразительной</li>
+                    <li className="liItem">при движении со скоростью от 70 км/час ваше авто будет защищать некий воздушный щит, подхватывающий и перебрасывающий через него все попадающиеся на пути мелкие предметы</li>
+                    <li className="liItem">обеспечивают возможность предотвращения ДТП, ведь даже маленький камушек попавший на лобовое стекло, на несколько секунд дезориентирует водителя</li>
+                </ul>
+            </div>,
             img: hoodImg
         },{
             active: false,
             title: "Спойлер заднего стекла",
-            text: <p>Спойлер заднего стекла Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, possimus.</p>,
+            text: <div>
+                <p className = "main">Такое простое, часто недорогое решение может позволить создать завершённый облик автомобиля.</p>
+                <ul>
+                    <li className="liItem">защита от грязи заднего стекла автомобиля</li>
+                    <li className="liItem">прижимная сила воздуха, воздействующая на заднюю ось автомобиля</li>
+                    <li className="liItem">декоративная функция</li>
+                </ul>
+            </div>,
             img: backImg
         }]
     }
 
     const partnersSlide = {
-        title: <h2>we<br />work<br/>with</h2>,
-        intro: <p className = "withPartnersText">Intro text for Partners</p>,
+        title: <h2>мы <br />рабо<br/>таем<br/>с</h2>,
+        intro: <p className = "withPartnersText">Мы доверяем / Нам доверяют</p>,
         workWithList: [cobraWork, faberWork, vt52Work, simWork, alviWork]
     }
 
     const contactSlide = {
-        title: <h2>con<br/>tact<br/>us</h2>
-    }
-    const findSlide = {
-        title: <h2>find<br/>us</h2>,
+        title: <h2>на<br/>пи<br/>ши<br/>нам<br/></h2>
     }
 
 

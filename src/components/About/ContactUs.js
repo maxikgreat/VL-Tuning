@@ -12,7 +12,7 @@ const ContactUs = ({title}) => {
                 <div className = "borderedContainer">
                     <div className = "col-5">
                         <div className = "phonesContainer sTitle">
-                            <span>Call to us:</span>
+                            <span>Звоните:</span>
                             <div className = "phones">
                                 <div className = "phone">
                                     <FontAwesomeIcon icon = "phone-square-alt" /><a href="tel:+380635274489">+38 (063) 527 44 89</a>
@@ -24,9 +24,9 @@ const ContactUs = ({title}) => {
                                     <FontAwesomeIcon icon = "phone-square-alt" /><a href="tel:+380972592135">+38 (097) 259 21 35</a>
                                 </div>
                             </div>
-                        </div>
+                        </div>А
                         <div className = "emailsContainers sTitle">
-                            <span>Write to us:</span>
+                            <span>Пишите:</span>
                             <div className = "emails">
                                 <div className = "email">
                                     <FontAwesomeIcon icon = "envelope" /><a href="mailto:vadim.74@ukr.net">vadim.74@ukr.net</a>

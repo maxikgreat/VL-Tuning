@@ -26,7 +26,7 @@ const ModelList = ({models}) => {
             return(
                     <Link 
                         key = {index}
-                        className = "cardContainer col-4"
+                        className = "cardContainer col-3"
                         to={`${url}/${item.ID}`}
                         onClick = {() => {choseModel(item)}}
                     >
@@ -35,11 +35,11 @@ const ModelList = ({models}) => {
                         </div>
                         <div className = "cardContent">
                             <span className = "cardTitle">{item.Name}</span>
-                            <span className = "cardVendor">created by {item.Manufacturer} </span>
+                            {item.Manufacturer === "Unknown" ? null :
+                                <span className = "cardVendor">Изготовитель {item.Manufacturer} </span>
+                            }
                         </div>
-                        {/* <span
-                        className = {item.AvailableCount !== 0 ? "avaliable" : "notAvaliable"}
-                        >{item.AvailableCount !== 0 ? "Есть в наличии" : "Нет в наличии"}</span> */}
+
                     </Link>
             )
         })

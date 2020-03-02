@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import examplePhoto from '../../assets/images/production/cards/11.jpg'
+import examplePhoto from '../../assets/images/production/cards/item.png'
 import Button from '../../components/UI/Button'
 import AdvantageIcons from './AdvantagesIcons'
 import QuantityCounter from './QuantityCounter'
@@ -46,8 +46,8 @@ const Item = ({cartItems, itemStuff}) => {
                     <div>
                         <h1 className = "item-title" title = {itemStuff.Name}>{itemStuff.Name}</h1>
                         <div className = "infoContainer">
-                            <h2 className="createdBy">created by <span>{itemStuff.Manufacturer}</span></h2>
-                            <h2 className = "price"><span>{itemStuff.Price}$</span></h2>
+                            <h2 className="createdBy">Изготовитель <span>{itemStuff.Manufacturer}</span></h2>
+                            <h2 className = "price"><span>{itemStuff.Price} грн.</span></h2>
                         </div>
                     </div>
                     <AdvantageIcons />
@@ -58,10 +58,10 @@ const Item = ({cartItems, itemStuff}) => {
                                 changeQuantity = {changeQuantity}
                             />
                         </div>
-                        <div className = "col-6">
+                        <div className = "col-6 d-flex justify-content-center">
                             <Button 
                                 onClickAction = {() => {addToCart()}}
-                            >Add to cart</Button>
+                            >Добавить в корзину</Button>
                         </div>
                     </div>
                 </div>

@@ -76,7 +76,7 @@ const ShoppingCart = () => {
                 )
             })
         } else {
-            return <span className = "empty">Your cart is empty now</span>
+            return <span className = "empty">Ваша корзина пустая</span>
         }
     }
 
@@ -92,13 +92,13 @@ const ShoppingCart = () => {
                 >
                     <span 
                         className = "quantityIn" 
-                        style = {{padding: shoppingCart.quantity ? '3px' : '0'}}
+                        style = {{padding: shoppingCart.quantity ? '6px' : '0'}}
                     >{shoppingCart.quantity > 0 ? shoppingCart.quantity : null}</span>
 
                     <FontAwesomeIcon icon = 'shopping-cart' />
                 </div>
                 <div className = "shoppingCartContent">
-                    <h2>Shopping Cart</h2>
+                    <h2>Корзина</h2>
                     <hr />
                     <ul className = "shoppingList">
                         {renderItems()}
@@ -110,7 +110,7 @@ const ShoppingCart = () => {
                                 <div className = "orderButtonContainer">
                                     <Button 
                                         onClickAction = {() => openOrderPage()}
-                                    >Order</Button>
+                                    >Заказать</Button>
                                 </div>
                                 <div className = "quantPriceIcon">
                                     <span className = "quant">{shoppingCart.quantity}</span>

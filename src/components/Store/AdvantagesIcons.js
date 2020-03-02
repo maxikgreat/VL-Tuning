@@ -7,15 +7,15 @@ const AdvantageIcons = () => {
         <div className = "advIconsContainer row">
             <div className = "advIcon col-4">
                 <FontAwesomeIcon icon = "car" />
-                <span>on favourite car</span>
+                <span>на любимую машину</span>
             </div>
             <div className = "advIcon col-4">
                 <FontAwesomeIcon icon = 'cloud-sun' />
-                <span>weather - no matter</span>
+                <span>в любую погоду</span>
             </div>
             <div className = "advIcon col-4">
                 <FontAwesomeIcon icon = "bolt" />
-                <span>strong and light</span>
+                <span>крепкие и легкие</span>
             </div>
         </div>
     )

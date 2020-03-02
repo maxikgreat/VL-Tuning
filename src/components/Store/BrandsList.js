@@ -50,7 +50,7 @@ const BrandsList = ({brands, url}) => {
                 return(
                     <Link
                         to={`${url}/${item.name.replace(" ","-").toLowerCase()}`}
-                        className = "col-3 item" 
+                        className = "col-2 item"
                         key = {index} 
                         onClick = {() => {chooseBrand(item.name)}}
                     >
@@ -79,7 +79,7 @@ const BrandsList = ({brands, url}) => {
                         ref = {inputRef}
                         className = "filterItems"
                         type = "text" 
-                        placeholder = "Type to filter"
+                        placeholder = "Поиск..."
                         onInput = {() => {filterBrands()}}
                     />
                     <FontAwesomeIcon icon = "search" />

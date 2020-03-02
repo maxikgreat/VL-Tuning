@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import filter from '../../helpFunctions/filter'
 import equal from 'fast-deep-equal'
 import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
+import fromEnToRu from "../../helpFunctions/fromEnToRu";
 
 //redux
 import { connect } from 'react-redux'
@@ -14,24 +15,6 @@ class DropdownList extends PureComponent {
         models: [], // array of OBJECTS
         stuff: ["Ветровики", "Ветровики Хром", "Мухобойки", "Спойлера"], //always on default
         setItem: null
-    }
-
-    fromEnToRu = (localStuff) => {
-        switch(localStuff){
-            case "Visors":
-                return "Ветровики"
-            case "Chrome":
-                return "Ветр. хром"
-                break
-            case "Hood":
-                return "Мухобойки"
-                break
-            case "Back":
-                return "Спойлер заднего стекла"
-                break
-            default:
-                return ""
-        }
     }
 
     updateModels = (dataBase, choseStuff) => {
@@ -78,7 +61,7 @@ class DropdownList extends PureComponent {
         if(!equal(this.props, prevProps)){
             switch(this.props.valueType){
                 case "stuff":
-                    this.inputField.value = this.fromEnToRu(this.props.choseStuff.stuff)
+                    this.inputField.value = fromEnToRu(this.props.choseStuff.stuff)
                     break
                 case "brand":
                     this.inputField.value = this.props.choseStuff.brand

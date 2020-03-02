@@ -27,10 +27,11 @@ const Production = () =>{
     return(
         <section className = "production" style = {backgroundStyles}>
                 <div className = "row m-4 h-100">
-                    <div className = "col-3">
-                        <Categories />
-                    </div>
-                    <div className = "col-9">
+                    {/*TODO categories*/}
+                    {/*<div className = "col-3">*/}
+                    {/*    <Categories /> */}
+                    {/*</div>*/}
+                    <div className = "col-12">
                         <Breadcrumbs 
                             typeStuff = {typeStuff}
                             stuff = {stuff}
