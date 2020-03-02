@@ -1,4 +1,8 @@
 
 @import '_mixins/font-face';
 
-@include font-face("Kempton", SKYBRUSH);
+@include font-face("CloneMachine", CloneMachine);
+@include font-face("Oswald", Oswald);
+@include font-face("Mentone", Mentone);
+@include font-face("Siro", Siro);
+@include font-face("Candara", Candara);

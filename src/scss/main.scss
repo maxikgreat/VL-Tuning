@@ -78,9 +78,23 @@ html{
 
 		h1,h2,h3,h4,h5,h6{
 			color: $primaryLightColor;
-			font-family: Kempton;
+			font-family: CloneMachine;
+		}
+		span{
+			font-family: Siro Candara;
+
+		}
+		a{
+			font-family: Mentone Siro Candara;
+		}
+		button{
+			font-family: CloneMachine;
+		}
+		li{
+			font-family: Candara;
 		}
 		p{
+			font-family: Candara;
 			color: $secondaryDarkColor;
 		}
 	}
