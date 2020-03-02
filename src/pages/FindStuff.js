@@ -59,7 +59,7 @@ const FindStuff = () => {
                 <Button 
                     disabled = {(brand !== "") && (model !== null) && (stuff !== "") ? false : true} // model is object
                     onClickAction = {showProduction}
-                >Find</Button>
+                >Найти</Button>
             </div>
         </section>
     )

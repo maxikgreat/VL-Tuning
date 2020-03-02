@@ -64,7 +64,7 @@ header{
         margin-top: 1rem;
         .sub-menu{
             @include transition(all 0.3s cubic-bezier(0.86, 0, 0.07, 1));
-            font-size: 0.8rem;
+            font-size: 1rem;
             padding: 0;
             display: flex;
             .nav-item{

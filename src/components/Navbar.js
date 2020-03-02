@@ -20,7 +20,7 @@ const Navbar = () => {
                     <div className = "col-10">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Home</NavLink>
+                                <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Старт</NavLink>
                             </li>
                             <li className = "nav-item" 
                                 onMouseOver = {() => {
@@ -31,7 +31,7 @@ const Navbar = () => {
                                 }}
                             >
                                 {/*  eslint-disable-next-line */}
-                                <a className="nav-link" to="#" alt = "Store">Store
+                                <a className="nav-link" to="#" alt = "Store">Магазин
                                     <FontAwesomeIcon icon = "chevron-down"/>
                                 </a>
                                 <div className = "sub-menu-container" ref = {subMenu}>
@@ -67,10 +67,10 @@ const Navbar = () => {
                                 <img src = {logoVlTun} alt = "logo"/>
                             </li>
                             <li className="nav-item">
-                                <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Quick Search</NavLink>
+                                <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Найти товар</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/about-us" alt = "About Us">About</NavLink>
+                                <NavLink className="nav-link" to="/about-us" alt = "About Us">О нас</NavLink>
                             </li>
                         </ul>
                     </div>

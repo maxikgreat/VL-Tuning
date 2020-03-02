@@ -1,4 +1,4 @@
-@mixin font-face($name, $file) {
+@mixin font-face($name, $file, $weight) {
   @font-face {
     font-family: "#{$name}";
     src: url("../../assets/fonts/#{$name}/#{$file}.eot");
@@ -7,5 +7,6 @@
     url('../../assets/fonts/#{$name}/#{$file}.woff2') format('woff2'),
     url("../../assets/fonts/#{$name}/#{$file}.ttf") format("truetype"),
     url("../../assets/fonts/#{$name}/#{$file}.svg?#webfont") format("svg");
+    font-weight: $weight;
   }
 }

@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
 import filter from '../../helpFunctions/filter'
 import equal from 'fast-deep-equal'
 import deleteEmptyBrands from '../../helpFunctions/deleteEmptyBrands'
 
 //redux
+import { connect } from 'react-redux'
 import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/choseStuff/choseStuffAction'
 
 class DropdownList extends PureComponent {
@@ -16,6 +16,24 @@ class DropdownList extends PureComponent {
         setItem: null
     }
 
+    fromEnToRu = (localStuff) => {
+        switch(localStuff){
+            case "Visors":
+                return "Ветровики"
+            case "Chrome":
+                return "Ветр. хром"
+                break
+            case "Hood":
+                return "Мухобойки"
+                break
+            case "Back":
+                return "Спойлер заднего стекла"
+                break
+            default:
+                return ""
+        }
+    }
+
     updateModels = (dataBase, choseStuff) => {
 
         let filteredModels = []
@@ -25,7 +43,7 @@ class DropdownList extends PureComponent {
                 return item
             })
             if(filteredModels.length === 0){
-                return ["No data found"]
+                return ["Не удалось найти данные"]
             }
             return filteredModels
         }
@@ -60,7 +78,7 @@ class DropdownList extends PureComponent {
         if(!equal(this.props, prevProps)){
             switch(this.props.valueType){
                 case "stuff":
-                    this.inputField.value = this.props.choseStuff.stuff
+                    this.inputField.value = this.fromEnToRu(this.props.choseStuff.stuff)
                     break
                 case "brand":
                     this.inputField.value = this.props.choseStuff.brand
@@ -139,8 +157,6 @@ class DropdownList extends PureComponent {
     }
 
     onClickItem = (item) => {
-        //this.inputField.value = "suka";
-
         for (let dropdownItem of this.dropdown.children){
             dropdownItem.classList.remove('closed');
         };
@@ -164,7 +180,7 @@ class DropdownList extends PureComponent {
 
     onFocusInput = () => {
         this.inputField.value = ""
-        this.inputField.placeholder = 'Type to filter';
+        this.inputField.placeholder = 'Поиск...';
         this.dropdown.classList.add('open');
         for (let dropdownItem of this.dropdown.children){
             dropdownItem.classList.remove('closed');
@@ -198,7 +214,7 @@ class DropdownList extends PureComponent {
                     disabled = {this.props.disabled}
                     className={"chosen-value" + (this.props.disabled ? " disabled" : "")} 
                     type="text" 
-                    placeholder="Type to filter" 
+                    placeholder="Поиск..."
                     onInput = {() => {this.onInputForm()}}
                     onFocus = {() => {this.onFocusInput()}}
                     onBlur = {() => {this.onBlurInput()}}

@@ -26,17 +26,17 @@ const StartLaunch = () => {
                             <div className = "col-6 leftTextSection" ref = {mainText}>
                                 <div className = "titleContainer">
                                     <h1>VL-Tuning</h1>
-                                    <p>Lorem ipsum</p>
+                                    <p>Автоаксессуары для Вас</p>
                                 </div>
                             </div>
                         </div>
                         <div className = "startButton" ref = {mainButton}>
-                            <Button 
-                                //onClickAction = {showRestPage}
-                            >See more</Button>
+                            {/*<Button */}
+                            {/*    //onClickAction = {showRestPage}*/}
+                            {/*>See more</Button>*/}
                             <Button 
                                 onClickAction = {() => {history.push('/quick-search')}}
-                            >Buy now</Button>
+                            >Найти товар</Button>
                         </div>
         </section>
     )
