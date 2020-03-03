@@ -1,0 +1,46 @@
+@media (max-width: 576px) {
+  .body{
+    .navbar{
+      .navbar-brand{
+
+      }
+    }
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 900px) {
+  header{
+    .navbar{
+      display: none;
+    }
+    nav.mobileNavbar{
+      display: block;
+    }
+  }
+
+
+}
+@media (max-width: 1060px) {
+  .navbar{
+    padding-top: 30px;
+    .navbar-brand{
+      display: none;
+    }
+  }
+  .startScreen{
+    background-position: right;
+  }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {
+
+}

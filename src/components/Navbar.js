@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useDispatch} from 'react-redux'
 import {setStuff, clearAll} from '../redux/choseStuff/choseStuffAction'
 import logoVlTun from '../assets/images/vl-tunLogo.png'
+import MobileNav from "./MobileNav";
 
 
 const Navbar = () => {
@@ -14,11 +15,9 @@ const Navbar = () => {
 
     return(
         <header>
-                <nav className="navbar navbar-expand-lg p-0">
-                    <div className = "col-1">
-                    </div>
-                    <div className = "col-10">
-                        <ul className="navbar-nav">
+                <nav className="navbar">
+                    <div className = "col-12">
+                        <ul>
                             <li className="nav-item">
                                 <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Старт</NavLink>
                             </li>
@@ -74,10 +73,8 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <div  className = "col-1">
-
-                    </div>
                 </nav>
+                <MobileNav/>
         </header>
     )
 }

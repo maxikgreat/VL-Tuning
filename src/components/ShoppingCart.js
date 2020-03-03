@@ -97,7 +97,9 @@ const ShoppingCart = () => {
 
                     <FontAwesomeIcon icon = 'shopping-cart' />
                 </div>
-                <div className = "shoppingCartContent">
+                <div
+                    className = {shoppingCart.isOpen ? 'shoppingCartContent activeContent' : 'shoppingCartContent'}
+                >
                     <h2>Корзина</h2>
                     <hr />
                     <ul className = "shoppingList">
