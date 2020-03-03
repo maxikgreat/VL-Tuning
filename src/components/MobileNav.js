@@ -10,22 +10,33 @@ const MobileNav = () => {
 
     const subMenu = useRef()
 
+    const toggler = useRef()
+
+    const toggleSubMenu = () => {
+        subMenu.current.classList.toggle("show")
+        toggler.current.classList.toggle("activeSub")
+    }
+
     const dispatch = useDispatch()
 
     return(
             <nav className="mobileNavbar">
-                <div className = "col-12">
-                    <ul>
+                <div className = "hamburger">
+                    <div className = "hamb-cont">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <span>меню</span>
+                </div>
+
+                    <ul className = "mobile-nav-content">
                         <li className="nav-item">
                             <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Старт</NavLink>
                         </li>
                         <li className = "nav-item"
-                            onMouseOver = {() => {
-                                subMenu.current.classList.add("show")
-                            }}
-                            onMouseLeave = {() => {
-                                subMenu.current.classList.remove("show")
-                            }}
+                            ref = {toggler}
+                            onClick = {() => {toggleSubMenu()}}
                         >
                             {/*  eslint-disable-next-line */}
                             <a className="nav-link" to="#" alt = "Store">Магазин
@@ -60,9 +71,6 @@ const MobileNav = () => {
                                 </ul>
                             </div>
                         </li>
-                        <li className="navbar-brand" to="/">
-                            <img src = {logoVlTun} alt = "logo"/>
-                        </li>
                         <li className="nav-item">
                             <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Найти товар</NavLink>
                         </li>
@@ -70,7 +78,6 @@ const MobileNav = () => {
                             <NavLink className="nav-link" to="/about-us" alt = "About Us">О нас</NavLink>
                         </li>
                     </ul>
-                </div>
             </nav>
     )
 }
