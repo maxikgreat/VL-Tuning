@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 const EndForm = () => {
 
     const onSubmitForm = (e) => {
-        console.log("Submited")
+        //console.log("Submited")
+        //const callable = firebase.functions().httpsCallable("sendMessage")
+        //return callable({ text: 'Sending email with React and SendGrid is fun!', subject: 'Email from React'}).then(console.log)
     }
 
 

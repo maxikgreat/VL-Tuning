@@ -27,8 +27,7 @@ import PrivatePolicy from './pages/PrivatePolicy'
 import {useTransition, animated} from 'react-spring'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
-//firebase
-//import firebase from './firebase'
+//TODO ADD FIREBASE
 //re-renders
 //remove IN PRODUCTION
 import whyDidYouRender from '@welldone-software/why-did-you-render'
