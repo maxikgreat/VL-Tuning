@@ -1,57 +1,11 @@
-@media (max-width: 576px) {
 
-  header{
 
-    nav.mobileNavbar{
-      .activeSub{
-        margin-bottom: 240px !important;
-      }
-      ul.mobile-nav-content{
-        margin-top: 70px;
-        .nav-item{
-          width: 60%;
-          height: 50px;
-          .sub-menu-container{
-            width: 100%;
-            ul.sub-menu{
 
-              .nav-item{
-                height: 40px;
-                a{
-                  font-size: 15px;
-                }
-              }
-              .activeSub{
-                margin-bottom: 240px !important;
-              }
-            }
-          }
-        }
-
-      }
-    }
-  }
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {
 
 }
 
-// Medium devices (tablets, 768px and up)
-@media (max-width: 768px) {
-
-}
-
-// Large devices (desktops, 992px and up)
-@media (max-width: 900px) {
-  header{
-    .navbar{
-      display: none;
-    }
-    nav.mobileNavbar{
-      display: block;
-    }
-  }
-
-
-}
 @media (max-width: 1060px) {
 
   //hide usual nav
@@ -68,8 +22,100 @@
   //show mobile
 
 }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (max-width: 1200px) {
+// Large devices (desktops, 992px and up)
+@media (max-width: 900px) {
+  header{
+    .navbar{
+      display: none;
+    }
+    nav.mobileNavbar{
+      display: block;
+    }
+  }
+  .startScreen{
+    .titleContainer{
+      h1{
+        font-size: 4.5rem;
+      }
+    }
+    .leftTextSection p{
+      font-size: 1.5rem;
+    }
+    .startButton{
+      top: -30%;
+      button{
+        font-size: 15px;
+      }
+    }
+  }
+  .shoppingCart{
+    .s{
+      width: 50px;
+      line-height: 40px;
+      .quantityIn{
+        font-size: 18px;
+        top: -30px;
+      }
+    }
+      svg{
+        font-size: 1.5rem;
+      }
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
 
 }
+
+@media (max-width: 576px) {
+
+  header{
+
+    nav.mobileNavbar{
+      .activeSub{
+        margin-bottom: 240px !important;
+      }
+      ul.mobile-nav-content{
+        margin-top: 70px;
+        .nav-item{
+          width: 60%;
+          height: 50px;
+          a{
+            svg{
+              top: 13px;
+              right: 10px;
+            }
+          }
+          .sub-menu-container{
+            width: 100%;
+            ul.sub-menu{
+
+              .nav-item{
+                height: 40px;
+                a{
+                  font-size: 15px;
+                }
+
+              }
+              .activeSub{
+                margin-bottom: 240px !important;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .startScreen{
+    .titleContainer{
+      h1{
+        font-size: 2.5rem;
+      }
+    }
+    .leftTextSection p{
+      font-size: 1rem;
+    }
+  }
+}
+
