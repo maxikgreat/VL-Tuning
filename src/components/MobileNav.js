@@ -10,18 +10,31 @@ const MobileNav = () => {
 
     const subMenu = useRef()
 
-    const toggler = useRef()
+    const togglerSubMenu = useRef()
+
+    const menu = useRef()
+
+    const hamb = useRef()
+
+    const toggleMenu = () => {
+        menu.current.classList.toggle("active")
+        hamb.current.classList.toggle("activeHam")
+    }
 
     const toggleSubMenu = () => {
         subMenu.current.classList.toggle("show")
-        toggler.current.classList.toggle("activeSub")
+        togglerSubMenu.current.classList.toggle("activeSub")
     }
 
     const dispatch = useDispatch()
 
     return(
             <nav className="mobileNavbar">
-                <div className = "hamburger">
+                <div
+                    className = "hamburger"
+                    onClick = {() => {toggleMenu()}}
+                    ref = {hamb}
+                >
                     <div className = "hamb-cont">
                         <div></div>
                         <div></div>
@@ -30,12 +43,12 @@ const MobileNav = () => {
                     <span>меню</span>
                 </div>
 
-                    <ul className = "mobile-nav-content">
+                    <ul className = "mobile-nav-content" ref = {menu}>
                         <li className="nav-item">
                             <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Старт</NavLink>
                         </li>
                         <li className = "nav-item"
-                            ref = {toggler}
+                            ref = {togglerSubMenu}
                             onClick = {() => {toggleSubMenu()}}
                         >
                             {/*  eslint-disable-next-line */}

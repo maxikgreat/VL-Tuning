@@ -1,7 +1,32 @@
 @media (max-width: 576px) {
-  .body{
-    .navbar{
-      .navbar-brand{
+
+  header{
+
+    nav.mobileNavbar{
+      .activeSub{
+        margin-bottom: 240px !important;
+      }
+      ul.mobile-nav-content{
+        margin-top: 70px;
+        .nav-item{
+          width: 60%;
+          height: 50px;
+          .sub-menu-container{
+            width: 100%;
+            ul.sub-menu{
+
+              .nav-item{
+                height: 40px;
+                a{
+                  font-size: 15px;
+                }
+              }
+              .activeSub{
+                margin-bottom: 240px !important;
+              }
+            }
+          }
+        }
 
       }
     }
@@ -28,6 +53,8 @@
 
 }
 @media (max-width: 1060px) {
+
+  //hide usual nav
   .navbar{
     padding-top: 30px;
     .navbar-brand{
@@ -37,6 +64,8 @@
   .startScreen{
     background-position: right;
   }
+
+  //show mobile
 
 }
 
