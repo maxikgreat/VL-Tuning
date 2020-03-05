@@ -108,7 +108,32 @@
       svg{
         font-size: 1.5rem;
       }
-  }s
+    .shoppingCartContent{
+      position: absolute;
+      width: 60vw;
+      h2{
+        font-size: 25px;
+      }
+      .shoppingList{
+        .shoppingItem{
+          .name{
+            span:nth-child(1){
+              font-size: 1.2rem;
+            }
+            span:nth-child(2){
+              font-size: 1rem;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+  .shoppingCart.active{
+    transform: translateX(-60vw);
+  }
+
   .mobile-container{
     position: absolute;
     top:0;
@@ -189,12 +214,12 @@
         height: 65vh;
 
         h1 {
-          font-size: 20px;
+          font-size: 30px;
         }
 
         .infoContainer {
           h2 {
-            font-size: 15px;
+            font-size: 20px;
             padding-bottom: 1rem;
           }
           .price{
@@ -226,6 +251,67 @@
         }
       }
     }
+  }
+
+  .shoppingCart{
+    .shoppingCartContent{
+      width: 80vw;
+      h2{
+        font-size: 20px;
+      }
+      .shoppingList{
+        .shoppingItem{
+          .name{
+            span:nth-child(1){
+              font-size: 0.8rem;
+            }
+            span:nth-child(2){
+              display: none;
+            }
+            span:nth-child(3){
+              display: none;
+            }
+          }
+          .quantPriceIcon{
+            .quant{
+              font-size: 0.8rem;
+              margin-left: 5px;
+            }
+            .price{
+              display: none;
+            }
+          }
+        }
+      }
+      .orderContainer{
+        flex-direction: column-reverse;
+        .orderButtonContainer{
+          padding: 0;
+          button{
+            font-size: 15px;
+            padding: 1rem;
+            min-width: 150px !important;
+
+          }
+        }
+        .quantPriceIcon{
+          width: 100%;
+          margin-left: 50px;
+          margin-right: 50px;
+          margin-bottom: 20px;
+          .quant{
+            font-size: 20px;
+          }
+          .price{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+  }
+  .shoppingCart.active{
+    transform: translateX(-80vw);
   }
 
 }

@@ -64,8 +64,8 @@ const ShoppingCart = () => {
                             </div>
 
                             <div className = "quantPriceIcon">
-                                <span className = "quant">{item.Quantity}</span>
-                                <span className = "price">{item.Price * item.Quantity}$</span>
+                                <span className = "quant">{item.Quantity} шт</span>
+                                <span className = "price">{item.Price * item.Quantity}</span>
                                 <FontAwesomeIcon 
                                     data-item-delete-id = {item.ID}
                                     icon = "times-circle"
@@ -98,7 +98,7 @@ const ShoppingCart = () => {
                     <FontAwesomeIcon icon = 'shopping-cart' />
                 </div>
                 <div
-                    className = {shoppingCart.isOpen ? 'shoppingCartContent activeContent' : 'shoppingCartContent'}
+                    className = 'shoppingCartContent'
                 >
                     <h2>Корзина</h2>
                     <hr />
@@ -115,8 +115,8 @@ const ShoppingCart = () => {
                                     >Заказать</Button>
                                 </div>
                                 <div className = "quantPriceIcon">
-                                    <span className = "quant">{shoppingCart.quantity}</span>
-                                    <span className = "price">{shoppingCart.total}$</span>
+                                    <span className = "quant">{shoppingCart.quantity} шт</span>
+                                    <span className = "price">{shoppingCart.total} грн</span>
                                     <FontAwesomeIcon 
                                         icon = 'trash-alt'
                                         onClick = {() => {deleteAndToggle()}}
