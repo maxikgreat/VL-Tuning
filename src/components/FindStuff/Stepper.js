@@ -9,26 +9,23 @@ class Stepper extends PureComponent{
     render(){
         const {choseStuff} = this.props
         return(
-            <div className = "d-flex flex-column w-100" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
-              <div className = "stepperContainer row text-center">
-                  <div className = "col-4 wrapper">
+            <div className = "d-flex flex-column justify-content-center w-100" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
+              <div className = "stepperContainer text-center">
+                  <div className = "col-4 col-xs-12 wrapper">
                       <Step 
                           type = 'stuff' 
-                          index = {1} 
                       />
                   </div>
-                  <div className = "col-4 wrapper locked">
+                  <div className = "col-4 col-xs-12 wrapper locked">
                       {choseStuff.stuff !== "" ? 
                           <Step 
                               type = 'brand' 
-                              index = {2}
-                          /> : <Lock />}   
+                          /> : <Lock />}
                   </div>
-                  <div className = "col-4 wrapper locked">
+                  <div className = "col-4 col-xs-12 wrapper locked">
                       {choseStuff.brand !== "" ? 
                           <Step 
                               type = 'model' 
-                              index = {3}
                           /> : <Lock /> }
                   </div>
               </div>

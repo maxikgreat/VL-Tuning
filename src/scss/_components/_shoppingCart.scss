@@ -4,7 +4,7 @@
   @include transition(transform 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860));
   z-index: 20;
   color: $secondaryDarkColor;
-  position: absolute;
+  position: fixed;
   top: 25px;
   left: calc(100% - 70px);
     min-width: 70px;

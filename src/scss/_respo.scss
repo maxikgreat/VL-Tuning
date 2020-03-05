@@ -42,7 +42,6 @@
       font-size: 1.5rem;
     }
     .startButton{
-      top: -30%;
       button{
         font-size: 15px;
       }
@@ -60,10 +59,55 @@
       svg{
         font-size: 1.5rem;
       }
+  }s
+  .mobile-container{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .findStuff{
+    .findButton{
+      button{
+        font-size: 15px;
+      }
+    }
+
+    .stepperContainer{
+      flex-direction: column;
+      height: 50%;
+
+      .wrapper{
+        min-width: 100%;
+      div.lock{
+        display: none;
+      }
+        div{
+          h2{
+            font-size: 1.5rem;
+          }
+          form{
+            .chosen-value{
+              height: 2rem;
+            }
+            .value-list{
+              background: rgba( 0, 0, 0, 1);
+              z-index: 1;
+            }
+          }
+        }
+      }
+    }
   }
 }
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) {
+  .startScreen{
+    .startButton{
+      top: -30%;
+    }
+  }
 
 }
 

@@ -2,11 +2,11 @@ import React, {useEffect} from 'react'
 import {useSpring, animated} from 'react-spring'
 import DropdownList from '../UI/DropdownList'
 
-const Step = ({type, index}) => {
+const Step = ({type}) => {
 
     const animatedStep = useSpring({
-        to: {opacity: 1, transform: "translateX(0)"},
-        from: {opacity: 0, transform: "translateX(-100%)"}
+        to: {opacity: 1, transform: "translateX(0)", minWidth: '100%'},
+        from: {opacity: 0, transform: "translateX(-100%)", minWidth: '100%'}
     })
 
     const fromEnToRu = (typeLocal) => {
@@ -25,7 +25,7 @@ const Step = ({type, index}) => {
     
         return(
             <animated.div style = {animatedStep}>
-                <h2 className = "mb-4">{index}. Выбери <br /> <span className = "specialText">{fromEnToRu(type)}</span></h2>
+                <h2 className = "mb-1">Выбери <br /> <span className = "specialText">{fromEnToRu(type)}</span></h2>
                 <DropdownList 
                     valueType = {type}
                 />

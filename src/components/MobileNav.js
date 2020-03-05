@@ -1,9 +1,8 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useDispatch} from 'react-redux'
 import {setStuff, clearAll} from '../redux/choseStuff/choseStuffAction'
-import logoVlTun from '../assets/images/vl-tunLogo.png'
 
 
 const MobileNav = () => {
@@ -15,6 +14,13 @@ const MobileNav = () => {
     const menu = useRef()
 
     const hamb = useRef()
+
+
+    // useEffect(() => {
+    //     menu.current.classList.toggle("active")
+    // }, [menu.current.classList])
+
+
 
     const toggleMenu = () => {
         menu.current.classList.toggle("active")
@@ -45,7 +51,13 @@ const MobileNav = () => {
 
                     <ul className = "mobile-nav-content" ref = {menu}>
                         <li className="nav-item">
-                            <NavLink exact={true} className = "nav-link" to = '/' alt = "Home">Старт</NavLink>
+                            <NavLink
+                                exact={true}
+                                className = "nav-link"
+                                to = '/'
+                                alt = "Home"
+                                onClick = {() => {toggleMenu()}}
+                            >Старт</NavLink>
                         </li>
                         <li className = "nav-item"
                             ref = {togglerSubMenu}
@@ -61,34 +73,60 @@ const MobileNav = () => {
                                         dispatch(clearAll())
                                         dispatch(setStuff("Ветровики"))
                                     }}>
-                                        <NavLink className= "nav-link" to="/production/door-visors">Ветровики</NavLink>
+                                        <NavLink
+                                            className= "nav-link"
+                                            to="/production/door-visors"
+                                            onClick = {() => {toggleMenu()}}
+                                        >Ветровики</NavLink>
                                     </li>
                                     <li className = "nav-item" onClick = {() => {
                                         dispatch(clearAll())
                                         dispatch(setStuff("Ветровики Хром"))
                                     }}>
-                                        <NavLink className= "nav-link" to="/production/door-visors-chrome">Ветр. Хром</NavLink>
+                                        <NavLink
+                                            className= "nav-link"
+                                            to="/production/door-visors-chrome"
+                                            onClick = {() => {toggleMenu()}}
+                                        >Ветр. Хром</NavLink>
                                     </li>
                                     <li className = "nav-item" onClick = {() => {
                                         dispatch(clearAll())
                                         dispatch(setStuff("Мухобойки"))
                                     }}>
-                                        <NavLink className= "nav-link" to="/production/hood-protectors">Мухобойки</NavLink>
+                                        <NavLink
+                                            className= "nav-link"
+                                            to="/production/hood-protectors"
+                                            onClick = {() => {toggleMenu()}}
+                                        >Мухобойки</NavLink>
                                     </li>
                                     <li className = "nav-item" onClick = {() => {
                                         dispatch(clearAll())
                                         dispatch(setStuff("Спойлера"))
                                     }}>
-                                        <NavLink className= "nav-link" to="/production/back-spoilers">Спойлера</NavLink>
+                                        <NavLink
+                                            className= "nav-link"
+                                            to="/production/back-spoilers"
+                                            onClick = {() => {toggleMenu()}}
+                                        >Спойлера</NavLink>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li className="nav-item">
-                            <NavLink className = "nav-link" to = '/quick-search' alt = "Search">Найти товар</NavLink>
+                            <NavLink
+                                className = "nav-link"
+                                to = '/quick-search'
+                                alt = "Search"
+                                onClick = {() => toggleMenu()}
+                            >Найти товар</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/about-us" alt = "About Us">О нас</NavLink>
+                            <NavLink
+                                className="nav-link"
+                                to="/about-us"
+                                alt = "About Us"
+                                onClick = {() => toggleMenu()}
+                            >О нас</NavLink>
                         </li>
                     </ul>
             </nav>

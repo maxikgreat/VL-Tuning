@@ -7,6 +7,7 @@ import fromEnToRu from "../../helpFunctions/fromEnToRu";
 //redux
 import { connect } from 'react-redux'
 import {setBrand, setModel, setStuff, clearModel, clearBrand} from '../../redux/choseStuff/choseStuffAction'
+import keyboardFix from "../../helpFunctions/keyboardFix";
 
 class DropdownList extends PureComponent {
 
@@ -34,6 +35,9 @@ class DropdownList extends PureComponent {
     }
 
     componentDidMount(){
+
+        keyboardFix()
+
         switch(this.props.valueType){
             case "brand":
                 this.setState({
@@ -214,6 +218,8 @@ class DropdownList extends PureComponent {
         
     }
 }
+
+
 
 function mapStateToProps(state){
     return{

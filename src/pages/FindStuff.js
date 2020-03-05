@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {clearAll} from '../redux/choseStuff/choseStuffAction'
 
 import bgImgFind from '../assets/images/findStuff/bgFind.jpg'
+import keyboardFix from "../helpFunctions/keyboardFix";
 
 
 const FindStuff = () => {
@@ -53,7 +54,7 @@ const FindStuff = () => {
     }
 
     return(
-        <section className = "findStuff" ref={findStuff} style = {backgroundStyles}>
+        <section className = "findStuff mobile-container" ref={findStuff} style = {backgroundStyles}>
             <Stepper />
             <div className = "findButton">
                 <Button 

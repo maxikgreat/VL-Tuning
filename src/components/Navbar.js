@@ -1,13 +1,14 @@
-import React, {useRef} from 'react'
+import React, {useRef, lazy, Suspense} from 'react'
 import {NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useDispatch} from 'react-redux'
 import {setStuff, clearAll} from '../redux/choseStuff/choseStuffAction'
 import logoVlTun from '../assets/images/vl-tunLogo.png'
-import MobileNav from "./MobileNav";
-
+//lazy
+const MobileNav = lazy(() => import('./MobileNav'))
 
 const Navbar = () => {
+
 
     const subMenu = useRef()
 
@@ -74,7 +75,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </nav>
-                <MobileNav/>
+                <Suspense fallback={<div>Загрузка...</div>}>
+                    <MobileNav/>
+                </Suspense>
+
         </header>
     )
 }
