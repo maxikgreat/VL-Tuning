@@ -27,13 +27,43 @@
     background-position: right;
   }
   section.production{
+    .brandsContainer{
+      transition: none;
+    }
     .modelContainer{
+      transition: none;
       .cardContainer{
+        transform: translateX(0);
+
         .cardTitle{
           font-size: 15px;
         }
         .cardVendor{
           font-size: 12px;
+        }
+      }
+    }
+    .itemContainer{
+      .contentContainer{
+        h1{
+          font-size: 30px;
+        }
+        .infoContainer{
+          h2{
+            font-size: 25px;
+          }
+        }
+        .advIconsContainer{
+          .advIcon{
+            svg{
+              font-size: 3rem;
+            }
+          }
+        }
+        .quantityBuyContainer{
+          button{
+            padding: 0.5rem;
+          }
         }
       }
     }
@@ -70,8 +100,9 @@
       width: 50px;
       line-height: 40px;
       .quantityIn{
-        font-size: 18px;
+        font-size: 15px;
         top: -30px;
+        left: 40px;
       }
     }
       svg{
@@ -119,6 +150,7 @@
     }
   }
   section.production{
+
     .modelContainer{
         height: 65vh;
         .cardContainer{
@@ -144,6 +176,55 @@
   .startScreen{
     .startButton{
       top: -30%;
+    }
+  }
+
+  section.production {
+    .itemContainer {
+      .photoContainer{
+        display: none;
+      }
+      .contentContainer {
+
+        height: 65vh;
+
+        h1 {
+          font-size: 20px;
+        }
+
+        .infoContainer {
+          h2 {
+            font-size: 15px;
+            padding-bottom: 1rem;
+          }
+          .price{
+            font-size: 20px;
+          }
+        }
+
+        .advIconsContainer {
+          .advIcon {
+            font-size: 12px;
+            svg {
+              font-size: 3rem;
+            }
+          }
+        }
+
+        .quantityBuyContainer {
+          .quantityCounter{
+            svg{
+              font-size: 20px;
+            }
+            span{
+              font-size: 25px;
+            }
+          }
+          button.brk-btn{
+
+          }
+        }
+      }
     }
   }
 
@@ -199,6 +280,9 @@
       font-size: 1rem;
     }
   }
+  section.production > div{
+    margin: 1rem !important;
+  }
   section.production{
     .titleSearch{
       height: 50px;
@@ -234,7 +318,12 @@
       li{
         a{
           font-size: 10px;
-          max-width: 100px;
+          padding: 0;
+          .bread-text{
+            display: block;
+            overflow: hidden;
+            height: 40px;
+          }
         }
       }
     }

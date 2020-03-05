@@ -42,7 +42,7 @@ const Item = ({cartItems, itemStuff}) => {
                 <div className = "photoContainer col-5">
                     <img src = {examplePhoto} alt = "examplephoto"/>
                 </div>
-                <div className = "contentContainer col-7">
+                <div className = "contentContainer col-12 col-md-7">
                     <div>
                         <h1 className = "item-title" title = {itemStuff.Name}>{itemStuff.Name}</h1>
                         <div className = "infoContainer">
@@ -52,13 +52,13 @@ const Item = ({cartItems, itemStuff}) => {
                     </div>
                     <AdvantageIcons />
                     <div className = "quantityBuyContainer row">
-                        <div className = "d-flex align-items-center col-6">
+                        <div className = "d-flex align-items-center col-5">
                             <QuantityCounter 
                                 quantity = {quantity}
                                 changeQuantity = {changeQuantity}
                             />
                         </div>
-                        <div className = "col-6 d-flex justify-content-center">
+                        <div className = "col-7 d-flex justify-content-center">
                             <Button 
                                 onClickAction = {() => {addToCart()}}
                             >Добавить в корзину</Button>

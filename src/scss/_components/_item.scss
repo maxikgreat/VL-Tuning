@@ -67,6 +67,9 @@
             max-height: 80px;
             display: flex;
             justify-content: space-evenly;
+            button{
+                font-size: 15px;
+            }
             .quantityCounter{
                 background-color: rgba(0, 0, 0, 0.75);
                 display: flex;
@@ -88,6 +91,7 @@
                         color: $secondaryLightColor;
                     }
                 }
+
             }
         }
     }
