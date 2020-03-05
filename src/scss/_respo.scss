@@ -3,7 +3,15 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (max-width: 1200px) {
-
+  section.production {
+    .modelContainer {
+      .cardContainer {
+        .cardTitle {
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1060px) {
@@ -112,7 +120,14 @@
   }
   section.production{
     .modelContainer{
+        height: 65vh;
         .cardContainer{
+          height: 40%;
+          .cardPhoto{
+            img{
+              padding: 4rem;
+            }
+          }
           .cardTitle{
             font-size: 15px;
           }

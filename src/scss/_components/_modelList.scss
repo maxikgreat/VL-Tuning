@@ -19,7 +19,7 @@
                 transform: translateY(0px);
                 &:hover{
                     text-decoration: none;
-                    color: $secondaryLightColor;;
+                    color: $secondaryLightColor;
                     transform: translateY(-15px);
                     @include transition(all 0.2s ease);
                 }
