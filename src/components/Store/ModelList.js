@@ -26,7 +26,7 @@ const ModelList = ({models}) => {
             return(
                     <Link 
                         key = {index}
-                        className = "cardContainer col-3"
+                        className = "cardContainer col-6 col-lg-3"
                         to={`${url}/${item.ID}`}
                         onClick = {() => {choseModel(item)}}
                     >

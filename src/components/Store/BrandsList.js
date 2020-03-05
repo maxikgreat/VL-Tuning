@@ -50,7 +50,7 @@ const BrandsList = ({brands, url}) => {
                 return(
                     <Link
                         to={`${url}/${item.name.replace(" ","-").toLowerCase()}`}
-                        className = "col-2 item"
+                        className = "col-4 col-md-2 item"
                         key = {index} 
                         onClick = {() => {chooseBrand(item.name)}}
                     >

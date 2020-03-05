@@ -5,7 +5,9 @@
     background: rgba(0,0,0,0.85);
     overflow-y: scroll;
     align-content: flex-start;
+    overflow-x: hidden;
             .cardContainer{
+
                 @include userSelect(none);
                 cursor: pointer;
                 height: 50%;
