@@ -23,19 +23,22 @@ const Bill = ({items, total, quantity}) => {
                     break
             }
             return (
-                <li 
-                    key = {index}
-                    className = "billItem"
-                >
-                    <div className = "bill bill-info-name">
-                        <span className = "bill bill-name">{item.Name}<br /></span>
-                        <span className = "bill bill-type">{showType} | </span>
-                        <span className = "bill bill-manufacturer">{item.Manufacturer}</span>
-                    </div>
-                    
-                    <span className = "bill bill-quantity">{item.Quantity}</span>
-                    <span className = "bill bill-price">{item.Price}</span>
-                </li>
+                <>
+                    <li
+                        key = {index}
+                        className = "billItem"
+                    >
+                        <div className = "bill bill-info-name">
+                            <span className = "bill bill-name">{item.Name}<br /></span>
+                            <span className = "bill bill-type">{showType} | </span>
+                            <span className = "bill bill-manufacturer">{item.Manufacturer}</span>
+                        </div>
+
+                        <span className = "bill bill-quantity">{item.Quantity} шт</span>
+                        <span className = "bill bill-price">{item.Price}</span>
+                    </li>
+                    <hr />
+                </>
             )
         })
     }
@@ -49,8 +52,8 @@ const Bill = ({items, total, quantity}) => {
             </ul>
             <hr />
             <div className = "summaryContainer">
-                <span className = "red-text">Кол-во: <span className = "specialText">{quantity}</span></span>
-                <span className = "red-text">В сумме: <span className = "specialText">{total}</span></span>
+                <span className = "red-text">Кол-во: <span className = "specialText">{quantity} шт</span></span>
+                <span className = "red-text">В сумме: <span className = "specialText">{total} грн</span></span>
             </div>
         </div>
         

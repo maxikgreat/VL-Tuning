@@ -201,10 +201,62 @@
         }
     }
   }
-
+  section.order{
+    .orderWrapper{
+      height: 95vh;
+    }
+    .title{
+      font-size: 30px;
+    }
+    p{
+      font-size: 15px;
+    }
+    .billContainer{
+      .billItemsContainer{
+        .billItem {
+          .bill-name{
+            font-size: 14px;
+          }
+          .bill-type{
+            font-size: 14px;
+          }
+          .bill-manufacturer{
+            font-size: 16px;
+          }
+          .bill-price{
+            display: none;
+          }
+          .bill-quantity{
+            margin-left: 20px;
+            min-width: 50px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .summaryContainer{
+      span{
+        font-size: 20px;
+        text-transform: none;
+      }
+    }
+  }
 }
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) {
+  section.order{
+    .orderWrapper{
+      display: flex;
+      align-items: center;
+      height: 76vh;
+      margin-top:60px;
+      overflow: scroll;
+    }
+    button{
+      font-size: 15px;
+      width: 50p
+    }
+  }
   .startScreen{
     .startButton{
       top: -30%;
@@ -267,6 +319,10 @@
         font-size: 20px;
       }
       .shoppingList{
+        height: 40vh;
+        .empty{
+          font-size: 20px;
+        }
         .shoppingItem{
           .name{
             span:nth-child(1){
@@ -417,6 +473,36 @@
             overflow: hidden;
             height: 40px;
           }
+        }
+      }
+    }
+  }
+  section.order{
+    .billContainer{
+      .billItemsContainer{
+        .billItem {
+          .bill-name{
+            font-size: 13px;
+          }
+          .bill-type{
+            font-size: 13px;
+          }
+          .bill-manufacturer{
+            font-size: 14px;
+          }
+          .bill-price{
+            display: none;
+          }
+          .bill-quantity{
+            margin-left: 20px;
+            min-width: 50px;
+            font-size: 15px;
+          }
+        }
+      }
+      .summaryContainer{
+        span{
+          font-size: 15px;
         }
       }
     }

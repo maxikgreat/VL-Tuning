@@ -27,15 +27,15 @@ const Order = () => {
 
     return(
         <section className = "order" style = {backgroundStyles}>
-            <div className = "row h-100 align-items-center">
-                <div className = "billContainer col-6">
+            <div className = "orderWrapper row">
+                <div className = "billContainer col-12 col-md-6">
                     <Bill 
                         items = {items}
                         total = {total}
                         quantity = {quantity}
                     />
                 </div>
-                <div className = "formContainer col-6">
+                <div className = "formContainer col-12 col-md-6">
                     <EndForm />
                 </div>
             </div>

@@ -53,6 +53,7 @@ const ShoppingCart = () => {
                         break
                 }
                 return (
+                    <>
                         <li 
                             className = "shoppingItem"
                             key = {index}
@@ -73,6 +74,8 @@ const ShoppingCart = () => {
                                 />
                             </div>
                         </li>
+                        <hr />
+                    </>
                 )
             })
         } else {

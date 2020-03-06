@@ -1,8 +1,15 @@
 .order{
+    .orderWrapper{
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
     .title{
         font-size: 40px;
     }
     .billContainer{
+        background: rgba(0,0,0,0.5);
+        @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
         height: 70vh;
         display: flex;
         justify-content: center;
@@ -15,6 +22,10 @@
             padding: 0;
             margin: 0;
             font-size: 18px;
+            .billItem + hr{
+                width: 60%;
+                border: 1px solid $secondaryLightColor;
+            }
             .billItem{
                 color: $secondaryLightColor;
                 display: flex;
@@ -56,6 +67,7 @@
         }
     }
     .formContainer{
+        background: rgba(0,0,0,0.5);
         @include boxShadow(0px 0px 10px 15px rgba(0,0,0,0.75));
         background: rgba(0,0,0, .75);
         display: flex;

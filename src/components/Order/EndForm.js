@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
+import keyboardFix from "../../helpFunctions/keyboardFix";
 
 const EndForm = () => {
+
+    useEffect(() => {
+        keyboardFix()
+    }, [])
 
     const onSubmitForm = (e) => {
         //console.log("Submited")
@@ -33,11 +38,11 @@ const EndForm = () => {
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="col-6 mb-3">
+                    <div className="col-7 mb-3">
                         <label htmlFor="validationDefault04">Телефон</label>
                         <input type="tel" className="form-control" id="validationDefault04" placeholder="Телефон..." required />
                     </div>
-                    <div className="col-3 mb-3">
+                    <div className="col-5 mb-3">
                         <label htmlFor="validationDefault05">Город</label>
                         <input type="text" className="form-control" id="validationDefault05" placeholder="Город..." required />
                     </div>
