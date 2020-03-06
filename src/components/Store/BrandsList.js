@@ -21,7 +21,6 @@ const BrandsList = ({brands, url}) => {
             return item.name
         })
         filter(brandsNames, inputRef.current.value, containerBrandsRef.current)
-        dispatch(clearBrand())
         dispatch(clearModel())
     })
 

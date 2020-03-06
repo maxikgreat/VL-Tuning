@@ -6,13 +6,8 @@ import {setModel, clearModel} from '../../redux/choseStuff/choseStuffAction'
 
 const ModelList = ({models}) => {
 
-    //const inputRef = useRef()
     //redux
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(clearModel())
-    }, [])
     //route
     const {url} = useRouteMatch()
 
@@ -22,7 +17,6 @@ const ModelList = ({models}) => {
 
     const renderItems = () => {
         return models.data.map((item, index) => {
-            // console.log(item)
             return(
                     <Link 
                         key = {index}
@@ -57,7 +51,7 @@ const ModelList = ({models}) => {
                     />
                     <FontAwesomeIcon icon = "search" /> */}
             </div>
-            <div className = "modelContainer row">
+            <div className = "modelContainer row" id = "scrollModels">
                 {renderItems()}
             </div>  
         </div>

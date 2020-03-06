@@ -61,6 +61,7 @@
     "react-particles-js": "^2.7.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
+    "react-router-scroll-memory": "^2.0.5",
     "react-spring": "^8.0.27",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",

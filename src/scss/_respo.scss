@@ -22,7 +22,13 @@
     .navbar-brand{
       display: none;
     }
+    .sub-menu-container{
+      .sub-menu{
+        margin-left: -100px;
+      }
+    }
   }
+
   .startScreen{
     background-position: right;
   }
@@ -79,6 +85,7 @@
     nav.mobileNavbar{
       display: block;
     }
+
   }
   .startScreen{
     .titleContainer{

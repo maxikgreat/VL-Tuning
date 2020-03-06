@@ -11,13 +11,16 @@ import * as serviceWorker from './serviceWorker'
 //styles
 import 'bootstrap/dist/css/bootstrap.css'
 import './scss/main.scss'
+//remember Scroll position
+import ScrollMemory from 'react-router-scroll-memory'
 
-const app = 
+const app =
     <Provider store = {store}>
         <Router>
-          <PersistGate persistor = {persistor}>
-            <App />
-          </PersistGate>
+            <ScrollMemory elementID = {"scrollModels"}/>
+            <PersistGate persistor = {persistor}>
+                <App />
+            </PersistGate>
         </Router>
     </Provider>
 

@@ -5,7 +5,6 @@ import {useRouteMatch, Switch, Route, useParams} from 'react-router-dom'
 import BrandsList from '../components/Store/BrandsList'
 import ModelList from '../components/Store/ModelList'
 import Item from '../components/Store/Item'
-import Categories from '../components/Store/Categories'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 
 const Production = () =>{
