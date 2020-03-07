@@ -244,6 +244,23 @@
 }
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) {
+
+  section.privatePolicy {
+    .wrapperPolicy{
+      h1{
+        font-size: 30px;
+      }
+      h2{
+        font-size: 25px;
+      }
+      p{
+        font-size: 14px;
+      }
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 70px;
+    }
+  }
   section.order{
     .orderWrapper{
       display: flex;
