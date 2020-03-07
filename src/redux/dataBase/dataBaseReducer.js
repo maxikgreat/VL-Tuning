@@ -3,6 +3,8 @@ import modyfiedJson from './functions/modyfiedJson'
 
 const mainBD = modyfiedJson()
 
+console.log(mainBD)
+
 const initialState = {
     //brands: getAllBrands(),
    Chrome: mainBD.Chrome,
@@ -14,7 +16,7 @@ const initialState = {
 
 export default function dataBaseReducer(state = initialState, {type, payload}){
     switch(type){
-        default: 
+        default:
             return state
     }
 }
