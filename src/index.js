@@ -10,7 +10,6 @@ import { PersistGate } from 'redux-persist/integration/react'
 import * as serviceWorker from './serviceWorker'
 //styles
 import 'bootstrap/dist/css/bootstrap.css'
-import './scss/main.scss'
 //remember Scroll position
 import ScrollMemory from 'react-router-scroll-memory'
 
@@ -27,9 +26,6 @@ const app =
 
 ReactDOM.render(app, document.getElementById('root'));
 
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
+
+

@@ -90,6 +90,4 @@ const BrandsList = ({brands, url}) => {
     )
 }
 
-BrandsList.whyDidYouRender = true
-
 export default React.memo(BrandsList)

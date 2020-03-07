@@ -62,6 +62,5 @@ const Production = () =>{
     )
 }
 
-BrandsList.whyDidYouRender = true
 
 export default Production
