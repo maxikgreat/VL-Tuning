@@ -245,8 +245,15 @@
     right: 0;
     bottom: 0;
   }
+
   .findStuff{
+    .wrapperFindStuff{
+      margin-top: 80px;
+      justify-content: flex-start;
+      height: 50%;
+    }
     .findButton{
+      top: 75%;
       button{
         font-size: 15px;
       }
@@ -254,8 +261,6 @@
 
     .stepperContainer{
       flex-direction: column;
-      height: 50%;
-
       .wrapper{
         min-width: 100%;
       div.lock{
@@ -268,10 +273,18 @@
           form{
             .chosen-value{
               height: 2rem;
+              fone-size: 14px;
             }
             .value-list{
               background: rgba( 0, 0, 0, 1);
-              z-index: 1;
+              fone-size: 14px;
+              z-index: 10;
+              li{
+                z-index: 10;
+              }
+            }
+            .open{
+              height: 200px;
             }
           }
         }

@@ -1,6 +1,12 @@
 @import '../_components/dropdownList';
 
 .findStuff{
+    .wrapperFindStuff{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
     h2{
         font-size: 3rem;
     }

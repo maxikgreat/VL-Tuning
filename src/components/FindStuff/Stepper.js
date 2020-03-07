@@ -9,7 +9,7 @@ class Stepper extends PureComponent{
     render(){
         const {choseStuff} = this.props
         return(
-            <div className = "d-flex flex-column justify-content-center w-100" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
+            <div className = "wrapperFindStuff" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
               <div className = "stepperContainer text-center">
                   <div className = "col-4 col-xs-12 wrapper">
                       <Step 
