@@ -7,27 +7,6 @@ import Lock from "../FindStuff/Lock"
 
 class StepperMobile extends PureComponent{
 
-    state = {
-        stepList: ["stuff", "brand", "model"],
-        currentStep: 0
-    }
-
-    prevStep = () => {
-        if(this.state.currentStep >= 1){
-            this.setState({
-                currentStep: this.state.currentStep - 1
-            })
-        }
-    }
-
-    nextStep = () => {
-        if(this.state.currentStep <= 1){
-            this.setState({
-                currentStep: this.state.currentStep + 1
-            })
-        }
-    }
-
     render(){
         const {choseStuff} = this.props
         return(
@@ -35,19 +14,23 @@ class StepperMobile extends PureComponent{
                 <div className = "wrapperFindStuffMobile" style = {{backgroundColor: 'rgba(0,0,0,0.7)'}}>
                         <MobileStep
                             type = 'stuff'
+                            index = {1}
                         />
                         {choseStuff.stuff !== "" ?
                             <MobileStep
                                 type = 'brand'
+                                index = {2}
                             /> : <Lock />}
                         {choseStuff.brand !== "" ?
                             <MobileStep
                                 type = 'model'
+                                index = {3}
                             /> : <Lock /> }
                 </div>
                 <div className = "arrowsContainer">
-                    <FontAwesomeIcon icon = "angle-double-left" onClick = {() => {this.prevStep()}}/>
-                    <FontAwesomeIcon icon = "angle-double-right" onClick = {() => {this.nextStep()}}/>
+                    <FontAwesomeIcon icon = "angle-double-left"/>
+                    <FontAwesomeIcon icon = "hand-point-up" />
+                    <FontAwesomeIcon icon = "angle-double-right"/>
                 </div>
             </>
         )

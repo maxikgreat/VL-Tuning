@@ -17,7 +17,8 @@ import {
     faPhoneSquareAlt,
     faEnvelope,
     faAngleDoubleLeft,
-    faAngleDoubleRight
+    faAngleDoubleRight,
+    faHandPointUp
 } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
@@ -30,7 +31,7 @@ import Order from './pages/Order'
 //TODO ADD FIREBASE
 
 library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle,
-    faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope, faAngleDoubleLeft, faAngleDoubleRight)
+    faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope, faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp)
 
 function App() {
 
