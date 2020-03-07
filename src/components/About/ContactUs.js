@@ -8,9 +8,9 @@ const ContactUs = ({title}) => {
             <div className = "title col-3">
                 {title}
             </div>
-            <div className = "content col-9">
+            <div className = "content col-12 col-md-9">
                 <div className = "borderedContainer">
-                    <div className = "col-5">
+                    <div className = "col-12 col-md-5">
                         <div className = "phonesContainer sTitle">
                             <span>Звоните:</span>
                             <div className = "phones">

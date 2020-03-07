@@ -20,7 +20,7 @@ const InfoCard = ({title, intro, workWithList}) => {
             <div className = 'title col-3'>
                 {title}
             </div>
-            <div className = 'content col-9'>
+            <div className = 'content col-12 col-md-9'>
                 {intro}
                 <ul className = "workWithContainer">
                     {renderItems()}

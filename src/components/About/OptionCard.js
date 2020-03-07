@@ -53,7 +53,7 @@ const OptionCard = ({options}) => {
                     {renderOptions()}
                 </ul>
             </div>
-            <div className = "content col-9">
+            <div className = "content col-12 col-md-9">
                 {renderOptionInfo()}
             </div>
         </div>

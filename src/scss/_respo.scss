@@ -12,10 +12,53 @@
       }
     }
   }
+  section.aboutUs{
+    .aboutUsCardsContainer {
+      .aboutUsCard{
+        .title{
+          h2{
+            font-size: 4rem;
+          }
+        }
+        .content{
+          .intro{
+            font-size: 25px;
+          }
+          .main{
+            font-size: 20px;
+          }
+          .liItem{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1060px) {
-
+  section.aboutUs{
+    .aboutUsCardsContainer {
+      .aboutUsCard{
+        .title{
+          h2{
+            font-size: 3rem;
+          }
+        }
+        .content{
+          .intro{
+            font-size: 23px;
+          }
+          .main{
+            font-size: 17px;
+          }
+          .liItem{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
   //hide usual nav
   .navbar{
     padding-top: 30px;
@@ -78,6 +121,60 @@
 
 }
 @media (max-width: 900px) {
+  section.aboutUs{
+    .aboutUsCardsContainer {
+      .aboutUsCard{
+        margin-top: 80px;
+        margin-bottom: 100px;
+        height: 60%;
+        .title{
+          display: none;
+        }
+        .borderedContainer{
+          .sTitle{
+            padding: 0;
+            font-size: 20px;
+          }
+          .phones{
+            font-size: 16px;
+          }
+        }
+
+        .optionListContainer{
+          display: none;
+        }
+        .withPartnersText{
+          font-size: 20px;
+        }
+        .workWithContainer{
+          .workItem{
+            padding: 0.5rem;
+            img{
+              filter: none;
+            }
+          }
+        }
+
+        .content{
+          .mapContainer{
+            display: none;
+          }
+          .intro{
+            font-size: 18px;
+          }
+          .main{
+            font-size: 16px;
+          }
+          .liItem{
+            font-size: 16px;
+          }
+        }
+        &:nth-child(2){
+          display: none;
+        }
+      }
+    }
+  }
   header{
     .navbar{
       display: none;
