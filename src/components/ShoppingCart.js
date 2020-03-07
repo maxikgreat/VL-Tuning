@@ -53,10 +53,10 @@ const ShoppingCart = () => {
                         break
                 }
                 return (
-                    <>
+                    <div key = {index}>
                         <li 
                             className = "shoppingItem"
-                            key = {index}
+                            //key = {index}
                         >
                             <div className = "name">
                                 <span>{item.Name}<br /></span>
@@ -75,7 +75,7 @@ const ShoppingCart = () => {
                             </div>
                         </li>
                         <hr />
-                    </>
+                    </div>
                 )
             })
         } else {

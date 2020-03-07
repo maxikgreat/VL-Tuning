@@ -6,6 +6,7 @@ export default function deleteEmptyBrands(brands, withData){
                     if(brands[item].data.length === 0){
                         delete filteredBrands[item]
                     }
+                    return item
                 })
 
                 if(filteredBrands.length === 0){

@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import {setModel, clearModel} from '../../redux/choseStuff/choseStuffAction'
+import {setModel} from '../../redux/choseStuff/choseStuffAction'
 
 const ModelList = ({models}) => {
 

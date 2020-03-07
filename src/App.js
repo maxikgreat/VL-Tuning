@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react'
+import React from 'react'
 //navigation
-import {Switch, Route, Redirect, __RouterContext} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 //font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -24,7 +24,7 @@ import AboutUs from './pages/AboutUs'
 import Production from './pages/Production'
 import PrivatePolicy from './pages/PrivatePolicy'
 //animated routes
-import {useTransition, animated} from 'react-spring'
+
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
 //TODO ADD FIREBASE

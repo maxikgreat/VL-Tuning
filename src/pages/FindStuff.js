@@ -6,7 +6,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import {clearAll} from '../redux/choseStuff/choseStuffAction'
 
 import bgImgFind from '../assets/images/findStuff/bgFind.jpg'
-import keyboardFix from "../helpFunctions/keyboardFix";
 
 
 const FindStuff = () => {

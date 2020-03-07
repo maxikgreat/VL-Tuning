@@ -1,11 +1,17 @@
 {
   "short_name": "VL",
   "name": "VL-Tuning",
+  "background-color": "#000",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "355x125",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

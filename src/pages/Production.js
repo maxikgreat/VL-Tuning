@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import bgImgProduction from '../assets/images/production/productionBg.jpg'
 import {useSelector} from 'react-redux'
 import {useRouteMatch, Switch, Route, useParams} from 'react-router-dom'

@@ -4,13 +4,10 @@ export default function fromEnToRu(localStuff){
             return "Ветровики"
         case "Chrome":
             return "Ветр. хром"
-            break
         case "Hood":
             return "Мухобойки"
-            break
         case "Back":
             return "Спойлера заднего стекла"
-            break
         default:
             return localStuff
     }

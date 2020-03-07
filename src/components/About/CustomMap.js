@@ -126,7 +126,7 @@ export class CustomMap extends Component {
             >
                 <Marker
                     onClick={this.onMarkerClick}
-                    name={<a target="_blank" href = {road}>Создать маршрут</a>}
+                    name={<a target="_blank" rel="noopener noreferrer" href = {road}>Создать маршрут</a>}
                 />
                 <InfoWindow
                     marker={this.state.activeMarker}
