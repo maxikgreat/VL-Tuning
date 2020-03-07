@@ -139,7 +139,6 @@
             font-size: 16px;
           }
         }
-
         .optionListContainer{
           display: none;
         }
@@ -248,44 +247,51 @@
 
   .findStuff{
     .wrapperFindStuff{
-      margin-top: 80px;
-      justify-content: flex-start;
-      height: 50%;
+      display: none;
     }
     .findButton{
       top: 75%;
-      button{
-        font-size: 15px;
+    }
+    .arrowsContainer{
+      min-width: 180px;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 65%;
+      svg{
+        font-size: 40px;
       }
     }
-
-    .stepperContainer{
-      flex-direction: column;
-      .wrapper{
-        min-width: 100%;
-      div.lock{
-        display: none;
-      }
-        div{
-          h2{
-            font-size: 1.5rem;
+    .wrapperFindStuffMobile{
+      display: flex;
+      width: 300%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      align-items: flex-start;
+      height: 100%;
+      margin-top: 80px;
+      text-align: center;
+      .mobileStep{
+        flex: 0 0 auto;
+        width: 100%;
+        h2{
+          font-size: 30px;
+        }
+        form{
+          .chosen-value{
+            width: 80%;
+            height: 3rem;
+            font-size: 15px;
           }
-          form{
-            .chosen-value{
-              height: 2rem;
-              fone-size: 14px;
+          .value-list{
+            font-size: 15px;
+            width: 80%;
+            li{
+              height: 50px;
             }
-            .value-list{
-              background: rgba( 0, 0, 0, 1);
-              fone-size: 14px;
-              z-index: 10;
-              li{
-                z-index: 10;
-              }
-            }
-            .open{
-              height: 200px;
-            }
+          }
+          .value-list.open{
+            height: 200px;
           }
         }
       }

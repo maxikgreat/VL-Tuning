@@ -10,6 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import * as serviceWorker from './serviceWorker'
 //styles
 import 'bootstrap/dist/css/bootstrap.css'
+import './scss/main.scss'
 //remember Scroll position
 import ScrollMemory from 'react-router-scroll-memory'
 

@@ -4,6 +4,7 @@ import Stepper from '../components/FindStuff/Stepper'
 import Button from '../components/UI/Button'
 import {useSelector, useDispatch} from 'react-redux'
 import {clearAll} from '../redux/choseStuff/choseStuffAction'
+import StepperMobile from '../components/FindStuffMobile/StepperMobile'
 
 import bgImgFind from '../assets/images/findStuff/bgFind.jpg'
 
@@ -55,6 +56,7 @@ const FindStuff = () => {
     return(
         <section className = "findStuff mobile-container" ref={findStuff} style = {backgroundStyles}>
             <Stepper />
+            <StepperMobile />
             <div className = "findButton">
                 <Button 
                     disabled = {(brand !== "") && (model !== null) && (stuff !== "") ? false : true} // model is object
