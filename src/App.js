@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 //navigation
 import {Switch, Route, Redirect} from 'react-router-dom'
 //font-awesome
@@ -28,12 +28,23 @@ import Production from './pages/Production'
 import PrivatePolicy from './pages/PrivatePolicy'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
-//TODO ADD FIREBASE
+//redux
+import {useDispatch} from "react-redux";
+import {fireFetch} from "./redux/dataBase/dataBaseAction";
 
 library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle,
     faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope, faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp)
 
 function App() {
+
+    //get data from firebase
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fireFetch())
+    })
+
+
 
 
   return (

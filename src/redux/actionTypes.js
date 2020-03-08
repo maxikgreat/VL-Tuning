@@ -10,7 +10,7 @@ export const CLEAR_MODEL = "CLEAR_MODEL"
 export const CLEAR_ALL = "CLEAR_ALL"
 
 //bd
-
+export const FIRE_FETCH = "FIRE_FETCH"
 
 //shoppingCart
 

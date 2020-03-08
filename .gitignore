@@ -12,6 +12,7 @@
 /build
 
 firebase.js
+firebase.json
 
 # misc
 .DS_Store

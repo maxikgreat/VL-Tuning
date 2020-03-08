@@ -1,4 +1,4 @@
-import DATABASE from '../../../initialBd.json'
+import DATABASE from '../../../oneMoreBD.json'
 import getAllBrands from './getAllBrands'
 
 export default function modyfiedJson(){
@@ -27,7 +27,7 @@ export default function modyfiedJson(){
         if(name.includes("Cobra Tuning")){
             return name.replace("Cobra Tuning","")
         } else if(name.includes("ALVI")){
-            return name.replace("ALVIALVI","")
+            return name.replace("ALVI","")
         } else if(name.includes("VT-52")){
             return name.replace("VT-52","")
         } else if (name.includes("VL-Tuning")){
@@ -65,7 +65,7 @@ export default function modyfiedJson(){
             DATABASE[globalKey].forEach(item => {
                 const lowCaseName = item.Name.toLowerCase()
                 if(lowCaseName.includes(key.toLowerCase())){
-                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"").replace(" деф.окон", "").replace("ХРОМ.МОЛДИНГ", "") //delete backslashes " and spaces
+                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"").replace(" деф.окон", "") //delete backslashes " and spaces
                     let uniqueID = Math.random().toString(36).substr(2, 5)
                     arr.push({
                         ID: uniqueID,
@@ -74,8 +74,7 @@ export default function modyfiedJson(){
                         Type: globalKey,
                         Discount: Number(0),
                         Manufacturer: getManufacturer(lowCaseName),
-                        OrderCount: Number(0),
-                        //AvailableCount: Number(0) maybe in future
+                        OrderedCount: Number(0),
                     })
                 }
             })
