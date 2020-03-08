@@ -23,9 +23,8 @@ const Bill = ({items, total, quantity}) => {
                     break
             }
             return (
-                <>
+                <div key={index}>
                     <li
-                        key = {index}
                         className = "billItem"
                     >
                         <div className = "bill bill-info-name">
@@ -38,7 +37,7 @@ const Bill = ({items, total, quantity}) => {
                         <span className = "bill bill-price">{item.Price}</span>
                     </li>
                     <hr />
-                </>
+                </div>
             )
         })
     }

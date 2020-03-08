@@ -385,10 +385,16 @@
       height: 76vh;
       margin-top:60px;
       overflow: scroll;
+      form{
+        text-align: center;
+        label{
+          display: none;
+        }
+      }
     }
     button{
       font-size: 15px;
-      width: 50p
+      margin: auto;
     }
   }
   .startScreen{

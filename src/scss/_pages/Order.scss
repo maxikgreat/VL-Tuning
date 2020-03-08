@@ -81,6 +81,22 @@
         a{
             color: $primaryLightColor;
         }
+        .wrapperPadding{
+            form{
+                .form-control{
+                    color: black;
+                }
+                .form-control.incorrect{
+                    border: 2px solid $primaryLightColor;
+                }
+                p.error{
+                    color: $primaryLightColor;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 12px;
+                }
+            }
+        }
     }
 }
 .wrapperPadding{

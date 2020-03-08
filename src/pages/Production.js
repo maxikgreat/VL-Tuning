@@ -13,8 +13,6 @@ const Production = () =>{
     const fireDataBase = useSelector(state => state.dataBase)
     const {data} = fireDataBase
 
-    console.log(data)
-
     const choseStuff = useSelector(state => state.choseStuff)
     const shoppingCart = useSelector(state => state.shoppingCart)
 

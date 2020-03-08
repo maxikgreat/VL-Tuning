@@ -1,18 +1,56 @@
 import React, {useEffect} from 'react'
 import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
-import keyboardFix from "../../helpFunctions/keyboardFix";
+import keyboardFix from "../../helpFunctions/keyboardFix"
+import firebase from '../../firebase'
+import {useSelector} from "react-redux";
+//custom validator
+import useForm from "../../customHooks/useForm";
+import validate from '../../helpFunctions/validationRules';
+//send sendgrid
+import readyDataToSend from "../../helpFunctions/readyDataToSend";
 
 const EndForm = () => {
+
+    const {
+        values,
+        errors,
+        handleChange,
+        handleSubmit,
+    } = useForm(login, validate);
+
+    function login() {
+        console.log('No errors, submit callback called!');
+    }
+
+    const shoppingCart = useSelector(state => state.shoppingCart)
+
+    const {items, total ,quantity} = shoppingCart
+
 
     useEffect(() => {
         keyboardFix()
     }, [])
 
     const onSubmitForm = (e) => {
-        //console.log("Submited")
-        //const callable = firebase.functions().httpsCallable("sendMessage")
-        //return callable({ text: 'Sending email with React and SendGrid is fun!', subject: 'Email from React'}).then(console.log)
+        //e.preventDefault()
+        if(items.length !== 0){
+            const dataReady = readyDataToSend(items,total,quantity)
+            //get func from server
+            const sendOrder = firebase.functions().httpsCallable("fireOrder")
+        }
+
+
+
+
+
+        // try{
+        //     const response = await sendOrder()
+        //     console.log(response)
+        // }catch (e) {
+        //     console.log(e)
+        // }
+
     }
 
 
@@ -20,43 +58,78 @@ const EndForm = () => {
         <div className="wrapperPadding">
             <h2 className = "title">Контактная форма</h2>
             <p>Оставьте Ваши контактные данные ниже. Наши менеджеры свяжутся с Вами для уточнения деталей заказа.</p>
-            <form>
+            <form onSubmit={handleSubmit} noValidate>
                 <div className="form-row">
                     <div className="col-6 mb-3">
-                        <label htmlFor="validationDefault01">Имя</label>
-                        <input type="text" className="form-control" id="validationDefault01" placeholder="Имя..." required/>
+                        <label>Имя</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Имя..."
+                            required
+                        />
                     </div>
                     <div className="col-6 mb-3">
-                        <label htmlFor="validationDefault02">Фамилия</label>
-                        <input type="text" className="form-control" id="validationDefault02" placeholder="Фамилия..." required/>
+                        <label>Фамилия</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Фамилия..."
+                            required
+                        />
                     </div>
                 </div>
                 <div className = "form-row">
                     <div className="col-12 mb-3">
-                        <label htmlFor="validationDefault03">E-mail</label>
-                        <input type="email" className="form-control" id="validationDefault03" placeholder="E-mail" required />
+                        <label>E-mail</label>
+                        {errors.email && (
+                            <p className="error">{errors.email}</p>
+                        )}
+                        <input
+                            type="email"
+                            name="email"
+                            className={`form-control ${errors.email && 'incorrect'}`}
+                            onChange={handleChange}
+                            value={values.email || ''}
+                            placeholder="E-mail"
+                            required
+                        />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-7 mb-3">
-                        <label htmlFor="validationDefault04">Телефон</label>
-                        <input type="tel" className="form-control" id="validationDefault04" placeholder="Телефон..." required />
+                        <label>Телефон</label>
+                        <input
+                            type="tel"
+                            className="form-control"
+                            placeholder="Телефон..."
+                            required
+                        />
                     </div>
                     <div className="col-5 mb-3">
-                        <label htmlFor="validationDefault05">Город</label>
-                        <input type="text" className="form-control" id="validationDefault05" placeholder="Город..." required />
+                        <label>Город</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Город..."
+                            required
+                        />
                     </div>
                 </div>
                 <div className="form-group">
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="invalidCheck1" required />
-                        <label className="form-check-label" htmlFor="invalidCheck1">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            required />
+                        <label className="form-check-label">
                             Я соглашаюсь с <Link to = '/private-policy'>политикой конфиденциальности</Link>
                         </label>
                     </div>
                 </div>
                 <Button
-                    onClickAction = {() => onSubmitForm()}
+                    type={"submit"}
+                    //onClickAction = {(e) => onSubmitForm(e)}
                 >
                     Подтвердить
                 </Button>
