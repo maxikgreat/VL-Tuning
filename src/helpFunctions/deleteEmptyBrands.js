@@ -1,11 +1,9 @@
 export default function deleteEmptyBrands(brands, withData){
 
-    console.log(brands)
     let filteredBrands = {}
             if(brands !== undefined){
                 filteredBrands = {...brands}
                 Object.keys(brands).map(item => {
-                    console.log(brands[item])
                     if(brands[item].data.length === 0){
                         delete filteredBrands[item]
                     }

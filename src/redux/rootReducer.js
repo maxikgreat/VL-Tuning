@@ -11,6 +11,8 @@ const persistConfig = {
     whitelist: ['choseStuff', 'shoppingCart']
 }
 
+
+
 const rootReducer = combineReducers({
     choseStuff: choseStuffReducer,
     dataBase: dataBaseReducer,

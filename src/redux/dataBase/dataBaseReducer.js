@@ -2,21 +2,17 @@ import {FIRE_FETCH} from "../actionTypes";
 
 
 const initialState = {
-   Chrome: null,
-   Visors: null,
-   Back: null,
-   Hood: null
-   //Truck: mainBD.Truck
+    data: null,
+    isLoading: true
 }
 
 export default function dataBaseReducer(state = initialState, {type, payload}){
     switch(type){
         case FIRE_FETCH:
             return{
-                Chrome: payload.Chrome,
-                Visors: payload.Main, // !!!! different name
-                Back: payload.Back,
-                Hood: payload.Hood
+                data: {...payload},
+                isLoading: false
+
             }
         default:
             return state

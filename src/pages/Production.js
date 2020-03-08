@@ -10,7 +10,11 @@ import Breadcrumbs from '../components/UI/Breadcrumbs'
 const Production = () =>{
 
     //redux
-    const dataBase = useSelector(state => state.dataBase)
+    const fireDataBase = useSelector(state => state.dataBase)
+    const {data} = fireDataBase
+
+    console.log(data)
+
     const choseStuff = useSelector(state => state.choseStuff)
     const shoppingCart = useSelector(state => state.shoppingCart)
 
@@ -40,13 +44,13 @@ const Production = () =>{
                         <Switch>
                             <Route exact path = {path}>
                                 <BrandsList 
-                                    brands = {dataBase[choseStuff.stuff]}
+                                    brands = {data[choseStuff.stuff]}
                                     url = {url}
                                 />
                             </Route>
                             <Route exact path = {`${path}/:brandUrl`}>
                                 <ModelList 
-                                    models = {dataBase[choseStuff.stuff][choseStuff.brand]}
+                                    models = {data[choseStuff.stuff][choseStuff.brand]}
                                 />
                             </Route>
                             <Route path = {`${path}/:brandUrl/:itemId`}>

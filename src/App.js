@@ -29,37 +29,45 @@ import PrivatePolicy from './pages/PrivatePolicy'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
 //redux
+import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {fireFetch} from "./redux/dataBase/dataBaseAction";
+import Loader from "./components/UI/Loader";
 
 library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle,
-    faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope, faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp)
+    faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope,
+    faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp)
 
 function App() {
+
+    //const [dataLoaded, setDataLoaded] = useState(false)
+
+    const fireDataBase = useSelector(state => state.dataBase)
 
     //get data from firebase
     const dispatch = useDispatch()
 
     useEffect(() => {
+        //upload logos to static folder
+        require.context('./assets/images/logos', false,  /\.(png|jpe?g|svg)$/)
         dispatch(fireFetch())
-    })
-
-
-
+    }, [])
 
   return (
     <>
-      <Layout>
-              <Switch>
-                <Route path = '/' exact component = {Home}/>
-                <Route path = '/quick-search' component = {FindStuff} />
-                <Route path = '/production/:typeStuff' component = {Production} />
-                <Route path = '/about-us' component = {AboutUs} />
-                <Route path = '/order' component = {Order} />
-                <Route path = '/private-policy' component = {PrivatePolicy} />
-                <Redirect to = '/' />
-              </Switch>
-      </Layout>
+        {fireDataBase.isLoading ? <Loader/> :
+            <Layout>
+                <Switch>
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/quick-search' component={FindStuff}/>
+                    <Route path='/production/:typeStuff' component={Production}/>
+                    <Route path='/about-us' component={AboutUs}/>
+                    <Route path='/order' component={Order}/>
+                    <Route path='/private-policy' component={PrivatePolicy}/>
+                    <Redirect to='/'/>
+                </Switch>
+            </Layout>
+        }
     </>
   );
 }
