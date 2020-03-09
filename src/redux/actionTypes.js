@@ -19,3 +19,8 @@ export const ADD_EXIST_ITEM = "ADD_EXIST_ITEM"
 export const DELETE_ITEM = "DELETE_ITEM"
 export const DELETE_ALL = "DELETE_ALL"
 export const TOGGLE_CART = "TOGGLE_CART"
+
+//modal
+
+export const OPEN_MODAL = "OPEN_MODAL"
+export const CLOSE_MODAL = "CLOSE_MODAL"

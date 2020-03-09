@@ -22,6 +22,5 @@ exports.fireOrder = functions.https.onCall((data) => {
         }
     }
 
-
     sgMail.send(msg)
 })

@@ -1,18 +1,23 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
 import keyboardFix from "../../helpFunctions/keyboardFix"
 import firebase from '../../firebase'
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 //custom validator
 import useForm from "../../customHooks/useForm";
 import validationRules from '../../helpFunctions/validationRules';
 //send sendgrid
 import readyDataToSend from "../../helpFunctions/readyDataToSend";
+//recaptcha
+import Recaptcha from 'react-google-invisible-recaptcha'
+import {modalOpen} from "../../redux/modal/modalAction";
 
 const EndForm = () => {
 
     const [privateChecker, setPrivate] = useState(false)
+
+    const recaptcha = useRef()
 
     useEffect(() => {
         keyboardFix()
@@ -27,23 +32,30 @@ const EndForm = () => {
 
     const shoppingCart = useSelector(state => state.shoppingCart)
 
+    const dispatch = useDispatch()
+
     const {items, total ,quantity} = shoppingCart
 
-    async function onSubmitForm() {
+    function onSubmitForm() {
+        recaptcha.current.execute()
+    }
 
-        if(items.length !== 0 && privateChecker){
+    const captchaWasSuccessful = async () => {
+        if(items.length !== 0 && privateChecker === true){
+            console.log("I'm after if")
             const dataReady = readyDataToSend(items,total,quantity,values)
             //get func from server
             const sendOrder = firebase.functions().httpsCallable("fireOrder")
             try{
-                console.log(dataReady)
-                await sendOrder(dataReady)
+                //await sendOrder(dataReady)
+                dispatch(modalOpen("Было отправлено", true))
+
             }catch (e) {
                 console.log(e)
+                dispatch(modalOpen("Произошла ошибка", false))
             }
         }
     }
-
 
     return(
         <div className="wrapperPadding">
@@ -149,6 +161,11 @@ const EndForm = () => {
                         <p className="error left">Это обязательно</p>
                     )}
                 </div>
+                <Recaptcha
+                    ref={recaptcha}
+                    sitekey="6Ldl_t8UAAAAAKEpCesbwyYa9Ia6SRmo78xoLiAS"
+                    onResolved = {captchaWasSuccessful}
+                />
                 <Button
                     type={"submit"}
                 >

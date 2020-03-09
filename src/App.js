@@ -18,7 +18,9 @@ import {
     faEnvelope,
     faAngleDoubleLeft,
     faAngleDoubleRight,
-    faHandPointUp
+    faHandPointUp,
+    faCheckCircle,
+    faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons'
 //components
 import Layout from './components/HOC/Layout'
@@ -36,7 +38,7 @@ import Loader from "./components/UI/Loader";
 
 library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCircle,
     faCloudSun, faBolt, faCar, faTrashAlt, faPhoneSquareAlt, faEnvelope,
-    faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp)
+    faAngleDoubleLeft, faAngleDoubleRight, faHandPointUp, faCheckCircle,faExclamationCircle)
 
 function App() {
 
