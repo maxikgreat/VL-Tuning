@@ -1,5 +1,7 @@
 export default function fromEnToRu(localStuff){
     switch(localStuff){
+        case "Main":
+            return "Ветровики"
         case "Visors":
             return "Ветровики"
         case "Chrome":

@@ -32,12 +32,12 @@ const EndForm = () => {
     async function onSubmitForm() {
 
         if(items.length !== 0 && privateChecker){
-            const dataReady = readyDataToSend(items,total,quantity)
+            const dataReady = readyDataToSend(items,total,quantity,values)
             //get func from server
             const sendOrder = firebase.functions().httpsCallable("fireOrder")
             try{
-                const response = await sendOrder(dataReady)
-                console.log(response)
+                console.log(dataReady)
+                await sendOrder(dataReady)
             }catch (e) {
                 console.log(e)
             }
@@ -61,7 +61,7 @@ const EndForm = () => {
                             name="name"
                             className={`form-control ${errors.name && 'incorrect'}`}
                             onChange={handleChange}
-                            value={values.name || 'test'}
+                            value={values.name || ''}
                             placeholder="Имя..."
                             required
                         />
@@ -77,7 +77,7 @@ const EndForm = () => {
                             className={`form-control ${errors.surname && 'incorrect'}`}
                             placeholder="Фамилия..."
                             onChange={handleChange}
-                            value={values.surname || 'test'}
+                            value={values.surname || ''}
                             required
                         />
                     </div>
@@ -93,7 +93,7 @@ const EndForm = () => {
                             name="email"
                             className={`form-control ${errors.email && 'incorrect'}`}
                             onChange={handleChange}
-                            value={values.email || 'test@mail.com'}
+                            value={values.email || ''}
                             placeholder="E-mail"
                             required
                         />
@@ -111,7 +111,7 @@ const EndForm = () => {
                             className={`form-control ${errors.phone && 'incorrect'}`}
                             placeholder="Телефон..."
                             onChange={handleChange}
-                            value={values.phone || '12'}
+                            value={values.phone || ''}
                             required
                         />
                     </div>
@@ -126,7 +126,7 @@ const EndForm = () => {
                             className={`form-control ${errors.city && 'incorrect'}`}
                             placeholder="Город..."
                             onChange={handleChange}
-                            value={values.city || 'test'}
+                            value={values.city || ''}
                             required
                         />
                     </div>

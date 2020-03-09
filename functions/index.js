@@ -13,13 +13,15 @@ exports.fireOrder = functions.https.onCall((data) => {
         from: "app.vltuning@mail.com",
         subject: "Order from VL",
         templateId: "d-1692f446d9644963bd72e24789661911",
-        substitutionWrappers: ['{{', '}}'],
-        substitutions: {
+        dynamic_template_data: {
             orderId: data.orderId,
             items: data.items,
             total: data.total,
-            quantity: data.quantity
+            quantity: data.quantity,
+            client: data.client
         }
     }
+
+
     sgMail.send(msg)
 })
