@@ -42,13 +42,13 @@ class DropdownList extends PureComponent {
             case "brand":
                 this.setState({
                     setItem: this.props.setBrand,
-                    brands: deleteEmptyBrands(this.props.dataBase[this.props.choseStuff.stuff], false)
+                    brands: deleteEmptyBrands(this.props.fireDataBase.data[this.props.choseStuff.stuff], false)
                 })
                 break
             case "model":
                 this.setState({
                     setItem: this.props.setModel,
-                    models: this.updateModels(this.props.dataBase, this.props.choseStuff)
+                    models: this.updateModels(this.props.fireDataBase.data, this.props.choseStuff)
                 })
                 break
             case "stuff":
@@ -70,14 +70,14 @@ class DropdownList extends PureComponent {
                 case "brand":
                     this.inputField.value = this.props.choseStuff.brand
                     this.setState({
-                        brands: deleteEmptyBrands(this.props.dataBase[this.props.choseStuff.stuff], false)
+                        brands: deleteEmptyBrands(this.props.fireDataBase.data[this.props.choseStuff.stuff], false)
                     })
                     break
                 case "model":
                     if(this.props.choseStuff.model !== null){
                         this.inputField.value = this.props.choseStuff.model.Name //cause model is obj
                         this.setState({
-                            models: this.updateModels(this.props.dataBase, this.props.choseStuff)
+                            models: this.updateModels(this.props.fireDataBase.data, this.props.choseStuff)
                         })
                     }
                     break
@@ -224,7 +224,7 @@ class DropdownList extends PureComponent {
 function mapStateToProps(state){
     return{
         choseStuff: state.choseStuff,
-        dataBase: state.dataBase
+        fireDataBase: state.dataBase
     }
 }
 function mapDispatchToProps(dispatch){
