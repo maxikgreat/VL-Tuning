@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
 import keyboardFix from "../../helpFunctions/keyboardFix"
@@ -12,10 +12,9 @@ import readyDataToSend from "../../helpFunctions/readyDataToSend";
 //recaptcha
 import Recaptcha from 'react-google-invisible-recaptcha'
 import {modalOpen} from "../../redux/modal/modalAction";
+import {deleteAll} from "../../redux/shoppingCart/shoppingCartAction";
 
 const EndForm = () => {
-
-    const [privateChecker, setPrivate] = useState(false)
 
     const recaptcha = useRef()
 
@@ -36,25 +35,27 @@ const EndForm = () => {
 
     const {items, total ,quantity} = shoppingCart
 
+
     function onSubmitForm() {
         recaptcha.current.execute()
     }
 
     const captchaWasSuccessful = async () => {
-        if(items.length !== 0 && privateChecker === true){
-            console.log("I'm after if")
+        if(items.length !== 0){
             const dataReady = readyDataToSend(items,total,quantity,values)
             //get func from server
             const sendOrder = firebase.functions().httpsCallable("fireOrder")
             try{
-                //await sendOrder(dataReady)
+                await sendOrder(dataReady)
                 dispatch(modalOpen("Было отправлено", true))
-
+                dispatch(deleteAll())
             }catch (e) {
                 console.log(e)
                 dispatch(modalOpen("Произошла ошибка", false))
             }
         }
+
+
     }
 
     return(
@@ -145,21 +146,10 @@ const EndForm = () => {
                 </div>
                 <div className="form-group">
                     <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            onChange={() => {setPrivate(!privateChecker)}}
-                            checked = {privateChecker}
-                            type="checkbox"
-                            id="privateInp"
-                            required
-                        />
-                        <label className="form-check-label" htmlFor="privateInp">
-                            Я соглашаюсь с <Link to = '/private-policy'>политикой конфиденциальности</Link>
+                        <label className="form-check-label">
+                            Нажимая "Подтвердить", Я соглашаюсь с <Link to = '/private-policy'>политикой конфиденциальности</Link>
                         </label>
                     </div>
-                    {!privateChecker && (
-                        <p className="error left">Это обязательно</p>
-                    )}
                 </div>
                 <Recaptcha
                     ref={recaptcha}
