@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
 import keyboardFix from "../../helpFunctions/keyboardFix"
@@ -6,51 +6,42 @@ import firebase from '../../firebase'
 import {useSelector} from "react-redux";
 //custom validator
 import useForm from "../../customHooks/useForm";
-import validate from '../../helpFunctions/validationRules';
+import validationRules from '../../helpFunctions/validationRules';
 //send sendgrid
 import readyDataToSend from "../../helpFunctions/readyDataToSend";
 
 const EndForm = () => {
+
+    const [privateChecker, setPrivate] = useState(false)
+
+    useEffect(() => {
+        keyboardFix()
+    }, [])
 
     const {
         values,
         errors,
         handleChange,
         handleSubmit,
-    } = useForm(login, validate);
-
-    function login() {
-        console.log('No errors, submit callback called!');
-    }
+    } = useForm(onSubmitForm, validationRules);
 
     const shoppingCart = useSelector(state => state.shoppingCart)
 
     const {items, total ,quantity} = shoppingCart
 
+    async function onSubmitForm() {
 
-    useEffect(() => {
-        keyboardFix()
-    }, [])
-
-    const onSubmitForm = (e) => {
-        //e.preventDefault()
-        if(items.length !== 0){
+        if(items.length !== 0 && privateChecker){
             const dataReady = readyDataToSend(items,total,quantity)
             //get func from server
             const sendOrder = firebase.functions().httpsCallable("fireOrder")
+            try{
+                const response = await sendOrder(dataReady)
+                console.log(response)
+            }catch (e) {
+                console.log(e)
+            }
         }
-
-
-
-
-
-        // try{
-        //     const response = await sendOrder()
-        //     console.log(response)
-        // }catch (e) {
-        //     console.log(e)
-        // }
-
     }
 
 
@@ -62,19 +53,31 @@ const EndForm = () => {
                 <div className="form-row">
                     <div className="col-6 mb-3">
                         <label>Имя</label>
+                        {errors.name && (
+                            <p className="error">{errors.name}</p>
+                        )}
                         <input
                             type="text"
-                            className="form-control"
+                            name="name"
+                            className={`form-control ${errors.name && 'incorrect'}`}
+                            onChange={handleChange}
+                            value={values.name || 'test'}
                             placeholder="Имя..."
                             required
                         />
                     </div>
                     <div className="col-6 mb-3">
                         <label>Фамилия</label>
+                        {errors.surname && (
+                            <p className="error">{errors.surname}</p>
+                        )}
                         <input
                             type="text"
-                            className="form-control"
+                            name="surname"
+                            className={`form-control ${errors.surname && 'incorrect'}`}
                             placeholder="Фамилия..."
+                            onChange={handleChange}
+                            value={values.surname || 'test'}
                             required
                         />
                     </div>
@@ -90,7 +93,7 @@ const EndForm = () => {
                             name="email"
                             className={`form-control ${errors.email && 'incorrect'}`}
                             onChange={handleChange}
-                            value={values.email || ''}
+                            value={values.email || 'test@mail.com'}
                             placeholder="E-mail"
                             required
                         />
@@ -99,19 +102,31 @@ const EndForm = () => {
                 <div className="form-row">
                     <div className="col-7 mb-3">
                         <label>Телефон</label>
+                        {errors.phone && (
+                            <p className="error">{errors.phone}</p>
+                        )}
                         <input
                             type="tel"
-                            className="form-control"
+                            name="phone"
+                            className={`form-control ${errors.phone && 'incorrect'}`}
                             placeholder="Телефон..."
+                            onChange={handleChange}
+                            value={values.phone || '12'}
                             required
                         />
                     </div>
                     <div className="col-5 mb-3">
                         <label>Город</label>
+                        {errors.city && (
+                            <p className="error">{errors.city}</p>
+                        )}
                         <input
                             type="text"
-                            className="form-control"
+                            name="city"
+                            className={`form-control ${errors.city && 'incorrect'}`}
                             placeholder="Город..."
+                            onChange={handleChange}
+                            value={values.city || 'test'}
                             required
                         />
                     </div>
@@ -120,16 +135,22 @@ const EndForm = () => {
                     <div className="form-check">
                         <input
                             className="form-check-input"
+                            onChange={() => {setPrivate(!privateChecker)}}
+                            checked = {privateChecker}
                             type="checkbox"
-                            required />
-                        <label className="form-check-label">
+                            id="privateInp"
+                            required
+                        />
+                        <label className="form-check-label" htmlFor="privateInp">
                             Я соглашаюсь с <Link to = '/private-policy'>политикой конфиденциальности</Link>
                         </label>
                     </div>
+                    {!privateChecker && (
+                        <p className="error left">Это обязательно</p>
+                    )}
                 </div>
                 <Button
                     type={"submit"}
-                    //onClickAction = {(e) => onSubmitForm(e)}
                 >
                     Подтвердить
                 </Button>

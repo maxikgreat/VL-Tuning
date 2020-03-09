@@ -82,6 +82,9 @@
             color: $primaryLightColor;
         }
         .wrapperPadding{
+            .form-row{
+                align-items: flex-end;
+            }
             form{
                 .form-control{
                     color: black;
@@ -94,6 +97,9 @@
                     margin: 0;
                     padding: 0;
                     font-size: 12px;
+                }
+                p.error.left{
+                    text-align: left;
                 }
             }
         }

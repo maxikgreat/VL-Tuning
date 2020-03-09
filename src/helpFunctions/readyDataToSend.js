@@ -1,10 +1,9 @@
 export default function readyDataToSend(items, total, quantity) {
-
     const ready = {
-        orderId: Math.random().toString(36).substr(2, 6)
+        orderId: Math.random().toString(36).substr(2, 6),
+        items: items,
+        total: total,
+        quantity: quantity
     }
-
-    //console.log(items);
-
-
+    return ready
 }

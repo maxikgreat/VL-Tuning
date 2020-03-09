@@ -15,7 +15,10 @@ exports.fireOrder = functions.https.onCall((data) => {
         templateId: "d-1692f446d9644963bd72e24789661911",
         substitutionWrappers: ['{{', '}}'],
         substitutions: {
-            example: "Blblb"
+            orderId: data.orderId,
+            items: data.items,
+            total: data.total,
+            quantity: data.quantity
         }
     }
     sgMail.send(msg)

@@ -390,6 +390,12 @@
         label{
           display: none;
         }
+        .form-check{
+          display: flex;
+        }
+        .form-check-label{
+          display: block;
+        }
       }
     }
     button{
