@@ -9,7 +9,7 @@ sgMail.setApiKey(SENDGRID_API_KEY)
 exports.fireOrder = functions.https.onCall((data) => {
 
     const msg = {
-        to: "maximvasylenko228322@gmail.com",
+        to: "vadim.74@ukr.net",
         from: "app.vltuning@mail.com",
         subject: "Order from VL",
         templateId: "d-1692f446d9644963bd72e24789661911",

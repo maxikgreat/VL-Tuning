@@ -17,8 +17,8 @@ const AboutUs = () => {
 
     const infoSlide = {
         title: <h2>кто<br/>мы<br/>такие<br/>?</h2>,
-        introText: <p className = "intro"><span>VL-Tuning</span> - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, excepturi. Nisi cupiditate, laborum temporibus incidunt</p>,
-        mainText: <p className = "main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, qui. Iste, asperiores? Sit voluptatem perspiciatis iste corporis eos quibusdam beatae, sapiente unde id natus placeat, similique deserunt at aut quas?</p>
+        introText: <p className = "intro"><span>VL-Tuning</span> - производство дефлекторов окон (ветровики) и дефлекторов капота (мухобойки) и других аксессуаров на Ваш автомобиль</p>,
+        mainText: <p className = "main">Широкий выбор ассортимента, сотрудничество с разными фирмами ("Cobra Tuning", "VT-52", "TT" и тд.)  и качество продукции - наши главные достоинства </p>
     }
 
     const optionSlide = {
