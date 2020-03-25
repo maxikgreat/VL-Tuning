@@ -11,6 +11,8 @@ export const CLEAR_ALL = "CLEAR_ALL"
 
 //bd
 export const FIRE_FETCH = "FIRE_FETCH"
+export const ADMIN_SUCCESS = "ADMIN_SUCCESS"
+export const ADMIN_ERROR = "ADMIN_ERROR"
 
 //shoppingCart
 
@@ -21,6 +23,5 @@ export const DELETE_ALL = "DELETE_ALL"
 export const TOGGLE_CART = "TOGGLE_CART"
 
 //modal
-
 export const OPEN_MODAL = "OPEN_MODAL"
 export const CLOSE_MODAL = "CLOSE_MODAL"

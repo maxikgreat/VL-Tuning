@@ -1,34 +1,29 @@
 import React, {useEffect, useState} from 'react'
 import Button from "../components/UI/Button";
+import {useDispatch, useSelector} from "react-redux";
+import {adminLogIn} from "../redux/dataBase/dataBaseAction";
 
 const Login = () => {
 
-    useEffect(() => {
-        console.log(admin)
-    })
+    const fireData = useSelector(state => state.dataBase)
+    const dispatch = useDispatch()
 
-    const [admin, setAdmin] = useState({email: "", password: "", error: {email: "", password: ""}})
+    const [admin, setAdmin] = useState({email: "", password: "", error: ""})
 
     const tryLogin = (e) => {
         e.preventDefault()
-        if(!admin.email){
-            setAdmin((admin) => ({
+        if(!admin.email || !admin.password){
+            setAdmin({
                 ...admin,
-                error: {
-                    email: "This field is required!"
-                }
-            }))
-        }
-
-        if(!admin.password){
-            setAdmin((admin) => ({
+                error: "These fields are required!"
+            })
+        } else {
+            setAdmin({
                 ...admin,
-                error: {
-                    password: "This field is required!"
-                }
-            }))
+                error: ""
+            })
+            dispatch(adminLogIn(admin.email, admin.password))
         }
-
     }
 
     return(
@@ -43,11 +38,6 @@ const Login = () => {
                         placeholder="Email"
                         required
                     />
-                    {
-                        admin.error.email
-                            ? <span className={"input-error"}>{admin.error.email}</span>
-                            : null
-                    }
                 </div>
                 <div className = "form-container">
                     <label>Password</label>
@@ -59,16 +49,18 @@ const Login = () => {
                         placeholder="Password"
                         required
                     />
-                    {
-                        admin.error.password
-                            ? <span className={"input-error"}>{admin.error.password}</span>
-                            : null
-                    }
                 </div>
                 <Button
                     type="submit"
                     onClickAction={e => tryLogin(e)}
                 >Log In</Button>
+                {
+                    admin.error
+                        ? <span className={"input-error"}>{admin.error}</span>
+                        : fireData.error ?
+                            <span className={"input-error"}>{fireData.error}</span>
+                            : null
+                }
             </div>
         </section>
     )

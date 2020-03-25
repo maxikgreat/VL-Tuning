@@ -1,19 +1,17 @@
-//todo adminka to manipulate database
+
 
 //write all to bd
 //console.log(firebase.database().ref("/").set(bd))
 
 import firebase from '../../firebase'
-import {FIRE_FETCH} from "../actionTypes";
+import {ADMIN_ERROR, ADMIN_SUCCESS, FIRE_FETCH} from "../actionTypes";
 
 export function fireFetch(){
     return async dispatch => {
         try{
-
-            localStorage.clear()
             const response = await firebase.database().ref("/").once("value")
-
             const db = response.val()
+
             //adding empty arrays
             Object.keys(db).forEach(stuff => {
                 Object.keys(db[stuff]).forEach(brand => {
@@ -37,6 +35,23 @@ export function fireFetch(){
             console.log("Error with database")
         }
 
+    }
+}
+
+export function adminLogIn(email, password){
+    return async dispatch => {
+        try{
+            const response = await firebase.auth().signInWithEmailAndPassword(email, password)
+            dispatch({
+                type: ADMIN_SUCCESS,
+                payload: response.user
+            })
+        } catch(e){
+            dispatch({
+                type: ADMIN_ERROR,
+                payload: e.message
+            })
+        }
     }
 }
 

@@ -16,4 +16,10 @@ section.login{
         color: white;
       }
     }
+    span.input-error{
+      display: block;
+      padding-top: 10px;
+      color: $primaryLightColor;
+      font-weight: bold;
+    }
   }
