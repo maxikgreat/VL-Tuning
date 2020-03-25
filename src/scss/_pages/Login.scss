@@ -1,0 +1,19 @@
+section.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .login-container{
+    border: 3px solid $primaryLightColor;
+    width: 60%;
+    padding: 20px;
+    .form-container{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 20px;
+      label{
+        font-size: 40px;
+        color: white;
+      }
+    }
+  }

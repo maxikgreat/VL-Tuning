@@ -9,7 +9,7 @@ const PrivatePolicy = () => {
 
     const siteLink = "https://vl-tuning.ua"
     const policyLink = "https://vl-tuning.ua/private-policy"
-    const mailLink = "example@mail.ru"
+    const mailLink = "vadim.74@ukr.net"
 
     const backgroundStyles = {
         backgroundImage: `url(${bgImgPolicy})`

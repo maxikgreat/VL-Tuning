@@ -30,6 +30,7 @@ import Production from './pages/Production'
 import PrivatePolicy from './pages/PrivatePolicy'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
+import Login from './pages/Login'
 //redux
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
@@ -66,6 +67,7 @@ function App() {
                     <Route path='/about-us' component={AboutUs}/>
                     <Route path='/order' component={Order}/>
                     <Route path='/private-policy' component={PrivatePolicy}/>
+                    <Route path='/login' component={Login} />
                     <Redirect to='/'/>
                 </Switch>
             </Layout>
