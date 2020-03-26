@@ -1,6 +1,14 @@
 
 import firebase from '../../firebase'
-import {ADMIN_ERROR, ADMIN_SUCCESS, FIRE_FETCH, SHOW_LOADER} from "../actionTypes";
+import {
+    ADMIN_ERROR,
+    ADMIN_SUCCESS,
+    ERROR_UPDATED,
+    FIRE_FETCH,
+    OPEN_MODAL,
+    SHOW_LOADER,
+    SUCCESS_UPDATED
+} from "../actionTypes";
 import objToArray from "../../helpFunctions/objToArray";
 
 export function fireFetch(){
@@ -59,10 +67,26 @@ export function adminLogIn(email, password){
 
 export function updateRecord(record, price){
     return async dispatch => {
+        console.log(`/${record.stuff}/${record.brand}/data/${record.model.id}`)
         try{
-            const response = await firebase.database().ref('/')
+            const response = await firebase.database().ref(`/${record.stuff}/${record.brand}/data/${record.model.id}`)
+                .child("Price").set(price)
+            dispatch({
+                type: OPEN_MODAL,
+                payload: {
+                    text: "Record was updated",
+                    isSuccess: true
+                }
+            })
+
         } catch(e){
-            console.log(e)
+            dispatch({
+                type: OPEN_MODAL,
+                payload: {
+                    text: "Error with database",
+                    isSuccess: false
+                }
+            })
         }
 
     }

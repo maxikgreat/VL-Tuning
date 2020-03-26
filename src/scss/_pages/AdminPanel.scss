@@ -2,4 +2,58 @@ section.admin{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  .optionsContainer{
+    padding-top: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    a{
+      color: $primaryLightColor;
+      font-size: 20px;
+    }
+  }
+  .change-record-hld{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .dropdowns-hld{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    span{
+      margin-bottom: 10px;
+      color: $primaryLightColor;
+      font-size: 30px;
+    }
+    padding-bottom: 30px;
+  }
+  .additional-params-hld{
+    display: flex;
+    flex-direction: column;
+    span{
+      margin-right: 10px;
+      color: $primaryLightColor;
+      font-size: 30px;
+    }
+    .additional-param{
+      padding-bottom: 20px;
+    }
+  }
+  .input-error{
+    color: $primaryLightColor;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .value-list{
+    color: white;
+  }
 }
