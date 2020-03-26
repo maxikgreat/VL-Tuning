@@ -39,7 +39,13 @@ export function fireFetch(){
             })
 
         } catch(e){
-            console.log("Error with database")
+            dispatch({
+                type: OPEN_MODAL,
+                payload: {
+                    text: e.message,
+                    isSuccess: false
+                }
+            })
         }
 
     }
@@ -65,25 +71,23 @@ export function adminLogIn(email, password){
     }
 }
 
-export function updateRecord(record, price){
+export function updateRecordPrice(record, price){
     return async dispatch => {
-        console.log(`/${record.stuff}/${record.brand}/data/${record.model.id}`)
         try{
-            const response = await firebase.database().ref(`/${record.stuff}/${record.brand}/data/${record.model.id}`)
+            const response = await firebase.database().ref(`/${record.stuff}/${record.brand}/data/${record.model.ID}`)
                 .child("Price").set(price)
-            dispatch({
-                type: OPEN_MODAL,
-                payload: {
-                    text: "Record was updated",
-                    isSuccess: true
-                }
-            })
-
+                dispatch({
+                    type: OPEN_MODAL,
+                    payload: {
+                        text: "Record was updated",
+                        isSuccess: true
+                    }
+                })
         } catch(e){
             dispatch({
                 type: OPEN_MODAL,
                 payload: {
-                    text: "Error with database",
+                    text: e.message,
                     isSuccess: false
                 }
             })
@@ -92,4 +96,61 @@ export function updateRecord(record, price){
     }
 }
 
+export function updateRecordPhoto(record, photo) {
+    return async dispatch => {
+        try{
+            const response = await firebase.storage().ref(`images/${record.stuff}/${record.brand}/${record.model.ID}`).put(photo)
+                .then(() => {
+                    const photoSrc = firebase.storage().ref(`images/${record.stuff}/${record.brand}/${record.model.ID}`).getDownloadURL()
+                        .then(url => {
+                            firebase.database().ref(`/${record.stuff}/${record.brand}/data/${record.model.ID}`).child("Photo").set(url)
+                                .then(() => {
+                                    dispatch({
+                                        type: OPEN_MODAL,
+                                        payload: {
+                                            text: "Photo was added",
+                                            isSuccess: true
+                                        }
+                                    })
+                                })
+                        })
+                })
 
+        } catch (e) {
+            dispatch({
+                type: OPEN_MODAL,
+                payload: {
+                    text: e.message,
+                    isSuccess: false
+                }
+            })
+        }
+    }
+}
+
+export function deleteRecordPhoto(record){
+    return async dispatch => {
+        try{
+            const response = await firebase.database().ref(`/${record.stuff}/${record.brand}/data/${record.model.ID}`)
+                .child("Photo").set(null)
+                .then(() => {
+                    dispatch({
+                        type: OPEN_MODAL,
+                        payload: {
+                            text: "Default photo set",
+                            isSuccess: true
+                        }
+                    })
+                })
+        } catch(e){
+            dispatch({
+                type: OPEN_MODAL,
+                payload: {
+                    text: e.message,
+                    isSuccess: false
+                }
+            })
+        }
+
+    }
+}

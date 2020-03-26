@@ -14,9 +14,6 @@ export const FIRE_FETCH = "FIRE_FETCH"
 export const SHOW_LOADER = "SHOW_LOADER"
 export const ADMIN_SUCCESS = "ADMIN_SUCCESS"
 export const ADMIN_ERROR = "ADMIN_ERROR"
-// export const SUCCESS_UPDATED = "SUCCESS_UPDATED"
-// export const ERROR_UPDATED = "ERROR_UPDATED"
-
 //shoppingCart
 
 export const ADD_NEW_ITEM = "ADD_NEW_ITEM"

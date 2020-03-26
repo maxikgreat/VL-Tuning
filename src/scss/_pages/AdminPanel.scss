@@ -48,6 +48,13 @@ section.admin{
       padding-bottom: 20px;
     }
   }
+  .additional-param-input-btn{
+    display: flex;
+    button{
+      font-size: 15px;
+      padding: 15px;
+    }
+  }
   .input-error{
     color: $primaryLightColor;
     font-size: 20px;

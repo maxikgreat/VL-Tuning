@@ -40,7 +40,12 @@ const Item = ({cartItems, itemStuff}) => {
             </div>
             <div className = "itemContainer row">
                 <div className = "photoContainer col-5">
-                    <img src = {examplePhoto} alt = "examplephoto"/>
+                    {
+                        itemStuff.Photo
+                        ? <img src = {itemStuff.Photo} alt = "itemPhoto"/>
+                        : <img src = {examplePhoto} alt = "examplephoto"/>
+                    }
+
                 </div>
                 <div className = "contentContainer col-12 col-md-7">
                     <div>

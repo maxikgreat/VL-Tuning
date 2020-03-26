@@ -5,7 +5,7 @@ export default function objToArray(objects){
 
     if(objects){
         Object.entries(objects).map(item => {
-            item[1].id = item[0]
+            item[1].ID = item[0]
             arr.push(item[1])
         })
     }

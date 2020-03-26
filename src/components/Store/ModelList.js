@@ -10,6 +10,8 @@ const ModelList = ({models}) => {
     //route
     const {url} = useRouteMatch()
 
+
+
     const choseModel = (item) => {
         dispatch(setModel(item))
     }
@@ -24,7 +26,11 @@ const ModelList = ({models}) => {
                         onClick = {() => {choseModel(item)}}
                     >
                         <div className = "cardPhoto">
-                            <img src = {models.srcLogo} alt = "Brand Logo"/>
+                            {
+                                item.Photo
+                                    ? <img src = {item.Photo} alt = "ModelPhoto"/>
+                                    : <img src = {models.srcLogo} alt = "BrandLogo"/>
+                            }
                         </div>
                         <div className = "cardContent">
                             <span className = "cardTitle">{item.Name}</span>
