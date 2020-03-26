@@ -1,8 +1,8 @@
 import DATABASE from '../../../oneMoreBD.json'
 import getAllBrands from './getAllBrands'
+import firebase from '../../../firebase'
 
-export default function modyfiedJson(){
-
+export default function newDataBase(){
 
     const getManufacturer = (name) => {
         if(name.includes("cobra tuning")){
@@ -42,10 +42,11 @@ export default function modyfiedJson(){
         else return name
     }
 
+
     let brands = getAllBrands()
     let brandsNames = brands.map(item => item.name)
 
-    let exampleBD = {
+    let newDB = {
         Chrome: {},
         Back: {},
         Main: {},
@@ -53,44 +54,42 @@ export default function modyfiedJson(){
         Hood: {}
     }
 
-    Object.keys(exampleBD).forEach((glbKey) => {
+    Object.keys(newDB).forEach((glbKey) => {
         brandsNames.forEach(item => {
-            exampleBD[glbKey][item] = null
-        })
-    })
-
-    Object.keys(exampleBD).forEach((globalKey) => {
-        Object.keys(exampleBD[globalKey]).forEach(key => {
-            const arr = []
-            DATABASE[globalKey].forEach(item => {
-                const lowCaseName = item.Name.toLowerCase()
-                if(lowCaseName.includes(key.toLowerCase())){
-                    let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"").replace(" деф.окон", "") //delete backslashes " and spaces
-                    let uniqueID = Math.random().toString(36).substr(2, 5)
-                    arr.push({
-                        ID: uniqueID,
-                        Name: deleteManufacturerFromName(trimedName),
-                        Price: Number(item.Price),
-                        Type: globalKey,
-                        Discount: Number(0),
-                        Manufacturer: getManufacturer(lowCaseName),
-                        OrderedCount: Number(0),
-                    })
-                }
-            })
-            exampleBD[globalKey][key] = {
-                srcLogo: null,
-                data: arr
+            newDB[glbKey][item] = {
+                data: {}
             }
         })
     })
-    Object.keys(exampleBD).forEach(globalKey => {
+
+    Object.keys(newDB).forEach(globalKey => {
         let i = 0;
-        Object.keys(exampleBD[globalKey]).forEach(key => {
-            exampleBD[globalKey][key].srcLogo = brands[i].src
+        Object.keys(newDB[globalKey]).forEach(key => {
+            newDB[globalKey][key].srcLogo = brands[i].src
             i++;
         })
     })
-    
-    return exampleBD
+
+    // Object.keys(newDB).forEach((globalKey) => {
+    //     Object.keys(newDB[globalKey]).forEach(key => {
+    //         DATABASE[globalKey].forEach(item => {
+    //             const lowCaseName = item.Name.toLowerCase()
+    //             if(lowCaseName.includes(key.toLowerCase())){
+    //                 let trimedName = item.Name.trim().replace(/\\/g, "").replace(/"/g,"").replace(" деф.окон", "") //delete backslashes " and spaces
+    //                 let uniqueID = Math.random().toString(36).substr(2, 5)
+    //                 firebase.database().ref(`/${globalKey}/${key}`)
+    //                     .child("data").child(uniqueID).set({
+    //                     Name: deleteManufacturerFromName(trimedName),
+    //                     Price: Number(item.Price),
+    //                     Type: globalKey,
+    //                     Discount: Number(0),
+    //                     Manufacturer: getManufacturer(lowCaseName),
+    //                     OrderedCount: Number(0),
+    //                 })
+    //             }
+    //         })
+    //     })
+    // })
+
 }
+

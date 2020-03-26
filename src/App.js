@@ -31,7 +31,6 @@ import PrivatePolicy from './pages/PrivatePolicy'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
 import Login from './pages/Login'
-import AdminPanel from "./components/Admin/AdminPanel";
 //redux
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
@@ -44,8 +43,6 @@ library.add(faShoppingCart, faChevronDown, faSearch, faPlus, faMinus, faTimesCir
 
 function App() {
 
-    //const [dataLoaded, setDataLoaded] = useState(false)
-
     const fireDataBase = useSelector(state => state.dataBase)
 
     //get data from firebase
@@ -53,7 +50,7 @@ function App() {
 
     useEffect(() => {
         //upload logos to static folder
-        require.context('./assets/images/logos', false,  /\.(png|jpe?g|svg)$/)
+        require.context('./assets/images/logos', false, /\.(png|jpe?g|svg)$/)
         dispatch(fireFetch())
     }, [])
 
