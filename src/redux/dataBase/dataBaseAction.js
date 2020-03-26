@@ -1,8 +1,4 @@
 
-
-//write all to bd
-//console.log(firebase.database().ref("/").set(bd))
-
 import firebase from '../../firebase'
 import {ADMIN_ERROR, ADMIN_SUCCESS, FIRE_FETCH, SHOW_LOADER} from "../actionTypes";
 import objToArray from "../../helpFunctions/objToArray";
@@ -13,7 +9,6 @@ export function fireFetch(){
             const response = await firebase.database().ref("/")
             response.on("value", snapshot => {
                 const db = snapshot.val()
-
                 //adding empty arrays and covert to arrays
                 Object.keys(db).forEach(stuff => {
                     Object.keys(db[stuff]).forEach(brand => {
@@ -59,6 +54,17 @@ export function adminLogIn(email, password){
                 payload: e.message
             })
         }
+    }
+}
+
+export function updateRecord(record, price){
+    return async dispatch => {
+        try{
+            const response = await firebase.database().ref('/')
+        } catch(e){
+            console.log(e)
+        }
+
     }
 }
 
