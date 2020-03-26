@@ -28,7 +28,7 @@ const ModelList = ({models}) => {
                         <div className = "cardPhoto">
                             {
                                 item.Photo
-                                    ? <img src = {item.Photo} alt = "ModelPhoto"/>
+                                    ? <img src = {item.Photo} alt = "ModelPhoto" style={{padding: 0}}/>
                                     : <img src = {models.srcLogo} alt = "BrandLogo"/>
                             }
                         </div>

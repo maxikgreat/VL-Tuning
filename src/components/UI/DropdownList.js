@@ -31,7 +31,7 @@ class DropdownList extends PureComponent {
             }
             return filteredModels
         }
-        
+
     }
 
     componentDidMount(){
@@ -62,6 +62,8 @@ class DropdownList extends PureComponent {
     }
 
     componentDidUpdate(prevProps){
+
+
         if(!equal(this.props, prevProps)){
             switch(this.props.valueType){
                 case "stuff":
@@ -74,12 +76,14 @@ class DropdownList extends PureComponent {
                     })
                     break
                 case "model":
-                    if(this.props.choseStuff.model !== null){
-                        this.inputField.value = this.props.choseStuff.model.Name //cause model is obj
-                        this.setState({
-                            models: this.updateModels(this.props.fireDataBase.data, this.props.choseStuff)
-                        })
+                    if(this.props.choseStuff.model){
+                        this.inputField.value = this.props.choseStuff.model.Name
+                    } else {
+                        this.inputField.value = ""
                     }
+                    this.setState({
+                        models: this.updateModels(this.props.fireDataBase.data, this.props.choseStuff)
+                    })
                     break
                 default:
                     break
@@ -175,7 +179,6 @@ class DropdownList extends PureComponent {
     }
 
     onBlurInput = () => {
-
         switch(this.props.valueType){
             case "stuff":
                 this.inputField.value = this.props.choseStuff.stuff

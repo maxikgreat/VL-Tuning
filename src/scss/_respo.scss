@@ -414,6 +414,8 @@
     .itemContainer {
       .photoContainer{
         display: none;
+        visibility: hidden;
+        opacity: 0;
       }
       .contentContainer {
 

@@ -5,8 +5,10 @@
     background: rgba(0,0,0,0.85);
     border-top: 0.1rem solid $primaryLightColor;
     .photoContainer{
+        padding-top: 75px;
+        display: flex;
+        align-items: flex-start;
         img{
-            height: 80vh;
             width: 100%;
         }
     }
