@@ -31,7 +31,7 @@ import PrivatePolicy from './pages/PrivatePolicy'
 import FindStuff from './pages/FindStuff';
 import Order from './pages/Order'
 import Login from './pages/Login'
-import AdminPanel from "./pages/AdminPanel";
+import AdminPanel from "./components/Admin/AdminPanel";
 //redux
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
@@ -68,9 +68,7 @@ function App() {
                     <Route path='/about-us' component={AboutUs}/>
                     <Route path='/order' component={Order}/>
                     <Route path='/private-policy' component={PrivatePolicy}/>
-                    <Route component={Login}>
-                        <Route path = "/admin" component={AdminPanel} />
-                    </Route>
+                    <Route path='/admin' component={Login} />
                     <Redirect to='/'/>
                 </Switch>
             </Layout>

@@ -30,6 +30,12 @@
         margin: auto;
         text-align: center;
     }
+    .admin-link {
+        position: fixed;
+        left: 5%;
+        top: 95%;
+        color: $primaryLightColor;
+    }
 }
 .loadedMainContent{
     transform: translateX(0) !important;

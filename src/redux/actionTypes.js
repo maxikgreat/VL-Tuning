@@ -11,6 +11,7 @@ export const CLEAR_ALL = "CLEAR_ALL"
 
 //bd
 export const FIRE_FETCH = "FIRE_FETCH"
+export const SHOW_LOADER = "SHOW_LOADER"
 export const ADMIN_SUCCESS = "ADMIN_SUCCESS"
 export const ADMIN_ERROR = "ADMIN_ERROR"
 

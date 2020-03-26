@@ -4,7 +4,7 @@
 //console.log(firebase.database().ref("/").set(bd))
 
 import firebase from '../../firebase'
-import {ADMIN_ERROR, ADMIN_SUCCESS, FIRE_FETCH} from "../actionTypes";
+import {ADMIN_ERROR, ADMIN_SUCCESS, FIRE_FETCH, SHOW_LOADER} from "../actionTypes";
 
 export function fireFetch(){
     return async dispatch => {
@@ -40,6 +40,9 @@ export function fireFetch(){
 
 export function adminLogIn(email, password){
     return async dispatch => {
+        dispatch({
+            type: SHOW_LOADER
+        })
         try{
             const response = await firebase.auth().signInWithEmailAndPassword(email, password)
             dispatch({

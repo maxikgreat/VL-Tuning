@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 import Button from '../UI/Button'
 import bgImgStart from '../../assets/images/home/startBg.jpg'
-import { useHistory } from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 const StartLaunch = () => {
 
@@ -38,6 +38,7 @@ const StartLaunch = () => {
                                 onClickAction = {() => {history.push('/quick-search')}}
                             >Найти товар</Button>
                         </div>
+                <Link to={'/admin'} className = "admin-link" >Admin</Link>
         </section>
     )
 }
