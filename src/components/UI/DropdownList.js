@@ -156,10 +156,16 @@ class DropdownList extends PureComponent {
                 this.props.clearBrand()
                 this.props.clearModel()
                 this.state.setItem(item)
+                if(this.props.changePosX){
+                    this.props.changePosX(1)
+                }
                 break
             case "brand":
                 this.props.clearModel()
                 this.state.setItem(item)
+                if(this.props.changePosX){
+                    this.props.changePosX(2)
+                }
                 break
             case "model":
                 this.state.setItem(item)

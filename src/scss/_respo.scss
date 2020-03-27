@@ -161,6 +161,18 @@
 
 }
 @media (max-width: 900px) {
+  section.login{
+    .login-container{
+      width: 100%;
+    }
+  }
+
+  section.admin{
+    .optionsContainer{
+      width: 80%;
+    }
+  }
+
   section.aboutUs{
     .aboutUsCardsContainer {
       .aboutUsCard{
