@@ -28,7 +28,7 @@ const Login = () => {
     }
 
     const checkAdmin = () => {
-        if(fireData.user){
+        if(!fireData.user){
             return <AdminPanel/>
         } else {
             return (

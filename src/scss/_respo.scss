@@ -171,6 +171,32 @@
     .optionsContainer{
       width: 80%;
     }
+    .change-record-hld{
+      .wrapperFindStuffMobile{
+        width: 100%;
+        margin: 0;
+        height: 50%;
+      }
+    }
+    .additional-params-hld{
+      .additional-param{
+        .additional-param-input-btn:nth-child(2){
+          input{
+            font-size: 0.8rem;
+          }
+        }
+        span{
+          font-size: 18px;
+        }
+        button{
+          padding: 0;
+          font-size: 13px;
+          min-width: 100px;
+        }
+
+
+      }
+    }
   }
 
   section.aboutUs{

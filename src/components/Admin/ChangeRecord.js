@@ -5,16 +5,18 @@ import Button from "../UI/Button";
 import {useDispatch} from "react-redux";
 import {deleteRecordPhoto, updateRecordPhoto, updateRecordPrice} from "../../redux/dataBase/dataBaseAction";
 import {clearAll} from "../../redux/choseStuff/choseStuffAction";
+import Stepper from "../FindStuff/Stepper";
+import StepperMobile from "../FindStuffMobile/StepperMobile";
 
 const ChangeRecord = ({stuff, brand, model}) => {
 
     const dispatch = useDispatch()
 
+    const [addParams, setParams] = useState({price: "", photo: null, error: ""})
+
     useEffect(() => {
         dispatch(clearAll())
     },[])
-
-    const [addParams, setParams] = useState({price: "", photo: null, error: ""})
 
 
 //|| !(/\.(jpe?g|png)$/i).test(addParams.photo)
@@ -59,35 +61,9 @@ const ChangeRecord = ({stuff, brand, model}) => {
     }
 
     return(
-        <div className="change-record-hld">
-            <div className="dropdowns-hld">
-                <div className="dropdown">
-                    <span>Category</span>
-                    <DropdownList
-                        valueType="stuff"
-                    />
-                </div>
-
-                {
-                    stuff
-                    ? <div className="dropdown">
-                            <span>Brand</span>
-                            <DropdownList
-                                valueType="brand"
-                            />
-                        </div> : null
-
-                }
-                {
-                    brand
-                        ? <div className="dropdown">
-                            <span>Model</span>
-                            <DropdownList
-                                valueType="model"
-                            />
-                        </div> : null
-                }
-            </div>
+        <div className="change-record-hld findStuff mobile-container">
+            <Stepper />
+            <StepperMobile />
             {
                 addParams.error
                 ? <span className = "input-error">{addParams.error}</span>
@@ -104,6 +80,7 @@ const ChangeRecord = ({stuff, brand, model}) => {
                                     type="text"
                                     value = {addParams.price}
                                     onChange={e => setParams({...addParams, price: e.target.value})}
+                                    onBlur = {() => {setParams({...addParams, error: ""})}}
                                 />
                                 <Button
                                     onClickAction={e => validateParamPrice(e)}
@@ -115,6 +92,7 @@ const ChangeRecord = ({stuff, brand, model}) => {
                             <div className="additional-param-input-btn">
                                 <input
                                     className="chosen-value"
+                                    onBlur = {() => {setParams({...addParams, error: ""})}}
                                     type="file"
                                     onChange={e => setParams({...addParams, photo: e.target.files[0]})}
                                 />

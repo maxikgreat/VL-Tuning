@@ -52,11 +52,11 @@ class StepperMobile extends PureComponent{
                                 changePosX = {this.changePosX}
                             /> : <Lock /> }
                 </div>
-                <div className = "arrowsContainer">
-                    <FontAwesomeIcon icon = "angle-double-left"/>
-                    <FontAwesomeIcon icon = "hand-point-up" />
-                    <FontAwesomeIcon icon = "angle-double-right"/>
-                </div>
+                {/*<div className = "arrowsContainer">*/}
+                {/*    <FontAwesomeIcon icon = "angle-double-left"/>*/}
+                {/*    <FontAwesomeIcon icon = "hand-point-up" />*/}
+                {/*    <FontAwesomeIcon icon = "angle-double-right"/>*/}
+                {/*</div>*/}
             </>
         )
     }
