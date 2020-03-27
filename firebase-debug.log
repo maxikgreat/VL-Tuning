@@ -1,0 +1,26 @@
+[debug] [2020-03-27T01:22:27.176Z] ----------------------------------------------------------------------
+[debug] [2020-03-27T01:22:27.179Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-03-27T01:22:27.179Z] CLI Version:   7.14.0
+[debug] [2020-03-27T01:22:27.179Z] Platform:      darwin
+[debug] [2020-03-27T01:22:27.179Z] Node Version:  v10.15.3
+[debug] [2020-03-27T01:22:27.180Z] Time:          Fri Mar 27 2020 02:22:27 GMT+0100 (Central European Standard Time)
+[debug] [2020-03-27T01:22:27.180Z] ----------------------------------------------------------------------
+[debug] [2020-03-27T01:22:27.180Z] 
+[debug] [2020-03-27T01:22:27.199Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-27T01:22:27.199Z] > authorizing via signed-in user
+[debug] [2020-03-27T01:22:27.199Z] [iam] checking project vl-tuning-9b6f7 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2020-03-27T01:22:27.201Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-03-27T01:22:27.201Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-27T01:22:27.549Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-27T01:22:27.571Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/vl-tuning-9b6f7:testIamPermissions  
+
+[debug] [2020-03-27T01:22:28.654Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-27T01:22:28.657Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/vl-tuning-9b6f7  
+ 
+[debug] [2020-03-27T01:22:30.005Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vl-tuning-9b6f7'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
